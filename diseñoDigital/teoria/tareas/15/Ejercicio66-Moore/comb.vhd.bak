@@ -1,0 +1,13 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity comb is port(
+	clkl,j,k: in std_logic;
+	q,notQ: buffer std_logic:= '0' 
+);
+end comb;
+
+architecture arqComb of comb is
+begin
+
+end arqComb;

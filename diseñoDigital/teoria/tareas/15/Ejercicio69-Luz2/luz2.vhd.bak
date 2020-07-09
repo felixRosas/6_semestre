@@ -1,0 +1,53 @@
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY luz2 IS
+	PORT(
+		clk, boton, reset: 	IN std_logic;
+		lampara:					OUT std_logic;
+		estados:			 		OUT std_logic_vector(1 downto 0)
+	);
+END luz2;
+
+ARCHITECTURE arcluz2 OF luz2 IS
+	
+	SUBTYPE state IS std_logic_vector(1 downto 0);
+	SIGNAL present_state, next_state: state;
+	CONSTANT e0: state := "00"; --apagadoA
+	CONSTANT e1: state := "01"; --prendidoB
+	CONSTANT e2: state := "10"; --prendidoC
+	CONSTANT e3: state := "11"; --apagadoD
+
+BEGIN
+
+	PROCESS(clk)
+	BEGIN
+		IF rising_edge(clk) THEN
+			IF (reset = '1') THEN
+				present_state <= e0;
+			ELSE
+				present_state <= next_state;
+			END IF;
+		END IF;
+	END PROCESS;
+	
+	PROCESS(present_state, boton)
+	BEGIN
+		CASE present_state IS
+			WHEN e0 => lampara <= '0'; --apagadoA
+				IF boton = '0' THEN next_state <= e0; END IF;
+				IF boton = '1' THEN next_state <= e1; END IF;
+			WHEN e1 => lampara <= '1'; --prendidoB
+				IF boton = '0' THEN next_state <= e2; END IF;
+				IF boton = '1' THEN next_state <= e1; END IF;
+			WHEN e2 => lampara <= '1'; --prendidoC
+				IF boton = '0' THEN next_state <= e2; END IF;
+				IF boton = '1' THEN next_state <= e3; END IF;
+			WHEN OTHERS => lampara <= '0'; --apagadoD
+				IF boton = '0' THEN next_state <= e0; END IF;
+				IF boton = '1' THEN next_state <= e3; END IF;
+		END CASE;
+		estados <= present_state;
+	END PROCESS;
+				
+END arcluz2;

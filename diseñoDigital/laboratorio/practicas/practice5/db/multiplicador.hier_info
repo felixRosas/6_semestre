@@ -1,0 +1,36 @@
+|multiplicador
+a[0] => cout.IN0
+a[0] => b1a0.IN0
+a[1] => b0a1.IN0
+a[1] => b1a1.IN0
+b[0] => cout.IN1
+b[0] => b0a1.IN1
+b[1] => b1a0.IN1
+b[1] => b1a1.IN1
+cout[0] <= cout.DB_MAX_OUTPUT_PORT_TYPE
+cout[1] <= sum:sum1.salsum
+cout[2] <= sum:sum2.salsum
+
+
+|multiplicador|sum:sum1
+a => salsum.IN0
+a => cout.IN0
+b => salsum.IN1
+b => cout.IN1
+cin => salsum.IN1
+cin => cout.IN1
+salsum <= salsum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplicador|sum:sum2
+a => salsum.IN0
+a => cout.IN0
+b => salsum.IN1
+b => cout.IN1
+cin => salsum.IN1
+cin => cout.IN1
+salsum <= salsum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+

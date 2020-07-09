@@ -1,0 +1,54 @@
+|contDesc
+clk => relojlento:u1.clk
+reset => cont:u2.reset
+count[0] <= cont:u2.sal[0]
+count[1] <= cont:u2.sal[1]
+count[2] <= cont:u2.sal[2]
+count[3] <= cont:u2.sal[3]
+
+
+|contDesc|relojlento:u1
+clk => sclk~reg0.CLK
+clk => conteo[0].CLK
+clk => conteo[1].CLK
+clk => conteo[2].CLK
+clk => conteo[3].CLK
+clk => conteo[4].CLK
+clk => conteo[5].CLK
+clk => conteo[6].CLK
+clk => conteo[7].CLK
+clk => conteo[8].CLK
+clk => conteo[9].CLK
+clk => conteo[10].CLK
+clk => conteo[11].CLK
+clk => conteo[12].CLK
+clk => conteo[13].CLK
+clk => conteo[14].CLK
+clk => conteo[15].CLK
+clk => conteo[16].CLK
+clk => conteo[17].CLK
+clk => conteo[18].CLK
+clk => conteo[19].CLK
+clk => conteo[20].CLK
+clk => conteo[21].CLK
+clk => conteo[22].CLK
+clk => conteo[23].CLK
+clk => conteo[24].CLK
+sclk <= sclk~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|contDesc|cont:u2
+clk => present_state[0].CLK
+clk => present_state[1].CLK
+clk => present_state[2].CLK
+clk => present_state[3].CLK
+reset => present_state.OUTPUTSELECT
+reset => present_state.OUTPUTSELECT
+reset => present_state.OUTPUTSELECT
+reset => present_state.OUTPUTSELECT
+sal[0] <= present_state[0].DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= present_state[1].DB_MAX_OUTPUT_PORT_TYPE
+sal[2] <= present_state[2].DB_MAX_OUTPUT_PORT_TYPE
+sal[3] <= present_state[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

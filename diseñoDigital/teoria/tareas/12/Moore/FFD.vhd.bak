@@ -1,0 +1,20 @@
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY FFD IS
+	PORT(
+		d, clk: 	in std_logic;
+		Q: 		out std_logic
+	);
+END FFD;
+
+ARCHITECTURE arcFFD OF FFD IS
+
+SIGNAL sclk: std_logic;
+
+BEGIN
+
+u1:entity work.relojlento(arcrelojlento) port map(clk, sclk);
+u2:entity work.secuencial(arcsecuencial) port map(d, sclk, Q);
+	
+END arcFFD;

@@ -1,0 +1,17 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "edoLed",
+					"strict" : false
+				},
+				{
+					"name" : "sigSensor",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

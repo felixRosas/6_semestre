@@ -1,0 +1,1802 @@
+SQL> !ls /home/murry/Desktop
+
+SQL> !ls -l /home/murry/Desktop/*.txt
+
+SQL> exit
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> startup
+ORACLE instance started.
+
+Total System Global Area  817889232 bytes                                       
+Fixed Size                  8662992 bytes                                       
+Variable Size             335544320 bytes                                       
+Database Buffers          465567744 bytes                                       
+Redo Buffers                8114176 bytes                                       
+Database mounted.
+Database opened.
+SQL> exit
+SYS-SQL
+SYS-SQL
+SYS-SQL
+SYS-SQL
+SYS-SQL
+SYS-SQL
+SYS-SQL
+SYS-SQLdrop user alfonso0307 cascade;
+drop user alfonso0307 cascade
+          *
+ERROR at line 1:
+ORA-01918: user 'ALFONSO0307' does not exist 
+
+
+SYS-SQL create user alfonso0307 identified as alfonso quota unlimited on users;
+ create user alfonso0307 identified as alfonso quota unlimited on users
+                                    *
+ERROR at line 1:
+ORA-00924: missing BY keyword 
+
+
+SYS-SQL create user alfonso0307 identified by alfonso quota unlimited on users;
+
+User created.
+
+SYS-SQLgrant create session, create table to alfonso0307;
+
+Grant succeeded.
+
+SYS-SQLconnect alfonso0307
+Connected.
+ALFONSO0307-SQLcreate table empleado_simple(
+  2  empleado_id number(10,0) not null,
+  3  nombre varchar2(40) not null
+  4  );
+
+Table created.
+
+ALFONSO0307-SQLdesc dictionary;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ TABLE_NAME                                         VARCHAR2(128)
+ COMMENTS                                           VARCHAR2(4000)
+
+ALFONSO0307-SQLselect count(*) from dictionary;
+
+  COUNT(*)                                                                      
+----------                                                                      
+      1067                                                                      
+
+ALFONSO0307-SQLselect table_name from dictionary;
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_XML_SCHEMAS                                                                 
+ALL_XML_SCHEMAS2                                                                
+USER_TABLES                                                                     
+USER_OBJECT_TABLES                                                              
+USER_ALL_TABLES                                                                 
+ALL_TABLES                                                                      
+ALL_OBJECT_TABLES                                                               
+ALL_ALL_TABLES                                                                  
+USER_CATALOG                                                                    
+ALL_CATALOG                                                                     
+USER_OBJECTS                                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_OBJECTS_AE                                                                 
+ALL_OBJECTS                                                                     
+ALL_OBJECTS_AE                                                                  
+USER_EDITIONING_VIEWS                                                           
+USER_EDITIONING_VIEWS_AE                                                        
+ALL_EDITIONING_VIEWS                                                            
+ALL_EDITIONING_VIEWS_AE                                                         
+USER_EDITIONING_VIEW_COLS                                                       
+USER_EDITIONING_VIEW_COLS_AE                                                    
+ALL_EDITIONING_VIEW_COLS                                                        
+ALL_EDITIONING_VIEW_COLS_AE                                                     
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_EDITIONS                                                                    
+ALL_EDITION_COMMENTS                                                            
+USER_RESUMABLE                                                                  
+USER_INDEXES                                                                    
+ALL_INDEXES                                                                     
+USER_IND_COLUMNS                                                                
+ALL_IND_COLUMNS                                                                 
+USER_IND_EXPRESSIONS                                                            
+ALL_IND_EXPRESSIONS                                                             
+USER_JOIN_IND_COLUMNS                                                           
+ALL_JOIN_IND_COLUMNS                                                            
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_LOBS                                                                       
+ALL_LOBS                                                                        
+USER_SEQUENCES                                                                  
+ALL_SEQUENCES                                                                   
+USER_SYNONYMS                                                                   
+ALL_SYNONYMS                                                                    
+USER_CLUSTERS                                                                   
+ALL_CLUSTERS                                                                    
+USER_CLU_COLUMNS                                                                
+USER_CLUSTER_HASH_EXPRESSIONS                                                   
+ALL_CLUSTER_HASH_EXPRESSIONS                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_COL_PRIVS                                                                  
+ALL_COL_PRIVS                                                                   
+USER_COL_PRIVS_MADE                                                             
+ALL_COL_PRIVS_MADE                                                              
+USER_COL_PRIVS_RECD                                                             
+ALL_COL_PRIVS_RECD                                                              
+USER_ROLE_PRIVS                                                                 
+USER_TAB_PRIVS                                                                  
+ALL_TAB_PRIVS                                                                   
+USER_TAB_PRIVS_MADE                                                             
+ALL_TAB_PRIVS_MADE                                                              
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_TAB_PRIVS_RECD                                                             
+ALL_TAB_PRIVS_RECD                                                              
+USER_TAB_COMMENTS                                                               
+ALL_TAB_COMMENTS                                                                
+USER_VIEWS                                                                      
+USER_VIEWS_AE                                                                   
+ALL_VIEWS                                                                       
+ALL_VIEWS_AE                                                                    
+USER_CONSTRAINTS                                                                
+ALL_CONSTRAINTS                                                                 
+USER_UNUSED_COL_TABS                                                            
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_UNUSED_COL_TABS                                                             
+USER_PARTIAL_DROP_TABS                                                          
+ALL_PARTIAL_DROP_TABS                                                           
+USER_CONS_COLUMNS                                                               
+ALL_CONS_COLUMNS                                                                
+USER_LOG_GROUP_COLUMNS                                                          
+ALL_LOG_GROUP_COLUMNS                                                           
+USER_COL_COMMENTS                                                               
+ALL_COL_COMMENTS                                                                
+ALL_ENCRYPTED_COLUMNS                                                           
+USER_ENCRYPTED_COLUMNS                                                          
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_TAB_COLS                                                                   
+ALL_TAB_COLS                                                                    
+USER_TAB_COLUMNS                                                                
+ALL_TAB_COLUMNS                                                                 
+USER_LOG_GROUPS                                                                 
+ALL_LOG_GROUPS                                                                  
+USER_UPDATABLE_COLUMNS                                                          
+ALL_UPDATABLE_COLUMNS                                                           
+USER_TAB_IDENTITY_COLS                                                          
+ALL_TAB_IDENTITY_COLS                                                           
+USER_LIBRARIES                                                                  
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_LIBRARIES                                                                   
+USER_PROCEDURES                                                                 
+ALL_PROCEDURES                                                                  
+ALL_STORED_SETTINGS                                                             
+USER_STORED_SETTINGS                                                            
+USER_PLSQL_OBJECT_SETTINGS                                                      
+ALL_PLSQL_OBJECT_SETTINGS                                                       
+ALL_ARGUMENTS                                                                   
+USER_ARGUMENTS                                                                  
+USER_ASSEMBLIES                                                                 
+ALL_ASSEMBLIES                                                                  
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_IDENTIFIERS                                                                
+ALL_IDENTIFIERS                                                                 
+USER_STATEMENTS                                                                 
+ALL_STATEMENTS                                                                  
+USER_PLSQL_TYPES                                                                
+ALL_PLSQL_TYPES                                                                 
+USER_PLSQL_COLL_TYPES                                                           
+ALL_PLSQL_COLL_TYPES                                                            
+USER_PLSQL_TYPE_ATTRS                                                           
+ALL_PLSQL_TYPE_ATTRS                                                            
+USER_DB_LINKS                                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_DB_LINKS                                                                    
+USER_RECYCLEBIN                                                                 
+USER_SQL_TRANSLATION_PROFILES                                                   
+USER_SQL_TRANSLATIONS                                                           
+USER_ERROR_TRANSLATIONS                                                         
+ALL_SQL_TRANSLATION_PROFILES                                                    
+ALL_SQL_TRANSLATIONS                                                            
+ALL_ERROR_TRANSLATIONS                                                          
+USER_OBJECT_USAGE                                                               
+USER_RESOURCE_LIMITS                                                            
+USER_PASSWORD_LIMITS                                                            
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_USERS                                                                      
+ALL_USERS                                                                       
+ALL_DEF_AUDIT_OPTS                                                              
+USER_OBJ_AUDIT_OPTS                                                             
+USER_AUDIT_TRAIL                                                                
+USER_AUDIT_SESSION                                                              
+USER_AUDIT_STATEMENT                                                            
+USER_AUDIT_OBJECT                                                               
+USER_SYS_PRIVS                                                                  
+USER_PROXIES                                                                    
+USER_CODE_ROLE_PRIVS                                                            
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_CODE_ROLE_PRIVS                                                             
+USER_TYPES                                                                      
+ALL_TYPES                                                                       
+USER_COLL_TYPES                                                                 
+ALL_COLL_TYPES                                                                  
+USER_TYPE_ATTRS                                                                 
+ALL_TYPE_ATTRS                                                                  
+USER_TYPE_METHODS                                                               
+ALL_TYPE_METHODS                                                                
+USER_METHOD_PARAMS                                                              
+ALL_METHOD_PARAMS                                                               
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_METHOD_RESULTS                                                             
+ALL_METHOD_RESULTS                                                              
+USER_SQLJ_TYPES                                                                 
+ALL_SQLJ_TYPES                                                                  
+USER_TYPE_VERSIONS                                                              
+ALL_TYPE_VERSIONS                                                               
+USER_PENDING_CONV_TABLES                                                        
+ALL_PENDING_CONV_TABLES                                                         
+USER_SQLJ_TYPE_ATTRS                                                            
+ALL_SQLJ_TYPE_ATTRS                                                             
+USER_SQLJ_TYPE_METHODS                                                          
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_SQLJ_TYPE_METHODS                                                           
+USER_OLDIMAGE_COLUMNS                                                           
+USER_NESTED_TABLE_COLS                                                          
+ALL_NESTED_TABLE_COLS                                                           
+ALL_DIRECTORIES                                                                 
+USER_REFS                                                                       
+ALL_REFS                                                                        
+USER_NESTED_TABLES                                                              
+ALL_NESTED_TABLES                                                               
+USER_VARRAYS                                                                    
+ALL_VARRAYS                                                                     
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_OBJ_COLATTRS                                                               
+ALL_OBJ_COLATTRS                                                                
+USER_CONS_OBJ_COLUMNS                                                           
+ALL_CONS_OBJ_COLUMNS                                                            
+ALL_OPERATORS                                                                   
+USER_OPERATORS                                                                  
+USER_OPBINDINGS                                                                 
+ALL_OPBINDINGS                                                                  
+USER_OPANCILLARY                                                                
+ALL_OPANCILLARY                                                                 
+USER_OPARGUMENTS                                                                
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_OPARGUMENTS                                                                 
+USER_OPERATOR_COMMENTS                                                          
+ALL_OPERATOR_COMMENTS                                                           
+USER_INDEXTYPES                                                                 
+ALL_INDEXTYPES                                                                  
+USER_INDEXTYPE_COMMENTS                                                         
+ALL_INDEXTYPE_COMMENTS                                                          
+USER_INDEXTYPE_ARRAYTYPES                                                       
+ALL_INDEXTYPE_ARRAYTYPES                                                        
+USER_INDEXTYPE_OPERATORS                                                        
+ALL_INDEXTYPE_OPERATORS                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_SECONDARY_OBJECTS                                                          
+ALL_SECONDARY_OBJECTS                                                           
+ALL_SUMDELTA                                                                    
+ALL_SUMMAP                                                                      
+USER_EXTERNAL_TABLES                                                            
+ALL_EXTERNAL_TABLES                                                             
+USER_EXTERNAL_LOCATIONS                                                         
+ALL_EXTERNAL_LOCATIONS                                                          
+USER_MINING_MODELS                                                              
+ALL_MINING_MODELS                                                               
+USER_MINING_MODEL_ATTRIBUTES                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_MINING_MODEL_ATTRIBUTES                                                     
+USER_MINING_MODEL_SETTINGS                                                      
+ALL_MINING_MODEL_SETTINGS                                                       
+USER_MINING_MODEL_VIEWS                                                         
+ALL_MINING_MODEL_VIEWS                                                          
+USER_MINING_MODEL_PARTITIONS                                                    
+ALL_MINING_MODEL_PARTITIONS                                                     
+USER_MINING_MODEL_XFORMS                                                        
+ALL_MINING_MODEL_XFORMS                                                         
+USER_CLUSTERING_TABLES                                                          
+ALL_CLUSTERING_TABLES                                                           
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_CLUSTERING_KEYS                                                            
+ALL_CLUSTERING_KEYS                                                             
+ALL_CLUSTERING_DIMENSIONS                                                       
+USER_CLUSTERING_DIMENSIONS                                                      
+ALL_CLUSTERING_JOINS                                                            
+USER_CLUSTERING_JOINS                                                           
+USER_ATTRIBUTE_DIM_ORDER_ATTRS                                                  
+ALL_ATTRIBUTE_DIM_ORDER_ATTRS                                                   
+USER_ATTRIBUTE_DIM_CLASS                                                        
+ALL_ATTRIBUTE_DIM_CLASS                                                         
+USER_ATTRIBUTE_DIM_ATTR_CLASS                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_ATTRIBUTE_DIM_ATTR_CLASS                                                    
+USER_ATTRIBUTE_DIM_LVL_CLASS                                                    
+ALL_ATTRIBUTE_DIM_LVL_CLASS                                                     
+USER_HIER_CLASS                                                                 
+ALL_HIER_CLASS                                                                  
+USER_ANALYTIC_VIEW_LEVELS                                                       
+ALL_ANALYTIC_VIEW_LEVELS                                                        
+USER_ANALYTIC_VIEW_LVLGRPS                                                      
+ALL_ANALYTIC_VIEW_LVLGRPS                                                       
+USER_ANALYTIC_VIEW_ATTR_CLASS                                                   
+ALL_ANALYTIC_VIEW_ATTR_CLASS                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_ANALYTIC_VIEW_HIER_CLASS                                                   
+ALL_ANALYTIC_VIEW_HIER_CLASS                                                    
+USER_ANALYTIC_VIEW_LEVEL_CLASS                                                  
+ALL_ANALYTIC_VIEW_LEVEL_CLASS                                                   
+USER_HIER_HIER_ATTR_CLASS                                                       
+ALL_HIER_HIER_ATTR_CLASS                                                        
+USER_HIER_HIER_ATTRIBUTES                                                       
+ALL_HIER_HIER_ATTRIBUTES                                                        
+USER_ANALYTIC_VIEW_CLASS                                                        
+ALL_ANALYTIC_VIEW_CLASS                                                         
+USER_ANALYTIC_VIEW_MEAS_CLASS                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_ANALYTIC_VIEW_MEAS_CLASS                                                    
+USER_ANALYTIC_VIEW_DIM_CLASS                                                    
+ALL_ANALYTIC_VIEW_DIM_CLASS                                                     
+USER_ATTRIBUTE_DIMENSIONS                                                       
+ALL_ATTRIBUTE_DIMENSIONS                                                        
+USER_ATTRIBUTE_DIM_ATTRS                                                        
+ALL_ATTRIBUTE_DIM_ATTRS                                                         
+USER_ATTRIBUTE_DIM_TABLES                                                       
+ALL_ATTRIBUTE_DIM_TABLES                                                        
+USER_ATTRIBUTE_DIM_LEVELS                                                       
+ALL_ATTRIBUTE_DIM_LEVELS                                                        
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_HIERARCHIES                                                                
+ALL_HIERARCHIES                                                                 
+USER_HIER_LEVELS                                                                
+ALL_HIER_LEVELS                                                                 
+USER_HIER_LEVEL_ID_ATTRS                                                        
+ALL_HIER_LEVEL_ID_ATTRS                                                         
+USER_HIER_COLUMNS                                                               
+ALL_HIER_COLUMNS                                                                
+USER_ANALYTIC_VIEWS                                                             
+ALL_ANALYTIC_VIEWS                                                              
+USER_ANALYTIC_VIEW_DIMENSIONS                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_ANALYTIC_VIEW_DIMENSIONS                                                    
+USER_ANALYTIC_VIEW_CALC_MEAS                                                    
+ALL_ANALYTIC_VIEW_CALC_MEAS                                                     
+USER_ANALYTIC_VIEW_BASE_MEAS                                                    
+ALL_ANALYTIC_VIEW_BASE_MEAS                                                     
+USER_ANALYTIC_VIEW_KEYS                                                         
+ALL_ANALYTIC_VIEW_KEYS                                                          
+USER_ANALYTIC_VIEW_HIERS                                                        
+ALL_ANALYTIC_VIEW_HIERS                                                         
+USER_ANALYTIC_VIEW_COLUMNS                                                      
+ALL_ANALYTIC_VIEW_COLUMNS                                                       
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_ATTRIBUTE_DIM_KEYS                                                         
+ALL_ATTRIBUTE_DIM_KEYS                                                          
+USER_ATTRIBUTE_DIM_LEVEL_ATTRS                                                  
+ALL_ATTRIBUTE_DIM_LEVEL_ATTRS                                                   
+USER_ATTRIBUTE_DIM_JOIN_PATHS                                                   
+ALL_ATTRIBUTE_DIM_JOIN_PATHS                                                    
+USER_HIER_JOIN_PATHS                                                            
+ALL_HIER_JOIN_PATHS                                                             
+USER_PRIVATE_TEMP_TABLES                                                        
+USER_ASSOCIATIONS                                                               
+ALL_ASSOCIATIONS                                                                
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_USTATS                                                                     
+ALL_USTATS                                                                      
+USER_TAB_MODIFICATIONS                                                          
+ALL_TAB_MODIFICATIONS                                                           
+ALL_TAB_STATS_HISTORY                                                           
+USER_TAB_STATS_HISTORY                                                          
+ALL_TAB_STAT_PREFS                                                              
+USER_TAB_STAT_PREFS                                                             
+ALL_TAB_PENDING_STATS                                                           
+USER_TAB_PENDING_STATS                                                          
+ALL_IND_PENDING_STATS                                                           
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_IND_PENDING_STATS                                                          
+ALL_DIMENSIONS                                                                  
+USER_DIMENSIONS                                                                 
+ALL_DIM_LEVELS                                                                  
+USER_DIM_LEVELS                                                                 
+ALL_DIM_LEVEL_KEY                                                               
+USER_DIM_LEVEL_KEY                                                              
+ALL_DIM_ATTRIBUTES                                                              
+USER_DIM_ATTRIBUTES                                                             
+ALL_DIM_HIERARCHIES                                                             
+USER_DIM_HIERARCHIES                                                            
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_DIM_CHILD_OF                                                                
+USER_DIM_CHILD_OF                                                               
+ALL_DIM_JOIN_KEY                                                                
+USER_DIM_JOIN_KEY                                                               
+ALL_SUMMARIES                                                                   
+USER_SUMMARIES                                                                  
+ALL_MVIEW_ANALYSIS                                                              
+USER_MVIEW_ANALYSIS                                                             
+USER_MVIEW_AGGREGATES                                                           
+ALL_MVIEW_AGGREGATES                                                            
+ALL_MVIEW_DETAIL_RELATIONS                                                      
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_MVIEW_DETAIL_RELATIONS                                                     
+ALL_MVIEW_KEYS                                                                  
+USER_MVIEW_KEYS                                                                 
+ALL_MVIEW_JOINS                                                                 
+USER_MVIEW_JOINS                                                                
+ALL_MVIEW_COMMENTS                                                              
+USER_MVIEW_COMMENTS                                                             
+ALL_REFRESH_DEPENDENCIES                                                        
+ALL_REWRITE_EQUIVALENCES                                                        
+USER_REWRITE_EQUIVALENCES                                                       
+ALL_MVIEW_DETAIL_PARTITION                                                      
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_MVIEW_DETAIL_PARTITION                                                     
+ALL_MVIEW_DETAIL_SUBPARTITION                                                   
+USER_MVIEW_DETAIL_SUBPARTITION                                                  
+USER_TSTZ_TAB_COLS                                                              
+ALL_TSTZ_TAB_COLS                                                               
+USER_TSTZ_TABLES                                                                
+ALL_TSTZ_TABLES                                                                 
+USER_ERRORS                                                                     
+USER_ERRORS_AE                                                                  
+ALL_ERRORS                                                                      
+ALL_ERRORS_AE                                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_SOURCE                                                                     
+USER_SOURCE_AE                                                                  
+ALL_SOURCE                                                                      
+ALL_SOURCE_AE                                                                   
+USER_TRIGGERS                                                                   
+ALL_TRIGGERS                                                                    
+USER_INTERNAL_TRIGGERS                                                          
+ALL_INTERNAL_TRIGGERS                                                           
+USER_TRIGGER_COLS                                                               
+ALL_TRIGGER_COLS                                                                
+USER_DEPENDENCIES                                                               
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_DEPENDENCIES                                                                
+USER_OBJECT_SIZE                                                                
+ALL_TRIGGER_ORDERING                                                            
+USER_JOBS                                                                       
+USER_SEGMENTS                                                                   
+USER_EXTENTS                                                                    
+USER_FREE_SPACE                                                                 
+USER_TABLESPACES                                                                
+USER_TS_QUOTAS                                                                  
+USER_RSRC_CONSUMER_GROUP_PRIVS                                                  
+USER_RSRC_MANAGER_SYSTEM_PRIVS                                                  
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_CONTEXT                                                                     
+USER_RULE_SETS                                                                  
+ALL_RULE_SETS                                                                   
+USER_RULESETS                                                                   
+ALL_RULESETS                                                                    
+USER_RULES                                                                      
+ALL_RULES                                                                       
+USER_RULE_SET_RULES                                                             
+ALL_RULE_SET_RULES                                                              
+USER_EVALUATION_CONTEXTS                                                        
+ALL_EVALUATION_CONTEXTS                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_EVALUATION_CONTEXT_TABLES                                                  
+ALL_EVALUATION_CONTEXT_TABLES                                                   
+USER_EVALUATION_CONTEXT_VARS                                                    
+ALL_EVALUATION_CONTEXT_VARS                                                     
+ALL_POLICIES                                                                    
+USER_POLICIES                                                                   
+ALL_POLICY_GROUPS                                                               
+USER_POLICY_GROUPS                                                              
+ALL_POLICY_CONTEXTS                                                             
+USER_POLICY_CONTEXTS                                                            
+ALL_SEC_RELEVANT_COLS                                                           
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_SEC_RELEVANT_COLS                                                          
+ALL_POLICY_ATTRIBUTES                                                           
+USER_POLICY_ATTRIBUTES                                                          
+ALL_AUDIT_POLICIES                                                              
+ALL_AUDIT_POLICY_COLUMNS                                                        
+USER_AUDIT_POLICIES                                                             
+USER_AUDIT_POLICY_COLUMNS                                                       
+USER_CHANGE_NOTIFICATION_REGS                                                   
+USER_CQ_NOTIFICATION_QUERIES                                                    
+USER_SUBSCR_REGISTRATIONS                                                       
+ALL_QUEUE_TABLES                                                                
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_QUEUE_TABLES                                                               
+ALL_QUEUES                                                                      
+ALL_DEQUEUE_QUEUES                                                              
+ALL_INT_DEQUEUE_QUEUES                                                          
+USER_QUEUES                                                                     
+USER_OUTLINES                                                                   
+USER_OUTLINE_HINTS                                                              
+USER_DATAPUMP_JOBS                                                              
+USER_XS_USERS                                                                   
+USER_XS_PASSWORD_LIMITS                                                         
+ALL_XS_SECURITY_CLASSES                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_XS_SECURITY_CLASSES                                                        
+ALL_XS_SECURITY_CLASS_DEP                                                       
+USER_XS_SECURITY_CLASS_DEP                                                      
+ALL_XS_PRIVILEGES                                                               
+USER_XS_PRIVILEGES                                                              
+ALL_XS_IMPLIED_PRIVILEGES                                                       
+USER_XS_IMPLIED_PRIVILEGES                                                      
+ALL_XS_ACLS                                                                     
+USER_XS_ACLS                                                                    
+ALL_XS_ACES                                                                     
+USER_XS_ACES                                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_XS_POLICIES                                                                 
+USER_XS_POLICIES                                                                
+ALL_XS_REALM_CONSTRAINTS                                                        
+USER_XS_REALM_CONSTRAINTS                                                       
+ALL_XS_INHERITED_REALMS                                                         
+USER_XS_INHERITED_REALMS                                                        
+ALL_XS_ACL_PARAMETERS                                                           
+USER_XS_ACL_PARAMETERS                                                          
+ALL_XS_COLUMN_CONSTRAINTS                                                       
+USER_XS_COLUMN_CONSTRAINTS                                                      
+ALL_XS_APPLIED_POLICIES                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_XS_APPLICABLE_OBJECTS                                                       
+USER_JSON_COLUMNS                                                               
+ALL_JSON_COLUMNS                                                                
+USER_JOINGROUPS                                                                 
+USER_IM_EXPRESSIONS                                                             
+USER_SCHEDULER_PROGRAMS                                                         
+ALL_SCHEDULER_PROGRAMS                                                          
+USER_SCHEDULER_DESTS                                                            
+ALL_SCHEDULER_DESTS                                                             
+ALL_SCHEDULER_EXTERNAL_DESTS                                                    
+USER_SCHEDULER_DB_DESTS                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_SCHEDULER_DB_DESTS                                                          
+USER_SCHEDULER_JOB_DESTS                                                        
+ALL_SCHEDULER_JOB_DESTS                                                         
+USER_SCHEDULER_JOBS                                                             
+ALL_SCHEDULER_JOBS                                                              
+ALL_SCHEDULER_JOB_CLASSES                                                       
+ALL_SCHEDULER_WINDOWS                                                           
+USER_SCHEDULER_PROGRAM_ARGS                                                     
+ALL_SCHEDULER_PROGRAM_ARGS                                                      
+USER_SCHEDULER_JOB_ARGS                                                         
+ALL_SCHEDULER_JOB_ARGS                                                          
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_SCHEDULER_JOB_LOG                                                          
+USER_SCHEDULER_JOB_RUN_DETAILS                                                  
+ALL_SCHEDULER_JOB_LOG                                                           
+ALL_SCHEDULER_JOB_RUN_DETAILS                                                   
+ALL_SCHEDULER_WINDOW_LOG                                                        
+ALL_SCHEDULER_WINDOW_DETAILS                                                    
+ALL_SCHEDULER_WINDOW_GROUPS                                                     
+ALL_SCHEDULER_WINGROUP_MEMBERS                                                  
+USER_SCHEDULER_GROUP_MEMBERS                                                    
+ALL_SCHEDULER_GROUP_MEMBERS                                                     
+USER_SCHEDULER_GROUPS                                                           
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_SCHEDULER_GROUPS                                                            
+USER_SCHEDULER_SCHEDULES                                                        
+ALL_SCHEDULER_SCHEDULES                                                         
+ALL_SCHEDULER_REMOTE_JOBSTATE                                                   
+USER_SCHEDULER_REMOTE_JOBSTATE                                                  
+ALL_SCHEDULER_GLOBAL_ATTRIBUTE                                                  
+USER_SCHEDULER_CHAINS                                                           
+ALL_SCHEDULER_CHAINS                                                            
+USER_SCHEDULER_CHAIN_RULES                                                      
+ALL_SCHEDULER_CHAIN_RULES                                                       
+USER_SCHEDULER_CHAIN_STEPS                                                      
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_SCHEDULER_CHAIN_STEPS                                                       
+USER_SCHEDULER_RUNNING_CHAINS                                                   
+ALL_SCHEDULER_RUNNING_CHAINS                                                    
+USER_SCHEDULER_CREDENTIALS                                                      
+ALL_SCHEDULER_CREDENTIALS                                                       
+USER_SCHEDULER_FILE_WATCHERS                                                    
+ALL_SCHEDULER_FILE_WATCHERS                                                     
+USER_SCHEDULER_NOTIFICATIONS                                                    
+ALL_SCHEDULER_NOTIFICATIONS                                                     
+ALL_SCHEDULER_RESOURCES                                                         
+ALL_SCHEDULER_RSC_CONSTRAINTS                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_SCHEDULER_INCOMPATS                                                         
+ALL_SCHEDULER_INCOMPAT_MEMBER                                                   
+USER_SCHEDULER_RESOURCES                                                        
+USER_SCHEDULER_RSC_CONSTRAINTS                                                  
+USER_SCHEDULER_INCOMPATS                                                        
+USER_SCHEDULER_INCOMPAT_MEMBER                                                  
+ALL_SNAPSHOTS                                                                   
+USER_SNAPSHOTS                                                                  
+ALL_SNAPSHOT_LOGS                                                               
+USER_SNAPSHOT_LOGS                                                              
+ALL_REFRESH                                                                     
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_REFRESH                                                                    
+ALL_REFRESH_CHILDREN                                                            
+USER_REFRESH_CHILDREN                                                           
+ALL_REGISTERED_SNAPSHOTS                                                        
+USER_REGISTERED_SNAPSHOTS                                                       
+ALL_MVIEWS                                                                      
+USER_MVIEWS                                                                     
+ALL_MVIEW_REFRESH_TIMES                                                         
+USER_MVIEW_REFRESH_TIMES                                                        
+ALL_MVIEW_LOGS                                                                  
+USER_MVIEW_LOGS                                                                 
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_BASE_TABLE_MVIEWS                                                           
+USER_BASE_TABLE_MVIEWS                                                          
+ALL_REGISTERED_MVIEWS                                                           
+USER_REGISTERED_MVIEWS                                                          
+ALL_ZONEMAPS                                                                    
+USER_ZONEMAPS                                                                   
+ALL_ZONEMAP_MEASURES                                                            
+USER_ZONEMAP_MEASURES                                                           
+USER_WARNING_SETTINGS                                                           
+ALL_WARNING_SETTINGS                                                            
+USER_TAB_COL_STATISTICS                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_TAB_COL_STATISTICS                                                          
+ALL_STAT_EXTENSIONS                                                             
+USER_STAT_EXTENSIONS                                                            
+ALL_TAB_STATISTICS                                                              
+USER_TAB_STATISTICS                                                             
+ALL_IND_STATISTICS                                                              
+USER_IND_STATISTICS                                                             
+USER_TAB_HISTOGRAMS                                                             
+ALL_TAB_HISTOGRAMS                                                              
+ALL_COL_PENDING_STATS                                                           
+USER_COL_PENDING_STATS                                                          
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_TAB_HISTGRM_PENDING_STATS                                                   
+USER_TAB_HISTGRM_PENDING_STATS                                                  
+USER_EXPRESSION_STATISTICS                                                      
+ALL_EXPRESSION_STATISTICS                                                       
+USER_AWS                                                                        
+ALL_AWS                                                                         
+USER_AW_PS                                                                      
+ALL_AW_PS                                                                       
+ALL_CUBES                                                                       
+USER_CUBES                                                                      
+ALL_CUBE_DIMENSIONALITY                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_CUBE_DIMENSIONALITY                                                        
+ALL_CUBE_MEASURES                                                               
+USER_CUBE_MEASURES                                                              
+ALL_CUBE_DIMENSIONS                                                             
+USER_CUBE_DIMENSIONS                                                            
+ALL_CUBE_HIERARCHIES                                                            
+USER_CUBE_HIERARCHIES                                                           
+ALL_CUBE_HIER_LEVELS                                                            
+USER_CUBE_HIER_LEVELS                                                           
+ALL_CUBE_DIM_LEVELS                                                             
+USER_CUBE_DIM_LEVELS                                                            
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_CUBE_ATTRIBUTES                                                             
+USER_CUBE_ATTRIBUTES                                                            
+ALL_CUBE_ATTR_VISIBILITY                                                        
+USER_CUBE_ATTR_VISIBILITY                                                       
+ALL_CUBE_DIM_MODELS                                                             
+USER_CUBE_DIM_MODELS                                                            
+ALL_CUBE_CALCULATED_MEMBERS                                                     
+USER_CUBE_CALCULATED_MEMBERS                                                    
+ALL_CUBE_VIEWS                                                                  
+USER_CUBE_VIEWS                                                                 
+ALL_CUBE_VIEW_COLUMNS                                                           
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_CUBE_VIEW_COLUMNS                                                          
+ALL_CUBE_DIM_VIEWS                                                              
+USER_CUBE_DIM_VIEWS                                                             
+ALL_CUBE_DIM_VIEW_COLUMNS                                                       
+USER_CUBE_DIM_VIEW_COLUMNS                                                      
+ALL_CUBE_HIER_VIEWS                                                             
+USER_CUBE_HIER_VIEWS                                                            
+ALL_CUBE_HIER_VIEW_COLUMNS                                                      
+USER_CUBE_HIER_VIEW_COLUMNS                                                     
+ALL_MEASURE_FOLDERS                                                             
+USER_MEASURE_FOLDERS                                                            
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_MEASURE_FOLDER_CONTENTS                                                     
+USER_MEASURE_FOLDER_CONTENTS                                                    
+USER_MEASURE_FOLDER_SUBFOLDERS                                                  
+ALL_MEASURE_FOLDER_SUBFOLDERS                                                   
+ALL_CUBE_BUILD_PROCESSES                                                        
+USER_CUBE_BUILD_PROCESSES                                                       
+ALL_CUBE_MAPPINGS                                                               
+USER_CUBE_MAPPINGS                                                              
+ALL_CUBE_MEAS_MAPPINGS                                                          
+USER_CUBE_MEAS_MAPPINGS                                                         
+ALL_CUBE_DIMNL_MAPPINGS                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_CUBE_DIMNL_MAPPINGS                                                        
+ALL_CUBE_DIM_MAPPINGS                                                           
+USER_CUBE_DIM_MAPPINGS                                                          
+ALL_CUBE_ATTR_MAPPINGS                                                          
+USER_CUBE_ATTR_MAPPINGS                                                         
+ALL_CUBE_DESCRIPTIONS                                                           
+USER_CUBE_DESCRIPTIONS                                                          
+ALL_CUBE_CLASSIFICATIONS                                                        
+USER_CUBE_CLASSIFICATIONS                                                       
+ALL_CUBE_ATTR_UNIQUE_KEYS                                                       
+USER_CUBE_ATTR_UNIQUE_KEYS                                                      
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_CUBE_NAMED_BUILD_SPECS                                                     
+ALL_CUBE_NAMED_BUILD_SPECS                                                      
+USER_METADATA_PROPERTIES                                                        
+ALL_METADATA_PROPERTIES                                                         
+ALL_CUBE_DEPENDENCIES                                                           
+USER_CUBE_DEPENDENCIES                                                          
+USER_QUEUE_SUBSCRIBERS                                                          
+ALL_QUEUE_SUBSCRIBERS                                                           
+USER_CREDENTIALS                                                                
+ALL_CREDENTIALS                                                                 
+USER_TUNE_MVIEW                                                                 
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_FLASHBACK_ARCHIVE                                                          
+USER_FLASHBACK_ARCHIVE_TABLES                                                   
+ALL_CAPTURE                                                                     
+ALL_CAPTURE_PARAMETERS                                                          
+ALL_CAPTURE_PREPARED_DATABASE                                                   
+ALL_CAPTURE_PREPARED_SCHEMAS                                                    
+ALL_CAPTURE_PREPARED_TABLES                                                     
+ALL_SYNC_CAPTURE_PREPARED_TABS                                                  
+ALL_CAPTURE_EXTRA_ATTRIBUTES                                                    
+ALL_SYNC_CAPTURE                                                                
+ALL_APPLY                                                                       
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_APPLY_PARAMETERS                                                            
+ALL_APPLY_INSTANTIATED_OBJECTS                                                  
+ALL_APPLY_INSTANTIATED_SCHEMAS                                                  
+ALL_APPLY_INSTANTIATED_GLOBAL                                                   
+ALL_APPLY_KEY_COLUMNS                                                           
+ALL_APPLY_CONFLICT_COLUMNS                                                      
+ALL_APPLY_TABLE_COLUMNS                                                         
+ALL_APPLY_DML_HANDLERS                                                          
+ALL_APPLY_PROGRESS                                                              
+ALL_APPLY_ERROR                                                                 
+USER_APPLY_ERROR                                                                
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_APPLY_ERROR_MESSAGES                                                        
+ALL_APPLY_ENQUEUE                                                               
+ALL_APPLY_EXECUTE                                                               
+ALL_APPLY_SPILL_TXN                                                             
+ALL_XSTREAM_OUTBOUND                                                            
+ALL_XSTREAM_INBOUND                                                             
+ALL_GOLDENGATE_INBOUND                                                          
+ALL_APPLY_CHANGE_HANDLERS                                                       
+ALL_APPLY_DML_CONF_HANDLERS                                                     
+ALL_APPLY_DML_CONF_COLUMNS                                                      
+ALL_APPLY_HANDLE_COLLISIONS                                                     
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_APPLY_REPERROR_HANDLERS                                                     
+ALL_GG_AUTO_CDR_TABLES                                                          
+ALL_GG_AUTO_CDR_COLUMNS                                                         
+ALL_GG_AUTO_CDR_COLUMN_GROUPS                                                   
+ALL_PROPAGATION                                                                 
+ALL_FILE_GROUPS                                                                 
+ALL_FILE_GROUP_VERSIONS                                                         
+ALL_FILE_GROUP_EXPORT_INFO                                                      
+ALL_FILE_GROUP_FILES                                                            
+ALL_FILE_GROUP_TABLESPACES                                                      
+ALL_FILE_GROUP_TABLES                                                           
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_FILE_GROUPS                                                                
+USER_FILE_GROUP_VERSIONS                                                        
+USER_FILE_GROUP_EXPORT_INFO                                                     
+USER_FILE_GROUP_FILES                                                           
+USER_FILE_GROUP_TABLESPACES                                                     
+USER_FILE_GROUP_TABLES                                                          
+ALL_STREAMS_MESSAGE_CONSUMERS                                                   
+ALL_STREAMS_GLOBAL_RULES                                                        
+ALL_STREAMS_SCHEMA_RULES                                                        
+ALL_STREAMS_TABLE_RULES                                                         
+ALL_STREAMS_MESSAGE_RULES                                                       
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_STREAMS_RULES                                                               
+ALL_SYNC_CAPTURE_TABLES                                                         
+ALL_XSTREAM_RULES                                                               
+ALL_GOLDENGATE_RULES                                                            
+ALL_GOLDENGATE_CONTAINER_RULES                                                  
+ALL_REPL_DBNAME_MAPPING                                                         
+ALL_STREAMS_TRANSFORM_FUNCTION                                                  
+ALL_XSTREAM_ADMINISTRATOR                                                       
+ALL_STREAMS_TRANSFORMATIONS                                                     
+ALL_XSTREAM_TRANSFORMATIONS                                                     
+ALL_STREAMS_KEEP_COLUMNS                                                        
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_GOLDENGATE_PRIVILEGES                                                       
+USER_GOLDENGATE_PRIVILEGES                                                      
+USER_COMPARISON                                                                 
+USER_COMPARISON_COLUMNS                                                         
+ALL_COMPARISON_SCAN_SUMMARY                                                     
+USER_COMPARISON_SCAN                                                            
+USER_COMPARISON_SCAN_SUMMARY                                                    
+USER_COMPARISON_SCAN_VALUES                                                     
+USER_COMPARISON_ROW_DIF                                                         
+ALL_STREAMS_COLUMNS                                                             
+ALL_STREAMS_UNSUPPORTED                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_STREAMS_NEWLY_SUPPORTED                                                     
+ALL_XSTREAM_OUT_SUPPORT_MODE                                                    
+ALL_REPLICATION_PROCESS_EVENTS                                                  
+USER_HEAT_MAP_SEG_HISTOGRAM                                                     
+ALL_HEAT_MAP_SEG_HISTOGRAM                                                      
+USER_HEAT_MAP_SEGMENT                                                           
+ALL_HEAT_MAP_SEGMENT                                                            
+USER_ILMPOLICIES                                                                
+USER_ILMDATAMOVEMENTPOLICIES                                                    
+USER_ILMOBJECTS                                                                 
+USER_ILMTASKS                                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_ILMEVALUATIONDETAILS                                                       
+USER_ILMRESULTS                                                                 
+USER_NETWORK_ACL_PRIVILEGES                                                     
+USER_HOST_ACES                                                                  
+USER_WALLET_ACES                                                                
+USER_HIVE_TABLES                                                                
+ALL_HIVE_TABLES                                                                 
+USER_HIVE_COLUMNS                                                               
+ALL_HIVE_COLUMNS                                                                
+USER_HIVE_DATABASES                                                             
+ALL_HIVE_DATABASES                                                              
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_HIVE_TAB_PARTITIONS                                                        
+ALL_HIVE_TAB_PARTITIONS                                                         
+USER_HIVE_PART_KEY_COLUMNS                                                      
+ALL_HIVE_PART_KEY_COLUMNS                                                       
+USER_XT_HIVE_TABLES_VALIDATION                                                  
+ALL_XT_HIVE_TABLES_VALIDATION                                                   
+ALL_XML_TABLES                                                                  
+USER_XML_TABLES                                                                 
+ALL_XML_TAB_COLS                                                                
+USER_XML_TAB_COLS                                                               
+ALL_XML_VIEWS                                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_XML_VIEWS                                                                  
+ALL_XML_VIEW_COLS                                                               
+USER_XML_VIEW_COLS                                                              
+USER_XML_SCHEMAS                                                                
+ALL_XML_INDEXES                                                                 
+USER_XML_INDEXES                                                                
+USER_EPG_DAD_AUTHORIZATION                                                      
+USER_JAVA_POLICY                                                                
+USER_JAVA_CLASSES                                                               
+ALL_JAVA_CLASSES                                                                
+USER_JAVA_LAYOUTS                                                               
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_JAVA_LAYOUTS                                                                
+USER_JAVA_IMPLEMENTS                                                            
+ALL_JAVA_IMPLEMENTS                                                             
+USER_JAVA_INNERS                                                                
+ALL_JAVA_INNERS                                                                 
+USER_JAVA_FIELDS                                                                
+ALL_JAVA_FIELDS                                                                 
+USER_JAVA_METHODS                                                               
+ALL_JAVA_METHODS                                                                
+USER_JAVA_ARGUMENTS                                                             
+ALL_JAVA_ARGUMENTS                                                              
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_JAVA_THROWS                                                                
+ALL_JAVA_THROWS                                                                 
+USER_JAVA_DERIVATIONS                                                           
+ALL_JAVA_DERIVATIONS                                                            
+USER_JAVA_RESOLVERS                                                             
+ALL_JAVA_RESOLVERS                                                              
+USER_JAVA_NCOMPS                                                                
+ALL_JAVA_NCOMPS                                                                 
+USER_JAVA_COMPILER_OPTIONS                                                      
+ALL_JAVA_COMPILER_OPTIONS                                                       
+USER_AW_PROP                                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_AW_PROP                                                                     
+USER_AW_OBJ                                                                     
+ALL_AW_OBJ                                                                      
+ALL_AW_PROP_NAME                                                                
+ALL_AW_AC                                                                       
+USER_XML_NESTED_TABLES                                                          
+ALL_XDS_ACL_REFRESH                                                             
+USER_ADVISOR_SQLPLANS                                                           
+ALL_PART_TABLES                                                                 
+ALL_QUEUE_SCHEDULES                                                             
+USER_XML_COLUMN_NAMES                                                           
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_SQLSET_REFERENCES                                                          
+ALL_SUBPART_COL_STATISTICS                                                      
+USER_XDS_ACL_REFSTAT                                                            
+USER_MVREF_STMT_STATS                                                           
+USER_ADVISOR_PARAMETERS                                                         
+USER_ATTRIBUTE_TRANSFORMATIONS                                                  
+USER_PART_HISTOGRAMS                                                            
+ALL_REGISTRY_BANNERS                                                            
+ALL_TAB_SUBPARTITIONS                                                           
+USER_XML_SCHEMA_SUBSTGRP_HEAD                                                   
+ALL$OLAP2_AWS                                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_XTERNAL_TAB_SUBPARTITIONS                                                  
+ALL_SQLSET_PLANS                                                                
+USER_SQLSET_PLANS                                                               
+USER_SQLTUNE_STATISTICS                                                         
+ALL_XDS_ACL_REFSTAT                                                             
+ALL_PART_KEY_COLUMNS_V$                                                         
+USER_XML_SCHEMA_ATTRIBUTES                                                      
+USER_ADDM_TASKS                                                                 
+USER_XTERNAL_TAB_PARTITIONS                                                     
+USER_AQ_AGENT_PRIVS                                                             
+USER_ADDM_FDG_BREAKDOWN                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_SUBPART_KEY_COLUMNS_V$                                                      
+USER_ADVISOR_SQLA_WK_STMTS                                                      
+ALL_XML_SCHEMA_COMPLEX_TYPES                                                    
+USER_SUBPARTITION_TEMPLATES                                                     
+USER_MVREF_STATS                                                                
+USER_ADVISOR_TASKS                                                              
+USER_XML_SCHEMA_NAMESPACES                                                      
+ALL_SERVICES                                                                    
+ALL_PART_INDEXES                                                                
+ALL_XTERNAL_TAB_SUBPARTITIONS                                                   
+USER_SR_OBJ_STATUS                                                              
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_ADVISOR_JOURNAL                                                            
+USER_DBFS_HS_PROPERTIES                                                         
+USER_REGISTRY                                                                   
+USER_PARALLEL_EXECUTE_TASKS                                                     
+ALL_MINING_ALGORITHMS                                                           
+USER_SUBPART_KEY_COLUMNS                                                        
+USER_SR_OBJ                                                                     
+ALL_SUBPART_KEY_COLUMNS                                                         
+ALL_SQLSET_BINDS                                                                
+USER_TAB_PARTITIONS                                                             
+ALL_XML_SCHEMA_SUBSTGRP_HEAD                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_PART_KEY_COLUMNS                                                           
+USER_ADVISOR_SQLA_REC_SUM                                                       
+ALL_LOB_TEMPLATES                                                               
+USER_QUEUE_PUBLISHERS                                                           
+USER_ADVISOR_FDG_BREAKDOWN                                                      
+ALL_XTERNAL_PART_TABLES                                                         
+USER_XML_SCHEMA_SIMPLE_TYPES                                                    
+USER_FLASHBACK_TXN_STATE                                                        
+USER_SR_STLOG_STATS                                                             
+USER_ADVISOR_SQLW_JOURNAL                                                       
+USER_ADVISOR_RECOMMENDATIONS                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_SR_OBJ_ALL                                                                 
+USER_ADVISOR_SQLW_TABLES                                                        
+ALL_XDS_LATEST_ACL_REFSTAT                                                      
+USER_SUBPART_HISTOGRAMS                                                         
+USER_PART_TABLES                                                                
+USER_XMLTYPE_COLS                                                               
+USER_XDS_LATEST_ACL_REFSTAT                                                     
+USER_ADDM_INSTANCES                                                             
+USER_DBFS_HS                                                                    
+USER_ADVISOR_SQLW_TEMPLATES                                                     
+ALL_ATTRIBUTE_TRANSFORMATIONS                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_IND_SUBPARTITIONS                                                           
+USER_PART_COL_STATISTICS                                                        
+ALL_JSON_DATAGUIDES                                                             
+USER_ADVISOR_SQLA_WK_MAP                                                        
+USER_JSON_DATAGUIDE_FIELDS                                                      
+USER_ADVISOR_RATIONALE                                                          
+USER_XTERNAL_LOC_SUBPARTITIONS                                                  
+USER_TRANSFORMATIONS                                                            
+ALL_IND_COLUMNS_V$                                                              
+USER_JSON_DATAGUIDES                                                            
+ALL_TAB_PARTITIONS                                                              
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_MVREF_CHANGE_STATS                                                         
+ALL_TAB_COLS_V$                                                                 
+USER_IND_COLUMNS_V$                                                             
+ALL_XML_SCHEMA_SUBSTGRP_MBRS                                                    
+ALL_XML_OUT_OF_LINE_TABLES                                                      
+ALL_XML_NESTED_TABLES                                                           
+USER_SQLTUNE_PLANS                                                              
+ALL_JSON_DATAGUIDE_FIELDS                                                       
+ALL_SQLSET                                                                      
+USER_MVREF_STATS_PARAMS                                                         
+ALL_PART_HISTOGRAMS                                                             
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_DBFS_HS_FILES                                                              
+USER_ADVISOR_SQLA_WK_SUM                                                        
+USER_XML_OUT_OF_LINE_TABLES                                                     
+USER_PART_LOBS                                                                  
+USER_ADVISOR_TEMPLATES                                                          
+USER_XML_SCHEMA_COMPLEX_TYPES                                                   
+USER_ADVISOR_SQLA_TABVOL                                                        
+USER_ADVISOR_LOG                                                                
+ALL_AW_AC_10G                                                                   
+USER_XTERNAL_PART_TABLES                                                        
+USER_PARALLEL_EXECUTE_CHUNKS                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_XTERNAL_LOC_PARTITIONS                                                     
+USER_SQLTUNE_RATIONALE_PLAN                                                     
+ALL_SUBPARTITION_TEMPLATES                                                      
+USER_SR_GRP_STATUS                                                              
+ALL_AUDITED_SYSTEM_ACTIONS                                                      
+USER_ADDM_TASK_DIRECTIVES                                                       
+USER_ADVISOR_SQLW_SUM                                                           
+ALL_SQLSET_REFERENCES                                                           
+ALL_PART_COL_STATISTICS                                                         
+ALL_XTERNAL_LOC_SUBPARTITIONS                                                   
+USER_DBFS_HS_COMMANDS                                                           
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_FLASHBACK_TXN_REPORT                                                       
+USER_TAB_COLS_V$                                                                
+ALL_LOB_PARTITIONS                                                              
+USER_IND_SUBPARTITIONS                                                          
+USER_LOB_PARTITIONS                                                             
+USER_PART_KEY_COLUMNS_V$                                                        
+USER_PART_INDEXES                                                               
+ALL_LOB_SUBPARTITIONS                                                           
+USER_MVREF_STATS_SYS_DEFAULTS                                                   
+USER_XDS_ACL_REFRESH                                                            
+USER_ADDM_FINDINGS                                                              
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_ADVISOR_SQLW_COLVOL                                                        
+USER_SQLSET                                                                     
+ALL_TRANSFORMATIONS                                                             
+USER_ADVISOR_SQLW_STMTS                                                         
+USER_SR_GRP_STATUS_ALL                                                          
+USER_SR_OBJ_STATUS_ALL                                                          
+USER_ADVISOR_OBJECTS                                                            
+USER_SQLSET_STATEMENTS                                                          
+USER_IND_PARTITIONS                                                             
+USER_XML_SCHEMA_SUBSTGRP_MBRS                                                   
+USER_MVREF_RUN_STATS                                                            
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_TAB_SUBPARTITIONS                                                          
+USER_ADVISOR_SQLW_PARAMETERS                                                    
+USER_ADVISOR_SQLW_TABVOL                                                        
+USER_XML_SCHEMA_ELEMENTS                                                        
+ALL_PROBE_OBJECTS                                                               
+USER_ADVISOR_EXEC_PARAMETERS                                                    
+USER_LOB_SUBPARTITIONS                                                          
+USER_SQLSET_BINDS                                                               
+USER_DBFS_HS_FIXED_PROPERTIES                                                   
+USER_ADVISOR_DIR_TASK_INST                                                      
+ALL_XTERNAL_TAB_PARTITIONS                                                      
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_ADVISOR_SQLSTATS                                                           
+USER_ADVISOR_SQLA_TABLES                                                        
+USER_ADVISOR_EXECUTIONS                                                         
+USER_SQLTUNE_BINDS                                                              
+USER_SR_PARTN_OPS                                                               
+ALL_SCHEDULER_REMOTE_DATABASES                                                  
+USER_QUEUE_SCHEDULES                                                            
+USER_LOB_TEMPLATES                                                              
+ALL_PART_KEY_COLUMNS                                                            
+ALL_XTERNAL_LOC_PARTITIONS                                                      
+USER_SUBPART_COL_STATISTICS                                                     
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_SQLSET_STATEMENTS                                                           
+ALL_XML_SCHEMA_NAMESPACES                                                       
+USER_ADVISOR_FINDINGS                                                           
+ALL_XML_SCHEMA_ELEMENTS                                                         
+ALL_XML_SCHEMA_SIMPLE_TYPES                                                     
+ALL_XML_SCHEMA_ATTRIBUTES                                                       
+USER_ADVISOR_ACTIONS                                                            
+ALL_QUEUE_PUBLISHERS                                                            
+ALL_XMLTYPE_COLS                                                                
+ALL_IND_PARTITIONS                                                              
+USER_SUBPART_KEY_COLUMNS_V$                                                     
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_PART_LOBS                                                                   
+USER_ADVISOR_SQLA_COLVOL                                                        
+USER_TS                                                                         
+ALL_SUBPART_HISTOGRAMS                                                          
+AUDIT_ACTIONS                                                                   
+COLUMN_PRIVILEGES                                                               
+DATABASE_COMPATIBLE_LEVEL                                                       
+DBMS_ALERT_INFO                                                                 
+DBMS_LOCK_ALLOCATED                                                             
+DICTIONARY                                                                      
+DICT_COLUMNS                                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+DUAL                                                                            
+GLOBAL_NAME                                                                     
+INDEX_HISTOGRAM                                                                 
+INDEX_STATS                                                                     
+NLS_DATABASE_PARAMETERS                                                         
+NLS_INSTANCE_PARAMETERS                                                         
+NLS_SESSION_PARAMETERS                                                          
+RESOURCE_COST                                                                   
+ROLE_ROLE_PRIVS                                                                 
+ROLE_SYS_PRIVS                                                                  
+ROLE_TAB_PRIVS                                                                  
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+SESSION_PRIVS                                                                   
+SESSION_ROLES                                                                   
+TABLE_PRIVILEGES                                                                
+ALL_OLAP2_AWS                                                                   
+V$SESSION_CONNECT_INFO                                                          
+V$SESSION_LONGOPS                                                               
+V$SQLFN_ARG_METADATA                                                            
+V$SQLFN_METADATA                                                                
+V$SQLPA_METRIC                                                                  
+V$EDITIONABLE_TYPES                                                             
+V$FLASHBACK_TXN_GRAPH                                                           
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+V$FLASHBACK_TXN_MODS                                                            
+V$MAX_ACTIVE_SESS_TARGET_MTH                                                    
+V$NLS_PARAMETERS                                                                
+V$NLS_VALID_VALUES                                                              
+V$OPTION                                                                        
+V$PARALLEL_DEGREE_LIMIT_MTH                                                     
+V$PLSQL_DEBUGGABLE_SESSIONS                                                     
+V$PQ_SESSTAT                                                                    
+V$PQ_TQSTAT                                                                     
+V$QUEUEING_MTH                                                                  
+V$REPLAY_CONTEXT                                                                
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+V$REPLAY_CONTEXT_LOB                                                            
+V$REPLAY_CONTEXT_SEQUENCE                                                       
+V$REPLAY_CONTEXT_SYSDATE                                                        
+V$REPLAY_CONTEXT_SYSGUID                                                        
+V$REPLAY_CONTEXT_SYSTIMESTAMP                                                   
+V$RESTORE_POINT                                                                 
+V$RSRC_CONSUMER_GROUP                                                           
+V$RSRC_CONSUMER_GROUP_CPU_MTH                                                   
+V$RSRC_CONS_GROUP_HISTORY                                                       
+V$RSRC_PLAN                                                                     
+V$RSRC_PLAN_CPU_MTH                                                             
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+V$RSRC_PLAN_HISTORY                                                             
+V$RSRC_SESSION_INFO                                                             
+GV$LOADISTAT                                                                    
+GV$LOADPSTAT                                                                    
+GV$LOCK_ACTIVITY                                                                
+GV$MAX_ACTIVE_SESS_TARGET_MTH                                                   
+GV$NLS_PARAMETERS                                                               
+GV$NLS_VALID_VALUES                                                             
+GV$OPTION                                                                       
+GV$PARALLEL_DEGREE_LIMIT_MTH                                                    
+GV$PLSQL_DEBUGGABLE_SESSIONS                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+GV$SESSION_LONGOPS                                                              
+GV$SQLFN_ARG_METADATA                                                           
+GV$SQLFN_METADATA                                                               
+GV$DIAG_INFO                                                                    
+V$AW_LONGOPS                                                                    
+V$BH                                                                            
+V$BLOCKING_QUIESCE                                                              
+GV$EDITIONABLE_TYPES                                                            
+GV$PQ_SESSTAT                                                                   
+GV$PQ_TQSTAT                                                                    
+GV$QUEUEING_MTH                                                                 
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+GV$REPLAY_CONTEXT_SYSTIMESTAMP                                                  
+GV$REPLAY_CONTEXT                                                               
+GV$REPLAY_CONTEXT_LOB                                                           
+GV$REPLAY_CONTEXT_SEQUENCE                                                      
+GV$REPLAY_CONTEXT_SYSDATE                                                       
+GV$REPLAY_CONTEXT_SYSGUID                                                       
+GV$RESTORE_POINT                                                                
+GV$RSRC_CONSUMER_GROUP                                                          
+GV$RSRC_CONSUMER_GROUP_CPU_MTH                                                  
+GV$RSRC_CONS_GROUP_HISTORY                                                      
+GV$RSRC_PLAN                                                                    
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+GV$RSRC_PLAN_CPU_MTH                                                            
+GV$RSRC_PLAN_HISTORY                                                            
+GV$RSRC_SESSION_INFO                                                            
+X$KXFTASK                                                                       
+V$LOADISTAT                                                                     
+V$LOADPSTAT                                                                     
+V$LOCK_ACTIVITY                                                                 
+GV$AW_LONGOPS                                                                   
+GV$BH                                                                           
+GV$BLOCKING_QUIESCE                                                             
+TABS                                                                            
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+COLS                                                                            
+USER_HISTOGRAMS                                                                 
+ALL_HISTOGRAMS                                                                  
+IND                                                                             
+ALL_JOBS                                                                        
+USER_SNAPSHOT_REFRESH_TIMES                                                     
+OBJ                                                                             
+V$OBJECT_USAGE                                                                  
+ALL_OUTLINES                                                                    
+ALL_OUTLINE_HINTS                                                               
+V$TEMPORARY_LOBS                                                                
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+V$TIMEZONE_FILE                                                                 
+V$TIMEZONE_NAMES                                                                
+V$VERSION                                                                       
+V$XS_SESSION_NS_ATTRIBUTES                                                      
+V$XS_SESSION_NS_ATTRIBUTE                                                       
+V$XS_SESSION_ROLES                                                              
+GV$ACTIVE_INSTANCES                                                             
+GV$ACTIVE_SESS_POOL_MTH                                                         
+GV$ADVISOR_CURRENT_SQLPLAN                                                      
+ALL_SNAPSHOT_REFRESH_TIMES                                                      
+GV$TEMPORARY_LOBS                                                               
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+GV$TIMEZONE_FILE                                                                
+GV$TIMEZONE_NAMES                                                               
+GV$VERSION                                                                      
+GV$XS_SESSION_NS_ATTRIBUTES                                                     
+GV$XS_SESSION_NS_ATTRIBUTE                                                      
+GV$XS_SESSION_ROLES                                                             
+GV$XS_SESSION_ROLE                                                              
+SM$VERSION                                                                      
+V$DIAG_CRITICAL_ERROR                                                           
+V$DIAG_INFO                                                                     
+DATAPUMP_DIR_OBJS                                                               
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+RECYCLEBIN                                                                      
+SEQ                                                                             
+USER_SQLSET_DEFINITIONS                                                         
+SYN                                                                             
+V$ACTIVE_INSTANCES                                                              
+V$ACTIVE_SESS_POOL_MTH                                                          
+V$ADVISOR_CURRENT_SQLPLAN                                                       
+V$ADVISOR_PROGRESS                                                              
+CAT                                                                             
+CLU                                                                             
+DICT                                                                            
+
+1067 rows selected.
+
+ALFONSO0307-SQLselect table_name from dictionary
+  2  where table_name like '%TABLE%';
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_ADVISOR_SQLA_TABLES                                                        
+USER_ADVISOR_SQLW_TABLES                                                        
+USER_ALL_TABLES                                                                 
+USER_ATTRIBUTE_DIM_TABLES                                                       
+USER_BASE_TABLE_MVIEWS                                                          
+USER_CLUSTERING_TABLES                                                          
+USER_EVALUATION_CONTEXT_TABLES                                                  
+USER_EXTERNAL_TABLES                                                            
+USER_FILE_GROUP_TABLES                                                          
+USER_FILE_GROUP_TABLESPACES                                                     
+USER_FLASHBACK_ARCHIVE_TABLES                                                   
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_HIVE_TABLES                                                                
+USER_NESTED_TABLES                                                              
+USER_NESTED_TABLE_COLS                                                          
+USER_OBJECT_TABLES                                                              
+USER_PART_TABLES                                                                
+USER_PENDING_CONV_TABLES                                                        
+USER_PRIVATE_TEMP_TABLES                                                        
+USER_QUEUE_TABLES                                                               
+USER_TABLES                                                                     
+USER_TABLESPACES                                                                
+USER_TSTZ_TABLES                                                                
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+USER_UPDATABLE_COLUMNS                                                          
+USER_XML_NESTED_TABLES                                                          
+USER_XML_OUT_OF_LINE_TABLES                                                     
+USER_XML_TABLES                                                                 
+USER_XTERNAL_PART_TABLES                                                        
+USER_XT_HIVE_TABLES_VALIDATION                                                  
+ALL_ALL_TABLES                                                                  
+ALL_APPLY_TABLE_COLUMNS                                                         
+ALL_ATTRIBUTE_DIM_TABLES                                                        
+ALL_BASE_TABLE_MVIEWS                                                           
+ALL_CAPTURE_PREPARED_TABLES                                                     
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_CLUSTERING_TABLES                                                           
+ALL_EVALUATION_CONTEXT_TABLES                                                   
+ALL_EXTERNAL_TABLES                                                             
+ALL_FILE_GROUP_TABLES                                                           
+ALL_FILE_GROUP_TABLESPACES                                                      
+ALL_GG_AUTO_CDR_TABLES                                                          
+ALL_HIVE_TABLES                                                                 
+ALL_NESTED_TABLES                                                               
+ALL_NESTED_TABLE_COLS                                                           
+ALL_OBJECT_TABLES                                                               
+ALL_PART_TABLES                                                                 
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_PENDING_CONV_TABLES                                                         
+ALL_QUEUE_TABLES                                                                
+ALL_STREAMS_TABLE_RULES                                                         
+ALL_SYNC_CAPTURE_TABLES                                                         
+ALL_TABLES                                                                      
+ALL_TSTZ_TABLES                                                                 
+ALL_UPDATABLE_COLUMNS                                                           
+ALL_XML_NESTED_TABLES                                                           
+ALL_XML_OUT_OF_LINE_TABLES                                                      
+ALL_XML_TABLES                                                                  
+ALL_XTERNAL_PART_TABLES                                                         
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+ALL_XT_HIVE_TABLES_VALIDATION                                                   
+TABLE_PRIVILEGES                                                                
+
+57 rows selected.
+
+ALFONSO0307-SQLdesc USER_TABLES;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ TABLE_NAME                                NOT NULL VARCHAR2(128)
+ TABLESPACE_NAME                                    VARCHAR2(30)
+ CLUSTER_NAME                                       VARCHAR2(128)
+ IOT_NAME                                           VARCHAR2(128)
+ STATUS                                             VARCHAR2(8)
+ PCT_FREE                                           NUMBER
+ PCT_USED                                           NUMBER
+ INI_TRANS                                          NUMBER
+ MAX_TRANS                                          NUMBER
+ INITIAL_EXTENT                                     NUMBER
+ NEXT_EXTENT                                        NUMBER
+ MIN_EXTENTS                                        NUMBER
+ MAX_EXTENTS                                        NUMBER
+ PCT_INCREASE                                       NUMBER
+ FREELISTS                                          NUMBER
+ FREELIST_GROUPS                                    NUMBER
+ LOGGING                                            VARCHAR2(3)
+ BACKED_UP                                          VARCHAR2(1)
+ NUM_ROWS                                           NUMBER
+ BLOCKS                                             NUMBER
+ EMPTY_BLOCKS                                       NUMBER
+ AVG_SPACE                                          NUMBER
+ CHAIN_CNT                                          NUMBER
+ AVG_ROW_LEN                                        NUMBER
+ AVG_SPACE_FREELIST_BLOCKS                          NUMBER
+ NUM_FREELIST_BLOCKS                                NUMBER
+ DEGREE                                             VARCHAR2(10)
+ INSTANCES                                          VARCHAR2(10)
+ CACHE                                              VARCHAR2(5)
+ TABLE_LOCK                                         VARCHAR2(8)
+ SAMPLE_SIZE                                        NUMBER
+ LAST_ANALYZED                                      DATE
+ PARTITIONED                                        VARCHAR2(3)
+ IOT_TYPE                                           VARCHAR2(12)
+ TEMPORARY                                          VARCHAR2(1)
+ SECONDARY                                          VARCHAR2(1)
+ NESTED                                             VARCHAR2(3)
+ BUFFER_POOL                                        VARCHAR2(7)
+ FLASH_CACHE                                        VARCHAR2(7)
+ CELL_FLASH_CACHE                                   VARCHAR2(7)
+ ROW_MOVEMENT                                       VARCHAR2(8)
+ GLOBAL_STATS                                       VARCHAR2(3)
+ USER_STATS                                         VARCHAR2(3)
+ DURATION                                           VARCHAR2(15)
+ SKIP_CORRUPT                                       VARCHAR2(8)
+ MONITORING                                         VARCHAR2(3)
+ CLUSTER_OWNER                                      VARCHAR2(128)
+ DEPENDENCIES                                       VARCHAR2(8)
+ COMPRESSION                                        VARCHAR2(8)
+ COMPRESS_FOR                                       VARCHAR2(30)
+ DROPPED                                            VARCHAR2(3)
+ READ_ONLY                                          VARCHAR2(3)
+ SEGMENT_CREATED                                    VARCHAR2(3)
+ RESULT_CACHE                                       VARCHAR2(7)
+ CLUSTERING                                         VARCHAR2(3)
+ ACTIVITY_TRACKING                                  VARCHAR2(23)
+ DML_TIMESTAMP                                      VARCHAR2(25)
+ HAS_IDENTITY                                       VARCHAR2(3)
+ CONTAINER_DATA                                     VARCHAR2(3)
+ INMEMORY                                           VARCHAR2(8)
+ INMEMORY_PRIORITY                                  VARCHAR2(8)
+ INMEMORY_DISTRIBUTE                                VARCHAR2(15)
+ INMEMORY_COMPRESSION                               VARCHAR2(17)
+ INMEMORY_DUPLICATE                                 VARCHAR2(13)
+ DEFAULT_COLLATION                                  VARCHAR2(100)
+ DUPLICATED                                         VARCHAR2(1)
+ SHARDED                                            VARCHAR2(1)
+ EXTERNAL                                           VARCHAR2(3)
+ CELLMEMORY                                         VARCHAR2(24)
+ CONTAINERS_DEFAULT                                 VARCHAR2(3)
+ CONTAINER_MAP                                      VARCHAR2(3)
+ EXTENDED_DATA_LINK                                 VARCHAR2(3)
+ EXTENDED_DATA_LINK_MAP                             VARCHAR2(3)
+ INMEMORY_SERVICE                                   VARCHAR2(12)
+ INMEMORY_SERVICE_NAME                              VARCHAR2(1000)
+ CONTAINER_MAP_OBJECT                               VARCHAR2(3)
+ MEMOPTIMIZE_READ                                   VARCHAR2(8)
+ MEMOPTIMIZE_WRITE                                  VARCHAR2(8)
+ HAS_SENSITIVE_COLUMN                               VARCHAR2(3)
+
+ALFONSO0307-SQLselect table_name, tablespace_name from USER_TABLES;
+
+TABLE_NAME                                                                      
+--------------------------------------------------------------------------------
+TABLESPACE_NAME                                                                 
+------------------------------                                                  
+EMPLEADO_SIMPLE                                                                 
+USERS                                                                           
+                                                                                
+
+ALFONSO0307-SQLcol table_name format a30
+ALFONSO0307-SQL
+ALFONSO0307-SQL
+ALFONSO0307-SQL
+ALFONSO0307-SQLcol tablespace_name format a30
+ALFONSO0307-SQLselect table_name, tablespace_name from USER_TABLES;
+
+TABLE_NAME                     TABLESPACE_NAME                                  
+------------------------------ ------------------------------                   
+EMPLEADO_SIMPLE                USERS                                            
+
+ALFONSO0307-SQLconnect sys as sysdba
+Connected.
+SYS-SQLcreate or replace tmp_directory tmp_dir as '/tmp/bases';
+create or replace tmp_directory tmp_dir as '/tmp/bases'
+                  *
+ERROR at line 1:
+ORA-00922: missing or invalid option 
+
+
+SYS-SQLcreate or replace tmp_dir as '/tmp/bases';
+create or replace tmp_dir as '/tmp/bases'
+                  *
+ERROR at line 1:
+ORA-00922: missing or invalid option 
+
+
+SYS-SQLcreate or replace directory tmp_dir as '/tmp/bases';
+
+Directory created.
+
+SYS-SQLgrant read,write on directory tmp_dir to alfonso0307;
+
+Grant succeeded.
+
+SYS-SQLconnect alfonso0307
+Connected.
+ALFONSO0307-SQLcreate table empleado_ext(
+  2  num_empleado number(10,0),
+  3  nombre varchar2(40),
+  4  fecha_nacimiento date
+  5  )
+  6  organization external(
+  7  type oracle_loader
+  8  default directory tmp_dir
+  9  access parameters(
+ 10  records delimited by newline
+ 11  bagfile tmp_dir:'empleado_ext_bad.log'
+ 12  logfile tmp_dir:'empleado_ext.log'
+ 13  fields terminated by ','
+ 14  lrtrim
+ 15  missing field values are null
+ 16  (
+ 17  num_empleado,nombre,
+ 18  fecha_nacimiento date mask "dd/mm/yyyy"
+ 19  )
+ 20  )
+ 21  location ('empleado_ext.csv')
+ 22  )
+ 23  reject limit unlimited;
+
+Table created.
+
+ALFONSO0307-SQL!mkdir /tmp/bases
+
+ALFONSO0307-SQL!chmod 777 /tmp/bases
+
+ALFONSO0307-SQLselect * from empleado_ext
+  2  ;
+select * from empleado_ext
+*
+ERROR at line 1:
+ORA-29913: error in executing ODCIEXTTABLEOPEN callout
+ORA-29400: data cartridge error
+KUP-00554: error encountered while parsing access parameters
+KUP-01005: syntax error: found "identifier": expecting one of: "badfile,
+byteordermark, characterset, column, compression, credential, data, delimited,
+discardfile, dnfs_enable, dnfs_disable, disable_directory_link_check, escape,
+field, fields, fixed, io_options, ignore_blank_lines, ignore_header, load,
+logfile, language, nodiscardfile, nobadfile, nologfile, date_cache,
+dnfs_readbuffers, preprocessor, readsize, string, skip, territory, variable,
+validate_table_data, xmltag"
+KUP-01008: the bad identifier was: bagfile
+KUP-01007: at line 2 column 1 
+
+
+ALFONSO0307-SQLcol format a30
+SP2-0158: unknown COLUMN option "a30"
+ALFONSO0307-SQLselect * from empleado_ext;
+select * from empleado_ext
+*
+ERROR at line 1:
+ORA-29913: error in executing ODCIEXTTABLEOPEN callout
+ORA-29400: data cartridge error
+KUP-00554: error encountered while parsing access parameters
+KUP-01005: syntax error: found "identifier": expecting one of: "badfile,
+byteordermark, characterset, column, compression, credential, data, delimited,
+discardfile, dnfs_enable, dnfs_disable, disable_directory_link_check, escape,
+field, fields, fixed, io_options, ignore_blank_lines, ignore_header, load,
+logfile, language, nodiscardfile, nobadfile, nologfile, date_cache,
+dnfs_readbuffers, preprocessor, readsize, string, skip, territory, variable,
+validate_table_data, xmltag"
+KUP-01008: the bad identifier was: bagfile
+KUP-01007: at line 2 column 1 
+
+
+ALFONSO0307-SQLselect * from empleado_ext;
+select * from empleado_ext
+              *
+ERROR at line 1:
+ORA-29913: error in executing ODCIEXTTABLEOPEN callout
+ORA-29400: data cartridge error
+KUP-00554: error encountered while parsing access parameters
+KUP-01005: syntax error: found "identifier": expecting one of: "badfile,
+byteordermark, characterset, column, compression, credential, data, delimited,
+discardfile, dnfs_enable, dnfs_disable, disable_directory_link_check, escape,
+field, fields, fixed, io_options, ignore_blank_lines, ignore_header, load,
+logfile, language, nodiscardfile, nobadfile, nologfile, date_cache,
+dnfs_readbuffers, preprocessor, readsize, string, skip, territory, variable,
+validate_table_data, xmltag"
+KUP-01008: the bad identifier was: bagfile
+KUP-01007: at line 2 column 1 
+
+
+ALFONSO0307-SQLedit
+Wrote file afiedt.buf
+
+  1* select * from empleado_ext
+ALFONSO0307-SQLcreate table empleado_ext(num_empleado number(10,0),
+  2    nombre varchar2(40),
+  3    fecha_nacimiento date
+  4    )
+  5    organization external(
+  6    type oracle_loader
+  7    default directory tmp_dir
+  8    access parameters(
+  9   records delimited by newline
+ 10   badfile tmp_dir:'empleado_ext_bad.log'
+ 11   logfile tmp_dir:'empleado_ext.log'
+ 12   fields terminated by ','
+ 13   lrtrim
+ 14   missing field values are null
+ 15   (
+ 16   num_empleado,nombre,
+ 17   fecha_nacimiento date mask "dd/mm/yyyy"
+ 18   )
+ 19   )
+ 20   location ('empleado_ext.csv')
+ 21   )
+ 22   reject limit unlimited;
+create table empleado_ext(num_empleado number(10,0),
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+ALFONSO0307-SQLdrop table empleado_ext
+  2  ;
+
+Table dropped.
+
+ALFONSO0307-SQLcreate table empleado_ext(num_empleado number(10,0),
+  2    nombre varchar2(40),
+  3    fecha_nacimiento date
+  4    )
+  5    organization external(
+  6    type oracle_loader
+  7    default directory tmp_dir
+  8    access parameters(
+  9   records delimited by newline
+ 10   badfile tmp_dir:'empleado_ext_bad.log'
+ 11   logfile tmp_dir:'empleado_ext.log'
+ 12   fields terminated by ','
+ 13   lrtrim
+ 14   missing field values are null
+ 15   (
+ 16   num_empleado,nombre,
+ 17   fecha_nacimiento date mask "dd/mm/yyyy"
+ 18   )
+ 19   )
+ 20   location ('empleado_ext.csv')
+ 21   )
+ 22   reject limit unlimited;
+
+Table created.
+
+ALFONSO0307-SQLselect * from empleado_ext;
+
+NUM_EMPLEADO NOMBRE                                   FECHA_NACIMIENTO          
+------------ ---------------------------------------- ------------------        
+        1000 Juanito                                  01-MAR-00                 
+        1001 Luisa                                    03-FEB-98                 
+
+ALFONSO0307-SQLexit

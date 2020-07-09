@@ -1,0 +1,11 @@
+|ejercicio1
+cab[0] => Mux0.IN10
+cab[0] => Mux1.IN10
+cab[1] => Mux0.IN9
+cab[1] => Mux1.IN9
+cab[2] => Mux0.IN8
+cab[2] => Mux1.IN8
+scout[0] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+scout[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

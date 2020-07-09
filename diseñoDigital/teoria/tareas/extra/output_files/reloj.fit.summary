@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Apr 30 19:10:16 2020
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : reloj
+Top-level Entity Name : reloj
+Family : MAX 10
+Device : 10M50DCF484C8G
+Timing Models : Final
+Total logic elements : 110 / 49,760 ( < 1 % )
+    Total combinational functions : 110 / 49,760 ( < 1 % )
+    Dedicated logic registers : 58 / 49,760 ( < 1 % )
+Total registers : 58
+Total pins : 29 / 360 ( 8 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0

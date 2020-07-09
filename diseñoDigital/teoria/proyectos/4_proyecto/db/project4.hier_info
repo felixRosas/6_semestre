@@ -1,0 +1,5 @@
+|project4
+sigSensor => edoLed.DATAIN
+edoLed << sigSensor.DB_MAX_OUTPUT_PORT_TYPE
+
+

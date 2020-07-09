@@ -1,0 +1,52 @@
+SYS-SQL> connect alfonso0307
+Connected.
+ALFONSO0307-SQL>create table quincena(
+  2  quincena_id number(10,2) constraint quincena_id_pk primary key,
+  3  clave varchar2(3) not null);
+
+Table created.
+
+ALFONSO0307-SQL>create table nomina(
+  2  nomina_id number(10,0) constraint nomina_pk primary key,
+  3  quincena_id constraint nomina_quincena_id_fk references quincena(quincena_id)
+  4  on delete set null);
+
+Table created.
+
+ALFONSO0307-SQL>insert into quincena values(1, 'Q01');
+
+1 row created.
+
+ALFONSO0307-SQL>insert into nomina values (100, 1);
+
+1 row created.
+
+ALFONSO0307-SQL>commit;
+
+Commit complete.
+
+ALFONSO0307-SQL>select * from quincena;
+
+QUINCENA_ID CLA                                                                 
+----------- ---                                                                 
+          1 Q01                                                                 
+
+ALFONSO0307-SQL>select * from nomina;
+
+ NOMINA_ID QUINCENA_ID                                                          
+---------- -----------                                                          
+       100           1                                                          
+
+ALFONSO0307-SQL>delete from quincena where quincena_id = 1;
+
+1 row deleted.
+
+ALFONSO0307-SQL>select * from quincena;
+
+no rows selected
+
+ALFONSO0307-SQL>select * from nomina;
+
+ NOMINA_ID QUINCENA_ID                                                          
+---------- -----------                                                          
+       100                          

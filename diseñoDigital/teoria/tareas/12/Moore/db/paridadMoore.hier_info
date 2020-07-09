@@ -1,0 +1,108 @@
+|parmoore
+E => combinacional:u1.E
+clk => ffd:u2.clk
+clk => ffd:u3.clk
+S <= salida:u4.S
+
+
+|parmoore|combinacional:u1
+E => D1.IN0
+E => D0.IN0
+E => D1.IN0
+Q0 => D1.IN1
+Q0 => D0.IN1
+Q1 => D1.IN1
+D0 <= D0.DB_MAX_OUTPUT_PORT_TYPE
+D1 <= D1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|parmoore|ffd:u2
+d => secuencial:u2.d
+clk => relojlento:u1.clkl
+Q <= secuencial:u2.Q
+
+
+|parmoore|ffd:u2|relojlento:u1
+clkl => sclk~reg0.CLK
+clkl => conteo[0].CLK
+clkl => conteo[1].CLK
+clkl => conteo[2].CLK
+clkl => conteo[3].CLK
+clkl => conteo[4].CLK
+clkl => conteo[5].CLK
+clkl => conteo[6].CLK
+clkl => conteo[7].CLK
+clkl => conteo[8].CLK
+clkl => conteo[9].CLK
+clkl => conteo[10].CLK
+clkl => conteo[11].CLK
+clkl => conteo[12].CLK
+clkl => conteo[13].CLK
+clkl => conteo[14].CLK
+clkl => conteo[15].CLK
+clkl => conteo[16].CLK
+clkl => conteo[17].CLK
+clkl => conteo[18].CLK
+clkl => conteo[19].CLK
+clkl => conteo[20].CLK
+clkl => conteo[21].CLK
+clkl => conteo[22].CLK
+clkl => conteo[23].CLK
+clkl => conteo[24].CLK
+sclk <= sclk~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|parmoore|ffd:u2|secuencial:u2
+d => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|parmoore|ffd:u3
+d => secuencial:u2.d
+clk => relojlento:u1.clkl
+Q <= secuencial:u2.Q
+
+
+|parmoore|ffd:u3|relojlento:u1
+clkl => sclk~reg0.CLK
+clkl => conteo[0].CLK
+clkl => conteo[1].CLK
+clkl => conteo[2].CLK
+clkl => conteo[3].CLK
+clkl => conteo[4].CLK
+clkl => conteo[5].CLK
+clkl => conteo[6].CLK
+clkl => conteo[7].CLK
+clkl => conteo[8].CLK
+clkl => conteo[9].CLK
+clkl => conteo[10].CLK
+clkl => conteo[11].CLK
+clkl => conteo[12].CLK
+clkl => conteo[13].CLK
+clkl => conteo[14].CLK
+clkl => conteo[15].CLK
+clkl => conteo[16].CLK
+clkl => conteo[17].CLK
+clkl => conteo[18].CLK
+clkl => conteo[19].CLK
+clkl => conteo[20].CLK
+clkl => conteo[21].CLK
+clkl => conteo[22].CLK
+clkl => conteo[23].CLK
+clkl => conteo[24].CLK
+sclk <= sclk~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|parmoore|ffd:u3|secuencial:u2
+d => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|parmoore|salida:u4
+Q0 => S.IN0
+Q1 => S.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "estados[0]",
+					"strict" : false
+				},
+				{
+					"name" : "estados[1]",
+					"strict" : false
+				},
+				{
+					"name" : "motorDer[0]",
+					"strict" : false
+				},
+				{
+					"name" : "motorIzq[0]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "s[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "s[1]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

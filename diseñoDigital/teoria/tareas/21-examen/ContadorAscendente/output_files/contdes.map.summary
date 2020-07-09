@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Wed Apr 22 20:31:56 2020
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : contdes
+Top-level Entity Name : top3
+Family : MAX 10
+Total logic elements : 57
+    Total combinational functions : 57
+    Dedicated logic registers : 29
+Total registers : 29
+Total pins : 10
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

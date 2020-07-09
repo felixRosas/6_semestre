@@ -1,0 +1,354 @@
+ALFONSO0308-SQL> select ocupado
+  2  from concierto
+  3  where num_asiento=1
+  4  for update;
+
+   OCUPADO                                                                      
+----------                                                                      
+         0                                                                      
+
+ALFONSO0308-SQL> update concierto
+  2  set ocupado = 1,
+  3  nombre ='cliente1'
+  4  where num_asiento=1;
+
+1 row updated.
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> select ocupado
+  2  from concierto
+  3  where num_asiento=1
+  4  ;
+
+   OCUPADO                                                                      
+----------                                                                      
+         1                                                                      
+
+ALFONSO0308-SQL> select *
+  2  from concierto
+  3  where num_asiento=1;
+
+NUM_ASIENTO    OCUPADO NOMBRE                                                   
+----------- ---------- --------------------                                     
+          1          1 cliente1                                                 
+
+ALFONSO0308-SQL> select ocupado
+  2  from concierto
+  3  where num_asiento=1;
+
+   OCUPADO                                                                      
+----------                                                                      
+         1                                                                      
+
+ALFONSO0308-SQL> select ocupado
+  2  from concierto
+  3  where num_asiento=2;
+
+   OCUPADO                                                                      
+----------                                                                      
+         0                                                                      
+
+ALFONSO0308-SQL> select ocupado
+  2  from concierto
+  3  where num_asiento=2 for update;
+
+   OCUPADO                                                                      
+----------                                                                      
+         0                                                                      
+
+ALFONSO0308-SQL> update concierto set ocupado = ,
+  2  nombre='cliente1',
+  3  where num_asiento=1;
+update concierto set ocupado = ,
+                               *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+ALFONSO0308-SQL> update concierto set ocupado = '1',
+  2  where num_asiento=1;
+where num_asiento=1
+*
+ERROR at line 2:
+ORA-01747: invalid user.table.column, table.column, or column specification 
+
+
+ALFONSO0308-SQL> update concierto set ocupado = '1',
+  2  nombre='cliente1',
+  3  where num_asiento=2;
+where num_asiento=2
+*
+ERROR at line 3:
+ORA-01747: invalid user.table.column, table.column, or column specification 
+
+
+ALFONSO0308-SQL> update concierto
+  2  set ocupado=1
+  3  , nombre ='cliente1'
+  4  , where num_asiento=2;
+, where num_asiento=2
+  *
+ERROR at line 4:
+ORA-01747: invalid user.table.column, table.column, or column specification 
+
+
+ALFONSO0308-SQL> select * from concierto;
+
+NUM_ASIENTO    OCUPADO NOMBRE                                                   
+----------- ---------- --------------------                                     
+          1          1 cliente1                                                 
+          2          0                                                          
+          3          0                                                          
+
+ALFONSO0308-SQL> update concierto
+  2  set ocupado=1,
+  3  nombre='cliente1' where num_asiento=2;
+
+1 row updated.
+
+ALFONSO0308-SQL> select * from concierto;
+
+NUM_ASIENTO    OCUPADO NOMBRE                                                   
+----------- ---------- --------------------                                     
+          1          1 cliente1                                                 
+          2          1 cliente1                                                 
+          3          0                                                          
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+
+ALFONSO0308-SQL> update concierto
+  2  set ocupado=1,
+  3  nombre='cliente1'
+  4  where num_asiento=2
+  5  ;
+
+1 row updated.
+
+ALFONSO0308-SQL> select * from concierto;
+
+NUM_ASIENTO    OCUPADO NOMBRE
+----------- ---------- --------------------
+          1          1 cliente2
+          2          1 cliente1
+          3          0
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> select ocupado
+  2  from asiento where num_asiento=3;
+from asiento where num_asiento=3
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist
+
+
+ALFONSO0308-SQL> select ocupado
+  2  from concierto where num_asiento=3;
+
+   OCUPADO
+----------
+         0
+
+ALFONSO0308-SQL> update concierto
+  2  set coupado=1,
+  3  nombre='cliente1'
+  4  where num_asiento=3 and ocupado=0;
+set coupado=1,
+    *
+ERROR at line 2:
+ORA-00904: "COUPADO": invalid identifier
+
+
+ALFONSO0308-SQL> update concierto
+  2  set ocupado=1,
+  3  nombre='cliente1'
+  4  where num_asiento=3 and ocupado=0;
+
+1 row updated.
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> insert into concierto(num_asiento, ocupado) values (4,0);
+
+1 row created.
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> update concierto
+  2  set ocupado=1,
+  3  nombre='cliente1'
+  4  where num_asiento=4 and ocupado=0;
+
+1 row updated.
+
+ALFONSO0308-SQL> commit;
+
+ALFONSO0308-SQL> select sysdate from dual;
+
+SYSDATE                                                                         
+------------------                                                              
+23-APR-20                                                                       
+
+ALFONSO0308-SQL> select 1+1 from dual;
+
+       1+1                                                                      
+----------                                                                      
+         2                                                                      
+
+ALFONSO0308-SQL> desc dual;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DUMMY                                              VARCHAR2(1)
+
+ALFONSO0308-SQL> select * from dual ;
+
+D                                                                               
+-                                                                               
+X                                                                               
+
+ALFONSO0308-SQL> create table prueba ( id number);
+
+Table created.
+
+ALFONSO0308-SQL> select 1+1 from prueba;
+
+no rows selected
+
+ALFONSO0308-SQL> insert into prueba values(1);
+
+1 row created.
+
+ALFONSO0308-SQL> insert into prueba values(2);
+
+1 row created.
+
+ALFONSO0308-SQL> insert into prueba values(3);
+
+1 row created.
+
+ALFONSO0308-SQL> insert into prueba values(4);
+
+1 row created.
+
+ALFONSO0308-SQL> insert into prueba values(5);
+
+1 row created.
+
+ALFONSO0308-SQL> select 1+1 from prueba where 1 = 0;
+
+no rows selected
+
+ALFONSO0308-SQL> select 1+1 from prueba where id = 1;
+
+       1+1                                                                      
+----------                                                                      
+         2                                                                      
+
+ALFONSO0308-SQL> select 1+1 as suma from dual;
+
+      SUMA                                                                      
+----------                                                                      
+         2                                                                      
+
+ALFONSO0308-SQL> alias de columna;
+SP2-0734: unknown command beginning "alias de c..." - rest of line ignored.
+ALFONSO0308-SQL> select 1+1 suma from dual;
+
+      SUMA                                                                      
+----------                                                                      
+         2                                                                      
+
+ALFONSO0308-SQL> select 1+1 "El resutado es: " from dual;
+
+El resutado es:                                                                 
+----------------                                                                
+               2                                                                
+
+ALFONSO0308-SQL> select id as clase from prueba;
+
+     CLASE                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+         5                                                                      
+
+ALFONSO0308-SQL> select id as clave from prueba;
+
+     CLAVE                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+         5                                                                      
+
+ALFONSO0308-SQL> select id as clave from prueba
+  2  where clave <=3;
+where clave <=3
+      *
+ERROR at line 2:
+ORA-00904: "CLAVE": invalid identifier 
+
+
+ALFONSO0308-SQL> NO SE PUEDE USAR EL ALIAS
+SP2-0734: unknown command beginning "NO SE PUED..." - rest of line ignored.
+ALFONSO0308-SQL> select id as clave from prueba
+  2  where id <=3;
+
+     CLAVE                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+
+ALFONSO0308-SQL> select id as clave from prueba
+  2  where id <=3
+  3  order by clave desc;
+
+     CLAVE                                                                      
+----------                                                                      
+         3                                                                      
+         2                                                                      
+         1                                                                      
+
+ALFONSO0308-SQL> select id as clave from prueba
+  2  where id <=3
+  3  order by id desc;
+
+     CLAVE                                                                      
+----------                                                                      
+         3                                                                      
+         2                                                                      
+         1                                                                      
+
+ALFONSO0308-SQL> !ls
+
+ALFONSO0308-SQL> !ls
+
+ALFONSO0308-SQL> connect sys;
+ERROR:
+ORA-28009: connection as SYS should be as SYSDBA or SYSOPER 
+
+
+Warning: You are no longer connected to ORACLE.
+-SQL> connect sys as sysdba;
+Connected.
+SYS-SQL> !ls
+
+SYS-SQL> exit
+
+

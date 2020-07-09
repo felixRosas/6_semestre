@@ -1,0 +1,480 @@
+SYS-SQL> connect alfonso0307
+Connected.
+ALFONSO0307-SQL> create table puesto(
+  2  puesto_id number(2,0) constraint puesto_pk primary key,
+  3  nivel varchar2 not null constraint  puesto_nivel_chk check (nivel in ('a',''b,'c')),
+  4  clave carchar2(3) not null constraint puesto_clave_uk unique,
+  5  sueldo number(8,2) not null constraint puesto_sueld_chk check (sueldo <100000)
+  6  );
+nivel varchar2 not null constraint  puesto_nivel_chk check (nivel in ('a',''b,'c')),
+               *
+ERROR at line 3:
+ORA-00906: missing left parenthesis 
+
+
+ALFONSO0307-SQL> 
+ALFONSO0307-SQL> create table puesto(
+  2  puesto_id number(2,0) constraint puesto_pk primary key,
+  3  nivel char not null constraint  puesto_nivel_chk check (nivel in ('a',''b,'c')),
+  4  clave carchar2(3) not null constraint puesto_clave_uk unique,
+  5  sueldo number(8,2) not null constraint puesto_sueld_chk check (sueldo <100000)
+  6  );
+nivel char not null constraint  puesto_nivel_chk check (nivel in ('a',''b,'c')),
+                                                                        *
+ERROR at line 3:
+ORA-00907: missing right parenthesis 
+
+
+ALFONSO0307-SQL> 
+ALFONSO0307-SQL> create table puesto(
+  2  puesto_id number(2,0) constraint puesto_pk primary key,
+  3  nivel char not null constraint  puesto_nivel_chk check (nivel in ('a',''b,'c')),
+  4  clave carchar2(3) not null constraint puesto_clave_uk unique,
+  5  sueldo number(8,2) not null constraint puesto_sueld_chk check (sueldo <100000)
+  6  );
+nivel char not null constraint  puesto_nivel_chk check (nivel in ('a',''b,'c')),
+                                                                        *
+ERROR at line 3:
+ORA-00907: missing right parenthesis 
+
+
+ALFONSO0307-SQL> create table puesto(
+  2  puesto_id number(2,0) constraint puesto_pk primary key,
+  3  nivel char not null constraint  puesto_nivel_chk check (nivel in ('a',''b,'c')),
+  4  clave varchar2(3) not null constraint puesto_clave_uk unique,
+  5  sueldo number(8,2) not null constraint puesto_sueld_chk check (sueldo <100000)
+  6  );
+nivel char not null constraint  puesto_nivel_chk check (nivel in ('a',''b,'c')),
+                                                                        *
+ERROR at line 3:
+ORA-00907: missing right parenthesis 
+
+
+ALFONSO0307-SQL> create table puesto(
+  2  puesto_id number(2,0) constraint puesto_pk primary key,
+  3  nivel char not null constraint  puesto_nivel_chk check (nivel in ('a','b','c')),
+  4  clave varchar2(3) not null constraint puesto_clave_uk unique,
+  5  sueldo number(8,2) not null constraint puesto_sueld_chk check (sueldo <100000)
+  6  );
+
+Table created.
+
+ALFONSO0307-SQL> create table puesto_tc(
+  2  puesto_id number(10,0),
+  3  nivel char(1) not null,
+  4  clave varchar2(3) not null,
+  5  sueldo number(8,2),
+  6  constraint puesto_pk primary key (puesto_id),
+  7  constraint  puesto_nivel_chk check (nivel = 'a' or nivel = 'b' or nivel = 'c'),
+  8  constraint puesto_clave_uk unique (clave),
+  9  constraint puesto_sueldo_chk check (sueldo <100000),
+ 10  constraint puesto_sueldo_nn check (sueldo is not null)
+ 11  );
+constraint  puesto_nivel_chk check (nivel = 'a' or nivel = 'b' or nivel = 'c'),
+            *
+ERROR at line 7:
+ORA-02264: name already used by an existing constraint 
+
+
+ALFONSO0307-SQL> create table puesto_tc(
+  2  puesto_id number(10,0),
+  3  nivel char(1) not null,
+  4  clave varchar2(3) not null,
+  5  sueldo number(8,2),
+  6  constraint puesto_pk primary key (puesto_id),
+  7  constraint puesto_nivel_chk check (nivel = 'a' or nivel = 'b' or nivel = 'c'),
+  8  constraint puesto_clave_uk unique (clave),
+  9  constraint puesto_sueldo_chk check (sueldo <100000),
+ 10  constraint puesto_sueldo_nn check (sueldo is not null)
+ 11  );
+constraint puesto_nivel_chk check (nivel = 'a' or nivel = 'b' or nivel = 'c'),
+           *
+ERROR at line 7:
+ORA-02264: name already used by an existing constraint 
+
+
+ALFONSO0307-SQL> create table puesto_tc(
+  2  puesto_id number(10,0),
+  3  nivel char(1) not null,
+  4  clave varchar2(3) not null,
+  5  sueldo number(8,2),
+  6  constraint puesto_tc_pk primary key (puesto_id),
+  7  constraint puesto_tc_nivel_chk check (nivel = 'a' or nivel = 'b' or nivel = 'c'),
+  8  constraint puesto_tc_clave_uk unique (clave),
+  9  constraint puesto_tc_sueldo_chk check (sueldo <100000),
+ 10  constraint puesto_tc_sueldo_nn check (sueldo is not null)
+ 11  );
+
+Table created.
+
+ALFONSO0307-SQL> desc USER_CONSTRAINTS
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ OWNER                                              VARCHAR2(128)
+ CONSTRAINT_NAME                                    VARCHAR2(128)
+ CONSTRAINT_TYPE                                    VARCHAR2(1)
+ TABLE_NAME                                         VARCHAR2(128)
+ SEARCH_CONDITION                                   LONG
+ SEARCH_CONDITION_VC                                VARCHAR2(4000)
+ R_OWNER                                            VARCHAR2(128)
+ R_CONSTRAINT_NAME                                  VARCHAR2(128)
+ DELETE_RULE                                        VARCHAR2(9)
+ STATUS                                             VARCHAR2(8)
+ DEFERRABLE                                         VARCHAR2(14)
+ DEFERRED                                           VARCHAR2(9)
+ VALIDATED                                          VARCHAR2(13)
+ GENERATED                                          VARCHAR2(14)
+ BAD                                                VARCHAR2(3)
+ RELY                                               VARCHAR2(4)
+ LAST_CHANGE                                        DATE
+ INDEX_OWNER                                        VARCHAR2(128)
+ INDEX_NAME                                         VARCHAR2(128)
+ INVALID                                            VARCHAR2(7)
+ VIEW_RELATED                                       VARCHAR2(14)
+ ORIGIN_CON_ID                                      NUMBER
+
+ALFONSO0307-SQL> select CONSTRAINT_NAME, CONSTRAINT_TYPE, SEARCH_CONDITION
+  2  from USER_CONSTRAINT
+  3  where TABLE_NAME = 'PUESTO_TC';
+from USER_CONSTRAINT
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+ALFONSO0307-SQL> EDIT
+Wrote file afiedt.buf
+
+  1  select CONSTRAINT_NAME, CONSTRAINT_TYPE, SEARCH_CONDITION
+  2  from USER_CONSTRAINT
+  3* where TABLE_NAME = 'PUESTO_TC'
+ALFONSO0307-SQL> select CONSTRAINT_NAME, CONSTRAINT_TYPE, SEARCH_CONDITION
+  2  from USER_CONSTRAINTS
+  3  where TABLE_NAME = 'PUESTO_TC';
+
+CONSTRAINT_NAME                                                                 
+--------------------------------------------------------------------------------
+C                                                                               
+-                                                                               
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+SYS_C007394                                                                     
+C                                                                               
+"NIVEL" IS NOT NULL                                                             
+                                                                                
+SYS_C007395                                                                     
+C                                                                               
+"CLAVE" IS NOT NULL                                                             
+
+CONSTRAINT_NAME                                                                 
+--------------------------------------------------------------------------------
+C                                                                               
+-                                                                               
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+                                                                                
+PUESTO_TC_NIVEL_CHK                                                             
+C                                                                               
+nivel = 'a' or nivel = 'b' or nivel = 'c'                                       
+                                                                                
+PUESTO_TC_SUELDO_CHK                                                            
+C                                                                               
+
+CONSTRAINT_NAME                                                                 
+--------------------------------------------------------------------------------
+C                                                                               
+-                                                                               
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+sueldo <100000                                                                  
+                                                                                
+PUESTO_TC_SUELDO_NN                                                             
+C                                                                               
+sueldo is not null                                                              
+                                                                                
+PUESTO_TC_PK                                                                    
+
+CONSTRAINT_NAME                                                                 
+--------------------------------------------------------------------------------
+C                                                                               
+-                                                                               
+SEARCH_CONDITION                                                                
+--------------------------------------------------------------------------------
+P                                                                               
+                                                                                
+                                                                                
+PUESTO_TC_CLAVE_UK                                                              
+U                                                                               
+                                                                                
+                                                                                
+
+7 rows selected.
+
+ALFONSO0307-SQL> col constraint_name a30
+SP2-0158: unknown COLUMN option "a30"
+ALFONSO0307-SQL> col constraint_name format a30
+ALFONSO0307-SQL> col search_condition format a40
+ALFONSO0307-SQL> select CONSTRAINT_NAME, CONSTRAINT_TYPE, SEARCH_CONDITION
+  2  from USER_CONSTRAINTS
+  3  where TABLE_NAME = 'PUESTO_TC';
+
+CONSTRAINT_NAME                C SEARCH_CONDITION                               
+------------------------------ - ----------------------------------------       
+SYS_C007394                    C "NIVEL" IS NOT NULL                            
+SYS_C007395                    C "CLAVE" IS NOT NULL                            
+PUESTO_TC_NIVEL_CHK            C nivel = 'a' or nivel = 'b' or nivel = 'c       
+                                 '                                              
+                                                                                
+PUESTO_TC_SUELDO_CHK           C sueldo <100000                                 
+PUESTO_TC_SUELDO_NN            C sueldo is not null                             
+PUESTO_TC_PK                   P                                                
+PUESTO_TC_CLAVE_UK             U                                                
+
+7 rows selected.
+
+ALFONSO0307-SQL> desc USER_OBJECTS
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ OBJECT_NAME                                        VARCHAR2(128)
+ SUBOBJECT_NAME                                     VARCHAR2(128)
+ OBJECT_ID                                          NUMBER
+ DATA_OBJECT_ID                                     NUMBER
+ OBJECT_TYPE                                        VARCHAR2(23)
+ CREATED                                            DATE
+ LAST_DDL_TIME                                      DATE
+ TIMESTAMP                                          VARCHAR2(19)
+ STATUS                                             VARCHAR2(7)
+ TEMPORARY                                          VARCHAR2(1)
+ GENERATED                                          VARCHAR2(1)
+ SECONDARY                                          VARCHAR2(1)
+ NAMESPACE                                          NUMBER
+ EDITION_NAME                                       VARCHAR2(128)
+ SHARING                                            VARCHAR2(18)
+ EDITIONABLE                                        VARCHAR2(1)
+ ORACLE_MAINTAINED                                  VARCHAR2(1)
+ APPLICATION                                        VARCHAR2(1)
+ DEFAULT_COLLATION                                  VARCHAR2(100)
+ DUPLICATED                                         VARCHAR2(1)
+ SHARDED                                            VARCHAR2(1)
+ CREATED_APPID                                      NUMBER
+ CREATED_VSNID                                      NUMBER
+ MODIFIED_APPID                                     NUMBER
+ MODIFIED_VSNID                                     NUMBER
+
+ALFONSO0307-SQL> select object_name, object_type, created, status
+  2  from USER_OBJECTS;
+
+OBJECT_NAME                                                                     
+--------------------------------------------------------------------------------
+OBJECT_TYPE             CREATED            STATUS                               
+----------------------- ------------------ -------                              
+EMPLEADO_SIMPLE                                                                 
+TABLE                   20-MAR-20          VALID                                
+                                                                                
+EMPLEADO_EXT2                                                                   
+TABLE                   20-MAR-20          VALID                                
+                                                                                
+EMPLEADO_EXT                                                                    
+TABLE                   20-MAR-20          VALID                                
+                                                                                
+
+OBJECT_NAME                                                                     
+--------------------------------------------------------------------------------
+OBJECT_TYPE             CREATED            STATUS                               
+----------------------- ------------------ -------                              
+CALCULO_SUELDO                                                                  
+TABLE                   24-MAR-20          VALID                                
+                                                                                
+EMPLEADO_TEMP                                                                   
+TABLE                   24-MAR-20          VALID                                
+                                                                                
+CALCULO_SUELDO_COPIA                                                            
+TABLE                   24-MAR-20          VALID                                
+                                                                                
+
+OBJECT_NAME                                                                     
+--------------------------------------------------------------------------------
+OBJECT_TYPE             CREATED            STATUS                               
+----------------------- ------------------ -------                              
+INCIDENCIA                                                                      
+TABLE                   24-MAR-20          VALID                                
+                                                                                
+PUESTO_PK                                                                       
+INDEX                   26-MAR-20          VALID                                
+                                                                                
+PUESTO                                                                          
+TABLE                   26-MAR-20          VALID                                
+                                                                                
+
+OBJECT_NAME                                                                     
+--------------------------------------------------------------------------------
+OBJECT_TYPE             CREATED            STATUS                               
+----------------------- ------------------ -------                              
+PUESTO_CLAVE_UK                                                                 
+INDEX                   26-MAR-20          VALID                                
+                                                                                
+PUESTO_TC                                                                       
+TABLE                   26-MAR-20          VALID                                
+                                                                                
+PUESTO_TC_PK                                                                    
+INDEX                   26-MAR-20          VALID                                
+                                                                                
+
+OBJECT_NAME                                                                     
+--------------------------------------------------------------------------------
+OBJECT_TYPE             CREATED            STATUS                               
+----------------------- ------------------ -------                              
+PUESTO_TC_CLAVE_UK                                                              
+INDEX                   26-MAR-20          VALID                                
+                                                                                
+
+13 rows selected.
+
+ALFONSO0307-SQL> col object_name format a20
+ALFONSO0307-SQL> run
+  1  select object_name, object_type, created, status
+  2* from USER_OBJECTS
+
+OBJECT_NAME          OBJECT_TYPE             CREATED            STATUS          
+-------------------- ----------------------- ------------------ -------         
+EMPLEADO_SIMPLE      TABLE                   20-MAR-20          VALID           
+EMPLEADO_EXT2        TABLE                   20-MAR-20          VALID           
+EMPLEADO_EXT         TABLE                   20-MAR-20          VALID           
+CALCULO_SUELDO       TABLE                   24-MAR-20          VALID           
+EMPLEADO_TEMP        TABLE                   24-MAR-20          VALID           
+CALCULO_SUELDO_COPIA TABLE                   24-MAR-20          VALID           
+INCIDENCIA           TABLE                   24-MAR-20          VALID           
+PUESTO_PK            INDEX                   26-MAR-20          VALID           
+PUESTO               TABLE                   26-MAR-20          VALID           
+PUESTO_CLAVE_UK      INDEX                   26-MAR-20          VALID           
+PUESTO_TC            TABLE                   26-MAR-20          VALID           
+
+OBJECT_NAME          OBJECT_TYPE             CREATED            STATUS          
+-------------------- ----------------------- ------------------ -------         
+PUESTO_TC_PK         INDEX                   26-MAR-20          VALID           
+PUESTO_TC_CLAVE_UK   INDEX                   26-MAR-20          VALID           
+
+13 rows selected.
+
+ALFONSO0307-SQL> set pagesize 50
+ALFONSO0307-SQL> run
+  1  select object_name, object_type, created, status
+  2* from USER_OBJECTS
+
+OBJECT_NAME          OBJECT_TYPE             CREATED            STATUS          
+-------------------- ----------------------- ------------------ -------         
+EMPLEADO_SIMPLE      TABLE                   20-MAR-20          VALID           
+EMPLEADO_EXT2        TABLE                   20-MAR-20          VALID           
+EMPLEADO_EXT         TABLE                   20-MAR-20          VALID           
+CALCULO_SUELDO       TABLE                   24-MAR-20          VALID           
+EMPLEADO_TEMP        TABLE                   24-MAR-20          VALID           
+CALCULO_SUELDO_COPIA TABLE                   24-MAR-20          VALID           
+INCIDENCIA           TABLE                   24-MAR-20          VALID           
+PUESTO_PK            INDEX                   26-MAR-20          VALID           
+PUESTO               TABLE                   26-MAR-20          VALID           
+PUESTO_CLAVE_UK      INDEX                   26-MAR-20          VALID           
+PUESTO_TC            TABLE                   26-MAR-20          VALID           
+PUESTO_TC_PK         INDEX                   26-MAR-20          VALID           
+PUESTO_TC_CLAVE_UK   INDEX                   26-MAR-20          VALID           
+
+13 rows selected.
+
+ALFONSO0307-SQL> create table empleado(
+  2  nombre varchar2(40),
+  3  empleado_id number(10,0) constraint empleado_pk primary key,
+  4  puesto_id constraint empleado_puesto_id_fk  references puesto(puesto_id)
+  5  );
+
+Table created.
+
+ALFONSO0307-SQL> create table empleado_tc(
+  2  nombre varchar2(40),
+  3  empleado_id number(10,0) constraint empleado_tc_pk primary key,
+  4  puesto_id number(10,0) not null,
+  5  constraint empleado_tc_puesto_id_fk  foreign_key (puesto_id) references puesto(puesto_id)
+  6  );
+constraint empleado_tc_puesto_id_fk  foreign_key (puesto_id) references puesto(puesto_id)
+                                                 *
+ERROR at line 5:
+ORA-00902: invalid datatype 
+
+
+ALFONSO0307-SQL> create table empleado_tc(
+  2  nombre varchar2(40),
+  3  empleado_id number(10,0) constraint empleado_tc_pk primary key,
+  4  puesto_id number(10,0) not null,
+  5  constraint empleado_tc_puesto_id_fk  foreign_key (puesto_id) references puesto(puesto_id)
+  6  );
+constraint empleado_tc_puesto_id_fk  foreign_key (puesto_id) references puesto(puesto_id)
+                                                 *
+ERROR at line 5:
+ORA-00902: invalid datatype 
+
+
+ALFONSO0307-SQL> create table empleado_tc(
+  2  nombre varchar2(40),
+  3  empleado_id number(10,0) constraint empleado_tc_pk primary key,
+  4  puesto_id number (10,0) not null,
+  5  constraint empleado_tc_puesto_id_fk foreign key (puesto_id) references
+  6  puesto(puesto_id)
+  7  );
+
+Table created.
+
+ALFONSO0307-SQL> create table pensionada(
+  2  pensionada_id number(10,0) constraint pensionada_pk primary key,
+  3  nombre varchar2(40) not null
+  4  );
+
+Table created.
+
+ALFONSO0307-SQL> create table pensionada_empleado(
+  2  pensionada_id number(10,0) constrait pensionada_empleado_pensionada_id_fk references pensionada(pensionada_id),
+  3  empleado_id number(10,0),
+  4  porcentaje number(5,2) not null,
+  5  constraint pensionada_empleado_empleado_id_fk foreign key (empleado_id) references empleado(empleado_id),
+  6  constraint pensionada_empleado_pk primary key (pensionada_id, empleado_id)
+  7  );
+pensionada_id number(10,0) constrait pensionada_empleado_pensionada_id_fk references pensionada(pensionada_id),
+                           *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+ALFONSO0307-SQL> create table pensionada_empleado(
+  2  pensionada_id number(10,0) constraint pensionada_empleado_pensionada_id_fk references pensionada(pensionada_id),
+  3  empleado_id number(10,0),
+  4  porcentaje number(5,2) not null,
+  5  constraint pensionada_empleado_empleado_id_fk foreign key (empleado_id) references empleado(empleado_id),
+  6  constraint pensionada_empleado_pk primary key (pensionada_id, empleado_id)
+  7  );
+
+Table created.
+
+ALFONSO0307-SQL> create table pensionada_empleado_artificial(
+  2  pensionada_empleado_id number(10,0) constraint pensionada_empleado_a_pk primary key,
+  3  pensionada_id number(10,0) constraint pensionada_empleado_pensionada_id_a_fk references pensionada(pensionada_id),
+  4  empleado_id number(10,0),
+  5  porcentaje number(5,2) not null,
+  6  constraint pensionada_empleado_empleado_id_a_fk foreign key (empleado_id) references empleado(empleado_id),
+  7  constraint pensionada_empleado_uk unique (pensionada_id, empleado_id)
+  8  );
+
+Table created.
+
+ALFONSO0307-SQL> create table quincena(
+  2  quincena_id number(10,0) constraint quincena_pk primary key,
+  3  clave varchar2(3) not null
+  4  );
+
+Table created.
+
+ALFONSO0307-SQL> create table nomina(
+  2  nomina_id number(10,0) constraint nomina_id_pk primary key,
+  3  quincena_id constraint nomina_quincena_id_fk references quincena (quincena_id)
+  4  on delete cascade
+  5  );
+
+Table created.
+
+ALFONSO0307-SQL> exit

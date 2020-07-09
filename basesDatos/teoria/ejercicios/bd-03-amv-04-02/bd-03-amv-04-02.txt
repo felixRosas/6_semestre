@@ -1,0 +1,156 @@
+ALFONSO0307-SQL> disconnect
+Disconnected from Oracle Database 18c Enterprise Edition Release 18.0.0.0.0 - Production
+Version 18.3.0.0.0
+-SQL> connect
+Enter user-name: sys as sysdba
+Connected.
+SYS-SQL> grant creat sequence to alfonso0307;
+grant creat sequence to alfonso0307
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+SYS-SQL> grant create sequence to alfonso0307;
+
+Grant succeeded.
+
+SYS-SQL> connect alfonso0307
+Connected.
+ALFONSO0307-SQL> create sequence my_seq
+  2  start with 100
+  3  increment by 10
+  4  maxvalue 200
+  5  minvalue 50
+  6  cycle
+  7  cache 5;
+
+Sequence created.
+
+ALFONSO0307-SQL> select my_seq.nextvalue from dual;
+select my_seq.nextvalue from dual
+       *
+ERROR at line 1:
+ORA-00904: "MY_SEQ"."NEXTVALUE": invalid identifier 
+
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       100                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       110                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       120                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       130                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       140                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       150                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       160                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       170                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       180                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       190                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+       200                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+        50                                                                      
+
+ALFONSO0307-SQL> select my_seq.nextval from dual;
+
+   NEXTVAL                                                                      
+----------                                                                      
+        60                                                                      
+
+ALFONSO0307-SQL> 
+ALFONSO0307-SQL> create table ejemplo_identity(
+  2      id number generated always as identity
+  3  
+ALFONSO0307-SQL> );
+SP2-0042: unknown command ")" - rest of line ignored.
+ALFONSO0307-SQL> 
+ALFONSO0307-SQL> create table ejemplo_identity(
+  2      id number generated always as identity
+  3  );
+
+Table created.
+
+ALFONSO0307-SQL> select sequence_name, min_value,max_value,increment_by,cycle_flag,cache_flag from user_sequences;
+select sequence_name, min_value,max_value,increment_by,cycle_flag,cache_flag from user_sequences
+                                                                  *
+ERROR at line 1:
+ORA-00904: "CACHE_FLAG": invalid identifier 
+
+
+ALFONSO0307-SQL> select sequence_name, min_value,max_value,increment_by,cycle_flag,cache_size from user_sequences;
+
+SEQUENCE_NAME                                                                   
+--------------------------------------------------------------------------------
+ MIN_VALUE  MAX_VALUE INCREMENT_BY C CACHE_SIZE                                 
+---------- ---------- ------------ - ----------                                 
+ISEQ$$_74281                                                                    
+         1 1.0000E+28            1 N         20                                 
+                                                                                
+MY_SEQ                                                                          
+        50        200           10 Y          5                                 
+                                                                                
+
+ALFONSO0307-SQL> col sequence_name format a20
+ALFONSO0307-SQL> select sequence_name, min_value,max_value,increment_by,cycle_flag,cache_size from user_sequences;
+
+SEQUENCE_NAME         MIN_VALUE  MAX_VALUE INCREMENT_BY C CACHE_SIZE            
+-------------------- ---------- ---------- ------------ - ----------            
+ISEQ$$_74281                  1 1.0000E+28            1 N         20            
+MY_SEQ                       50        200           10 Y          5            
+
+ALFONSO0307-SQL> exit

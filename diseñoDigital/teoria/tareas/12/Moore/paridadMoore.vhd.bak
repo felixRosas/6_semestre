@@ -1,0 +1,22 @@
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY paridadMoore IS
+	PORT(
+		E, clk: 	in std_logic;
+		S: 		out std_logic
+	);
+END paridad1;
+
+ARCHITECTURE arcparidadMoore OF paridadMoore IS
+
+SIGNAL D0, D1: std_logic;
+SIGNAL Q0, Q1: std_logic;
+
+BEGIN
+
+u1:entity work.combinacional(arccombinacional) port map(E, Q0, Q1, D0, D1, S);
+u2:entity work.FFD(arcFFD) port map(D0, clk, Q0);
+u3:entity work.FFD(arcFFD) port map(D1, clk, Q1);
+				
+END arcparidad1;

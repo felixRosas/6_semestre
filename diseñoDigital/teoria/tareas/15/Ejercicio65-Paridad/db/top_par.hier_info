@@ -1,0 +1,50 @@
+|top_par
+x => parejer65:u2.x
+reset => parejer65:u2.reset
+clkl => relojlento:u1.clkl
+count << parejer65:u2.s
+
+
+|top_par|relojLento:u1
+clkl => led~reg0.CLK
+clkl => conteo[0].CLK
+clkl => conteo[1].CLK
+clkl => conteo[2].CLK
+clkl => conteo[3].CLK
+clkl => conteo[4].CLK
+clkl => conteo[5].CLK
+clkl => conteo[6].CLK
+clkl => conteo[7].CLK
+clkl => conteo[8].CLK
+clkl => conteo[9].CLK
+clkl => conteo[10].CLK
+clkl => conteo[11].CLK
+clkl => conteo[12].CLK
+clkl => conteo[13].CLK
+clkl => conteo[14].CLK
+clkl => conteo[15].CLK
+clkl => conteo[16].CLK
+clkl => conteo[17].CLK
+clkl => conteo[18].CLK
+clkl => conteo[19].CLK
+clkl => conteo[20].CLK
+clkl => conteo[21].CLK
+clkl => conteo[22].CLK
+clkl => conteo[23].CLK
+clkl => conteo[24].CLK
+led <= led~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top_par|parEjer65:u2
+clkl => presentState[0].CLK
+clkl => presentState[1].CLK
+reset => presentState.OUTPUTSELECT
+reset => presentState.OUTPUTSELECT
+x => Mux0.IN3
+x => Mux1.IN2
+x => Mux1.IN3
+x => Mux0.IN2
+x => Mux1.IN1
+s <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+

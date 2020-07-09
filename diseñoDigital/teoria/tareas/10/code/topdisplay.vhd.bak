@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity topdisplay is
+port(
+selb: in std_logic;
+selu: in std_logic_vector(1 downto 0);
+selr: in std_logic;
+a,b: in std_logic_vector (1 downto 0);
+cin: in std_logic;
+sal: out std_logic_vector(1 downto 0);
+cout: out std_logic
+);
+end topdisplay;
+
+
+architecture arqtopd of topdisplay is
+signal salua, salul: std_logic_vector(1 downto 0);
+BEGIN 
+
+
+end architecture arqtopd;

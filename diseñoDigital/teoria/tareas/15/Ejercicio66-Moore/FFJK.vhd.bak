@@ -1,0 +1,18 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity FFJK is port(
+	clkl,j,k: in std_logic;
+	q,notQ: buffer std_logic:= '0' 
+);
+end FFJK;
+
+architecture arqFFJK of FFJK is
+
+
+begin
+	process(clkl)
+	begin
+	
+	end process;
+end arqFFJK;

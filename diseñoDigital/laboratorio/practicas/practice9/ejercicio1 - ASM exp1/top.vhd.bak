@@ -1,0 +1,15 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity top is port (
+	clk, inicio, x: in std_logic;
+	var: out std_logic_vector(1 downto 0)
+);
+end entity;
+
+architecture arqtop of top is 
+signal ckl2: std_logic;
+begin
+	u1:entity work.relojlento(arqrelojlento) port map (clk, clk2);
+	u2:entity work.ejercicio1(arq
+
+end architecture;

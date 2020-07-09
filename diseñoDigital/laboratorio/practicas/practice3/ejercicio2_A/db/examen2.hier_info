@@ -1,0 +1,13 @@
+|examen2
+SEL[0] => Mux0.IN1
+SEL[1] => Mux0.IN0
+a => cand.IN0
+a => cor.IN0
+a => cxor.IN0
+a => Mux0.IN5
+b => cand.IN1
+b => cor.IN1
+b => cxor.IN1
+f << Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

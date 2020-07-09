@@ -1,0 +1,101 @@
+|top3
+clk => top2:w1.clk
+reset => top2:w1.reset
+cs => rom:w2.cs
+bus_datos[0] << rom:w2.bus_datos[0]
+bus_datos[1] << rom:w2.bus_datos[1]
+bus_datos[2] << rom:w2.bus_datos[2]
+bus_datos[3] << rom:w2.bus_datos[3]
+bus_datos[4] << rom:w2.bus_datos[4]
+bus_datos[5] << rom:w2.bus_datos[5]
+bus_datos[6] << rom:w2.bus_datos[6]
+
+
+|top3|top2:w1
+clk => relojlento:u1.clkl
+reset => contasc:u2.reset
+count[0] <= contasc:u2.count[0]
+count[1] <= contasc:u2.count[1]
+count[2] <= contasc:u2.count[2]
+
+
+|top3|top2:w1|relojlento:u1
+clkl => led~reg0.CLK
+clkl => conteo[0].CLK
+clkl => conteo[1].CLK
+clkl => conteo[2].CLK
+clkl => conteo[3].CLK
+clkl => conteo[4].CLK
+clkl => conteo[5].CLK
+clkl => conteo[6].CLK
+clkl => conteo[7].CLK
+clkl => conteo[8].CLK
+clkl => conteo[9].CLK
+clkl => conteo[10].CLK
+clkl => conteo[11].CLK
+clkl => conteo[12].CLK
+clkl => conteo[13].CLK
+clkl => conteo[14].CLK
+clkl => conteo[15].CLK
+clkl => conteo[16].CLK
+clkl => conteo[17].CLK
+clkl => conteo[18].CLK
+clkl => conteo[19].CLK
+clkl => conteo[20].CLK
+clkl => conteo[21].CLK
+clkl => conteo[22].CLK
+clkl => conteo[23].CLK
+clkl => conteo[24].CLK
+led <= led~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top3|top2:w1|contasc:u2
+clk => present_state[0].CLK
+clk => present_state[1].CLK
+clk => present_state[2].CLK
+reset => present_state.OUTPUTSELECT
+reset => present_state.OUTPUTSELECT
+reset => present_state.OUTPUTSELECT
+count[0] <= present_state[0].DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= present_state[1].DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= present_state[2].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top3|rom:w2
+bus_dir[0] => Mux0.IN10
+bus_dir[0] => Mux1.IN10
+bus_dir[0] => Mux2.IN10
+bus_dir[0] => Mux3.IN10
+bus_dir[0] => Mux4.IN10
+bus_dir[0] => Mux5.IN10
+bus_dir[0] => Mux6.IN10
+bus_dir[1] => Mux0.IN9
+bus_dir[1] => Mux1.IN9
+bus_dir[1] => Mux2.IN9
+bus_dir[1] => Mux3.IN9
+bus_dir[1] => Mux4.IN9
+bus_dir[1] => Mux5.IN9
+bus_dir[1] => Mux6.IN9
+bus_dir[2] => Mux0.IN8
+bus_dir[2] => Mux1.IN8
+bus_dir[2] => Mux2.IN8
+bus_dir[2] => Mux3.IN8
+bus_dir[2] => Mux4.IN8
+bus_dir[2] => Mux5.IN8
+bus_dir[2] => Mux6.IN8
+cs => bus_datos[0].OE
+cs => bus_datos[1].OE
+cs => bus_datos[2].OE
+cs => bus_datos[3].OE
+cs => bus_datos[4].OE
+cs => bus_datos[5].OE
+cs => bus_datos[6].OE
+bus_datos[0] <= bus_datos[0].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[1] <= bus_datos[1].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[2] <= bus_datos[2].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[3] <= bus_datos[3].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[4] <= bus_datos[4].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[5] <= bus_datos[5].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[6] <= bus_datos[6].DB_MAX_OUTPUT_PORT_TYPE
+
+

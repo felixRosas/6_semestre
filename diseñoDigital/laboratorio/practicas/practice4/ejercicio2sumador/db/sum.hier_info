@@ -1,0 +1,11 @@
+|sum
+a[0] => Add0.IN2
+a[1] => Add0.IN1
+b2[0] => Add0.IN4
+b2[1] => Add0.IN3
+cin => Add1.IN6
+salsum[0] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+salsum[1] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+
+

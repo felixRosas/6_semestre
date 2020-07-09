@@ -1,0 +1,679 @@
+Analysis & Synthesis report for ejercicio5
+Fri May 15 10:37:45 2020
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: vga_controller:u2
+ 14. Parameter Settings for User Entity Instance: hw_image_generator:u3
+ 15. Port Connectivity Checks: "vga_controller:u2"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri May 15 10:37:44 2020       ;
+; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                      ; ejercicio5                                  ;
+; Top-level Entity Name              ; TOP                                         ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 2,529                                       ;
+;     Total combinational functions  ; 1,929                                       ;
+;     Dedicated logic registers      ; 751                                         ;
+; Total registers                    ; 751                                         ;
+; Total pins                         ; 46                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; TOP                ; ejercicio5         ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                             ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------+---------+
+; joypad.vhd                       ; yes             ; User VHDL File  ; /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/joypad.vhd             ;         ;
+; genMhz.vhd                       ; yes             ; User VHDL File  ; /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/genMhz.vhd             ;         ;
+; hw_image_generator.vhd           ; yes             ; User VHDL File  ; /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/hw_image_generator.vhd ;         ;
+; vga_controller.vhd               ; yes             ; User VHDL File  ; /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/vga_controller.vhd     ;         ;
+; TOP.vhd                          ; yes             ; User VHDL File  ; /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd                ;         ;
+; relojlento.vhd                   ; yes             ; User VHDL File  ; /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/relojlento.vhd         ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimated Total logic elements              ; 2,529             ;
+;                                             ;                   ;
+; Total combinational functions               ; 1929              ;
+; Logic element usage by number of LUT inputs ;                   ;
+;     -- 4 input functions                    ; 256               ;
+;     -- 3 input functions                    ; 1200              ;
+;     -- <=2 input functions                  ; 473               ;
+;                                             ;                   ;
+; Logic elements by mode                      ;                   ;
+;     -- normal mode                          ; 521               ;
+;     -- arithmetic mode                      ; 1408              ;
+;                                             ;                   ;
+; Total registers                             ; 751               ;
+;     -- Dedicated logic registers            ; 751               ;
+;     -- I/O registers                        ; 0                 ;
+;                                             ;                   ;
+; I/O pins                                    ; 46                ;
+;                                             ;                   ;
+; Embedded Multiplier 9-bit elements          ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; relojlento:u0|led ;
+; Maximum fan-out                             ; 707               ;
+; Total fan-out                               ; 8273              ;
+; Average fan-out                             ; 2.98              ;
++---------------------------------------------+-------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                              ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------+--------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name        ; Entity Name        ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------+--------------------+--------------+
+; |TOP                       ; 1929 (0)            ; 751 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 46   ; 0            ; 0          ; |TOP                       ; TOP                ; work         ;
+;    |genMhz:u1|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|genMhz:u1             ; genMhz             ; work         ;
+;    |hw_image_generator:u3| ; 1841 (1841)         ; 698 (698)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|hw_image_generator:u3 ; hw_image_generator ; work         ;
+;    |joypad:u4|             ; 6 (6)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|joypad:u4             ; joypad             ; work         ;
+;    |relojlento:u0|         ; 35 (35)             ; 21 (21)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|relojlento:u0         ; relojlento         ; work         ;
+;    |vga_controller:u2|     ; 46 (46)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|vga_controller:u2     ; vga_controller     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                    ;
++--------------------------------------------------------------+------------------------------------------------------------------------+
+; Register name                                                ; Reason for Removal                                                     ;
++--------------------------------------------------------------+------------------------------------------------------------------------+
+; hw_image_generator:u3|snake_mesh_xy[0][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[0][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[1][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[1][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[2][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[2][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[3][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[3][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[4][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[4][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[5][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[5][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[6][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[6][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[7][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[7][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[8][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[8][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[9][16]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[9][0]                    ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[10][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[10][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[11][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[11][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[12][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[12][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[13][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[13][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[14][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[14][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[15][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[15][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[16][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[16][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[17][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[17][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[18][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[18][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[19][16]                  ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[19][0]                   ; Stuck at GND due to stuck port data_in                                 ;
+; vga_controller:u2|col[10..15]                                ; Stuck at GND due to stuck port data_in                                 ;
+; vga_controller:u2|row[10..15]                                ; Stuck at GND due to stuck port data_in                                 ;
+; hw_image_generator:u3|snake_mesh_xy[0][31]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[31] ;
+; hw_image_generator:u3|snake_mesh_xy[0][30]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[30] ;
+; hw_image_generator:u3|snake_mesh_xy[0][29]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[29] ;
+; hw_image_generator:u3|snake_mesh_xy[0][28]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[28] ;
+; hw_image_generator:u3|snake_mesh_xy[0][27]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[27] ;
+; hw_image_generator:u3|snake_mesh_xy[0][26]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[26] ;
+; hw_image_generator:u3|snake_mesh_xy[0][25]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[25] ;
+; hw_image_generator:u3|snake_mesh_xy[0][24]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[24] ;
+; hw_image_generator:u3|snake_mesh_xy[0][23]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[23] ;
+; hw_image_generator:u3|snake_mesh_xy[0][22]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[22] ;
+; hw_image_generator:u3|snake_mesh_xy[0][21]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[21] ;
+; hw_image_generator:u3|snake_mesh_xy[0][20]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[20] ;
+; hw_image_generator:u3|snake_mesh_xy[0][19]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[19] ;
+; hw_image_generator:u3|snake_mesh_xy[0][18]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[18] ;
+; hw_image_generator:u3|snake_mesh_xy[0][15]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[15] ;
+; hw_image_generator:u3|snake_mesh_xy[0][14]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[14] ;
+; hw_image_generator:u3|snake_mesh_xy[0][13]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[13] ;
+; hw_image_generator:u3|snake_mesh_xy[0][12]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[12] ;
+; hw_image_generator:u3|snake_mesh_xy[0][11]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[11] ;
+; hw_image_generator:u3|snake_mesh_xy[0][10]                   ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[10] ;
+; hw_image_generator:u3|snake_mesh_xy[0][9]                    ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[9]  ;
+; hw_image_generator:u3|snake_mesh_xy[0][8]                    ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[8]  ;
+; hw_image_generator:u3|snake_mesh_xy[0][7]                    ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[7]  ;
+; hw_image_generator:u3|snake_mesh_xy[0][6]                    ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[6]  ;
+; hw_image_generator:u3|snake_mesh_xy[0][5]                    ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[5]  ;
+; hw_image_generator:u3|snake_mesh_xy[0][4]                    ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[4]  ;
+; hw_image_generator:u3|snake_mesh_xy[0][3]                    ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[3]  ;
+; hw_image_generator:u3|snake_mesh_xy[0][2]                    ; Merged with hw_image_generator:u3|\snake_move:snake_head_xy_future[2]  ;
+; hw_image_generator:u3|\snake_move:snake_head_xy_future[17]   ; Merged with hw_image_generator:u3|snake_mesh_xy[0][17]                 ;
+; hw_image_generator:u3|\snake_move:snake_head_xy_future[1]    ; Merged with hw_image_generator:u3|snake_mesh_xy[0][1]                  ;
+; vga_controller:u2|h_count[9]                                 ; Merged with vga_controller:u2|col[9]                                   ;
+; vga_controller:u2|h_count[8]                                 ; Merged with vga_controller:u2|col[8]                                   ;
+; vga_controller:u2|h_count[7]                                 ; Merged with vga_controller:u2|col[7]                                   ;
+; vga_controller:u2|h_count[6]                                 ; Merged with vga_controller:u2|col[6]                                   ;
+; vga_controller:u2|h_count[5]                                 ; Merged with vga_controller:u2|col[5]                                   ;
+; vga_controller:u2|h_count[4]                                 ; Merged with vga_controller:u2|col[4]                                   ;
+; vga_controller:u2|h_count[3]                                 ; Merged with vga_controller:u2|col[3]                                   ;
+; vga_controller:u2|h_count[2]                                 ; Merged with vga_controller:u2|col[2]                                   ;
+; vga_controller:u2|h_count[1]                                 ; Merged with vga_controller:u2|col[1]                                   ;
+; vga_controller:u2|h_count[0]                                 ; Merged with vga_controller:u2|col[0]                                   ;
+; vga_controller:u2|v_count[0]                                 ; Merged with vga_controller:u2|row[0]                                   ;
+; vga_controller:u2|v_count[1]                                 ; Merged with vga_controller:u2|row[1]                                   ;
+; vga_controller:u2|v_count[2]                                 ; Merged with vga_controller:u2|row[2]                                   ;
+; vga_controller:u2|v_count[3]                                 ; Merged with vga_controller:u2|row[3]                                   ;
+; vga_controller:u2|v_count[4]                                 ; Merged with vga_controller:u2|row[4]                                   ;
+; vga_controller:u2|v_count[5]                                 ; Merged with vga_controller:u2|row[5]                                   ;
+; vga_controller:u2|v_count[6]                                 ; Merged with vga_controller:u2|row[6]                                   ;
+; vga_controller:u2|v_count[7]                                 ; Merged with vga_controller:u2|row[7]                                   ;
+; vga_controller:u2|v_count[8]                                 ; Merged with vga_controller:u2|row[8]                                   ;
+; vga_controller:u2|v_count[9]                                 ; Merged with vga_controller:u2|row[9]                                   ;
+; hw_image_generator:u3|\ramdom_number_gen:random_y[0]         ; Merged with hw_image_generator:u3|random_xy[0]                         ;
+; hw_image_generator:u3|\ramdom_number_gen:random_x[0]         ; Merged with hw_image_generator:u3|random_xy[16]                        ;
+; hw_image_generator:u3|random_xy[16]                          ; Merged with hw_image_generator:u3|random_xy[0]                         ;
+; hw_image_generator:u3|\snake_move:food_xy_future[0]          ; Merged with hw_image_generator:u3|\snake_move:food_xy_future[16]       ;
+; hw_image_generator:u3|\snake_move:snake_length_future[5..31] ; Lost fanout                                                            ;
+; Total Number of Removed Registers = 133                      ;                                                                        ;
++--------------------------------------------------------------+------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                           ;
++--------------------------------------------+---------------------------+----------------------------------------------+
+; Register name                              ; Reason for Removal        ; Registers Removed due to This Register       ;
++--------------------------------------------+---------------------------+----------------------------------------------+
+; hw_image_generator:u3|snake_mesh_xy[0][16] ; Stuck at GND              ; hw_image_generator:u3|snake_mesh_xy[1][16],  ;
+;                                            ; due to stuck port data_in ; hw_image_generator:u3|snake_mesh_xy[2][16],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[3][16],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[4][16],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[5][16],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[6][16],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[7][16],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[8][16],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[9][16],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[10][16], ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[11][16], ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[12][16], ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[13][16], ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[14][16], ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[15][16], ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[16][16], ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[17][16], ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[18][16], ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[19][16]  ;
+; hw_image_generator:u3|snake_mesh_xy[0][0]  ; Stuck at GND              ; hw_image_generator:u3|snake_mesh_xy[1][0],   ;
+;                                            ; due to stuck port data_in ; hw_image_generator:u3|snake_mesh_xy[2][0],   ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[3][0],   ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[4][0],   ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[5][0],   ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[6][0],   ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[7][0],   ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[8][0],   ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[9][0],   ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[10][0],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[11][0],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[12][0],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[13][0],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[14][0],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[15][0],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[16][0],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[17][0],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[18][0],  ;
+;                                            ;                           ; hw_image_generator:u3|snake_mesh_xy[19][0]   ;
++--------------------------------------------+---------------------------+----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 751   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 637   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 638   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------+
+; Inverted Register Statistics                                         ;
++------------------------------------------------------------+---------+
+; Inverted Register                                          ; Fan out ;
++------------------------------------------------------------+---------+
+; hw_image_generator:u3|\snake_move:food_xy_future[7]        ; 2       ;
+; hw_image_generator:u3|\snake_move:food_xy_future[6]        ; 2       ;
+; hw_image_generator:u3|\snake_move:food_xy_future[3]        ; 2       ;
+; hw_image_generator:u3|\snake_move:food_xy_future[24]       ; 2       ;
+; hw_image_generator:u3|\snake_move:food_xy_future[21]       ; 2       ;
+; hw_image_generator:u3|\snake_move:food_xy_future[19]       ; 2       ;
+; hw_image_generator:u3|\snake_move:food_xy_future[18]       ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[13][23]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[13][22]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[13][21]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[13][20]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[13][8]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[13][6]                 ; 2       ;
+; hw_image_generator:u3|\snake_move:snake_length_future[0]   ; 11      ;
+; hw_image_generator:u3|snake_mesh_xy[14][23]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[14][22]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[14][21]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[14][20]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[14][8]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[14][6]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[9][23]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[9][22]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[9][21]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[9][20]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[9][8]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[9][6]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[8][23]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[8][22]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[8][21]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[8][20]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[8][8]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[8][6]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[11][23]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[11][22]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[11][21]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[11][20]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[11][8]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[11][6]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[10][23]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[10][22]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[10][21]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[10][20]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[10][8]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[10][6]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[2][23]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[2][22]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[2][21]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[2][20]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[2][8]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[2][6]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[1][23]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[1][22]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[1][21]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[1][20]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[1][8]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[1][6]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[16][8]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[16][6]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[16][23]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[16][22]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[16][21]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[16][20]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[19][23]                ; 1       ;
+; hw_image_generator:u3|snake_mesh_xy[19][22]                ; 1       ;
+; hw_image_generator:u3|snake_mesh_xy[19][21]                ; 1       ;
+; hw_image_generator:u3|snake_mesh_xy[19][20]                ; 1       ;
+; hw_image_generator:u3|snake_mesh_xy[19][8]                 ; 1       ;
+; hw_image_generator:u3|snake_mesh_xy[19][6]                 ; 1       ;
+; hw_image_generator:u3|snake_mesh_xy[17][23]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[17][22]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[17][21]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[17][20]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[17][8]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[17][6]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[18][8]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[18][6]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[18][23]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[18][22]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[18][21]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[18][20]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[15][8]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[15][6]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[15][23]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[15][22]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[15][21]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[15][20]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[7][23]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[7][22]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[7][21]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[7][20]                 ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[7][8]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[7][6]                  ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[12][23]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[12][22]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[12][21]                ; 2       ;
+; hw_image_generator:u3|snake_mesh_xy[12][20]                ; 2       ;
+; hw_image_generator:u3|\snake_move:snake_head_xy_future[23] ; 4       ;
+; hw_image_generator:u3|\snake_move:snake_head_xy_future[22] ; 4       ;
+; hw_image_generator:u3|\snake_move:snake_head_xy_future[21] ; 4       ;
+; hw_image_generator:u3|\snake_move:snake_head_xy_future[20] ; 4       ;
+; Total number of inverted registers = 130*                  ;         ;
++------------------------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |TOP|joypad:u4|direction_next[0]    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP|hw_image_generator:u3|green[0] ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |TOP|vga_controller:u2|v_count      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_controller:u2 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; h_polar        ; '0'   ; Enumerated                            ;
+; v_polar        ; '0'   ; Enumerated                            ;
+; scr_width      ; 480   ; Signed Integer                        ;
+; scr_height     ; 640   ; Signed Integer                        ;
+; h_front_porch  ; 16    ; Signed Integer                        ;
+; h_sync_pulse   ; 96    ; Signed Integer                        ;
+; h_back_porch   ; 48    ; Signed Integer                        ;
+; v_front_porch  ; 10    ; Signed Integer                        ;
+; v_sync_pulse   ; 2     ; Signed Integer                        ;
+; v_back_porch   ; 33    ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: hw_image_generator:u3 ;
++--------------------+-------+---------------------------------------+
+; Parameter Name     ; Value ; Type                                  ;
++--------------------+-------+---------------------------------------+
+; pixels_y           ; 480   ; Signed Integer                        ;
+; pixels_x           ; 640   ; Signed Integer                        ;
+; food_width         ; 20    ; Signed Integer                        ;
+; head_width         ; 20    ; Signed Integer                        ;
+; snake_begin_x      ; 240   ; Signed Integer                        ;
+; snake_begin_y      ; 320   ; Signed Integer                        ;
+; snake_length_begin ; 1     ; Signed Integer                        ;
+; snake_length_max   ; 20    ; Signed Integer                        ;
+; food_begin_x       ; 300   ; Signed Integer                        ;
+; food_begin_y       ; 200   ; Signed Integer                        ;
++--------------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "vga_controller:u2" ;
++---------+-------+----------+------------------+
+; Port    ; Type  ; Severity ; Details          ;
++---------+-------+----------+------------------+
+; reset_n ; Input ; Info     ; Stuck at VCC     ;
++---------+-------+----------+------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 46                          ;
+; cycloneiii_ff         ; 751                         ;
+;     CLR               ; 1                           ;
+;     ENA               ; 2                           ;
+;     ENA CLR           ; 636                         ;
+;     plain             ; 112                         ;
+; cycloneiii_lcell_comb ; 1931                        ;
+;     arith             ; 1408                        ;
+;         2 data inputs ; 301                         ;
+;         3 data inputs ; 1107                        ;
+;     normal            ; 523                         ;
+;         0 data inputs ; 45                          ;
+;         1 data inputs ; 70                          ;
+;         2 data inputs ; 59                          ;
+;         3 data inputs ; 93                          ;
+;         4 data inputs ; 256                         ;
+;                       ;                             ;
+; Max LUT depth         ; 15.60                       ;
+; Average LUT depth     ; 12.33                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Fri May 15 10:37:07 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ejercicio5 -c ejercicio5
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file joypad.vhd
+    Info (12022): Found design unit 1: joypad-behavior File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/joypad.vhd Line: 14
+    Info (12023): Found entity 1: joypad File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/joypad.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file genMhz.vhd
+    Info (12022): Found design unit 1: genMhz-arqgenMhz File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/genMhz.vhd Line: 10
+    Info (12023): Found entity 1: genMhz File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/genMhz.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file hw_image_generator.vhd
+    Info (12022): Found design unit 1: hw_image_generator-behavior File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/hw_image_generator.vhd Line: 83
+    Info (12023): Found entity 1: hw_image_generator File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/hw_image_generator.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file vga_controller.vhd
+    Info (12022): Found design unit 1: vga_controller-behavior File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/vga_controller.vhd Line: 74
+    Info (12023): Found entity 1: vga_controller File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/vga_controller.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file TOP.vhd
+    Info (12022): Found design unit 1: TOP-arqTOP File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd Line: 33
+    Info (12023): Found entity 1: TOP File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file relojlento.vhd
+    Info (12022): Found design unit 1: relojlento-arqrelojlento File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/relojlento.vhd Line: 10
+    Info (12023): Found entity 1: relojlento File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/relojlento.vhd Line: 4
+Info (12127): Elaborating entity "TOP" for the top level hierarchy
+Info (12129): Elaborating entity "relojlento" using architecture "A:arqrelojlento" for hierarchy "relojlento:u0" File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd Line: 48
+Info (12129): Elaborating entity "genMhz" using architecture "A:arqgenmhz" for hierarchy "genMhz:u1" File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd Line: 49
+Info (12129): Elaborating entity "vga_controller" using architecture "A:behavior" for hierarchy "vga_controller:u2" File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd Line: 51
+Info (12129): Elaborating entity "hw_image_generator" using architecture "A:behavior" for hierarchy "hw_image_generator:u3" File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd Line: 62
+Warning (10631): VHDL Process Statement warning at hw_image_generator.vhd(121): inferring latch(es) for signal or variable "snake_head_xy_future", which holds its previous value in one or more paths through the process File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/hw_image_generator.vhd Line: 121
+Info (10041): Inferred latch for "snake_move:snake_head_xy_future[0]" at hw_image_generator.vhd(135) File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/hw_image_generator.vhd Line: 135
+Info (10041): Inferred latch for "snake_move:snake_head_xy_future[16]" at hw_image_generator.vhd(135) File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/hw_image_generator.vhd Line: 135
+Info (12129): Elaborating entity "joypad" using architecture "A:behavior" for hierarchy "joypad:u4" File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd Line: 84
+Info (13000): Registers with preset signals will power-up high File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/hw_image_generator.vhd Line: 135
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "red[0]" is stuck at GND File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd Line: 15
+    Warning (13410): Pin "red[1]" is stuck at GND File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/proyectos/proyectoFinal/TOP.vhd Line: 15
+Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:food_xy_future[7] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:food_xy_future[6] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:food_xy_future[3] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:food_xy_future[24] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:food_xy_future[21] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:food_xy_future[19] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:food_xy_future[18] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:snake_length_future[0] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:snake_head_xy_future[23] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:snake_head_xy_future[22] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:snake_head_xy_future[21] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:snake_head_xy_future[20] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:snake_head_xy_future[8] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:snake_head_xy_future[6] will power up to High
+    Critical Warning (18010): Register hw_image_generator:u3|\snake_move:inited will power up to High
+Info (17049): 27 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2644 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 39 output pins
+    Info (21061): Implemented 2598 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 1001 megabytes
+    Info: Processing ended: Fri May 15 10:37:45 2020
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:01:09
+
+

@@ -1,0 +1,126 @@
+db.controlEscolar.insertOne(
+{
+    nombre:"Alfonso",
+    apePat:"Murrieta",
+    email:"alfonsomvmx@outlook.com",
+    semestre:"2020-2"
+}
+);
+
+
+
+db.controlEscolar.insertOne(
+{
+    nombre:"Jorge",
+    apePat:"Cárdenas",
+    apeMat:"Cárdenas",
+    email:"jorgecar@outlook.com",
+    semestre:"2020-2",
+    edad:"21",
+}
+);
+
+
+
+db.createCollection(
+"planEstudios",{
+    validator:{
+        $jsonSchema:{
+            bsonType:"object",
+            required:["nombre","tipo","fechaAprobacion","numAsignaturas"],
+            properties:{
+                nombre:{
+                    bsonType:"string",
+                    description:"Nombre del plan de estudios, string y requerido"
+                },
+                tipo:{
+                    enum:["Ordinario","Extraordinario"]
+                },
+                fechaAprobacion:{
+                    bsonType:"string",
+                    description:"Fecha de aprobacion del plan de estudios"
+                },
+                numAsignaturas:{
+                    bsonType:"int",
+                    description:"Número de asignaturas del plan de estudios",
+                    maximum:150
+                },
+                descripcion:{
+                    bsonType:"string",
+                    description:"Descripción del plan de estudios "
+                } 
+            }
+        }    
+    }
+}
+);
+
+
+db.planEstudios.insertOne(
+{
+    nombre:"PLAN 2016",
+    descripcion:"El plan más hardcore de la vida :D",
+    tipo:"Ordinario",
+    fechaAprobacion:"2020-01-11",
+    numAsignaturas:NumberInt(60)
+}
+);
+
+
+
+db.estudiantes.findOne(
+{
+    name:"Gisela Levin"
+},
+{
+    name:true,
+    _id:false
+}
+);
+
+
+
+
+db.estudiantes.find(
+{
+    _id:{
+        $gte:200
+    }
+}
+);
+
+
+db.estudiantes.find(
+{
+    $or:[
+        {name:{$regex:"^A"}}, 
+        {name:{$regex:"^B"}}
+    ] 
+},
+{
+    name:true,
+    _id:false
+}
+);
+
+db.estudiantes.find(
+{
+    $and:[
+        {"scores.score":{$gte:90}},
+        {"scores.type":{$regex:"^e"}}
+    ]
+},
+{
+    name:true,
+    scores:true,
+    _id:false
+}
+);
+
+
+
+
+
+
+
+

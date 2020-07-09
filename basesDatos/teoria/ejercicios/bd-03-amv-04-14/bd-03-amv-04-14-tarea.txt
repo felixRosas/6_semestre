@@ -1,0 +1,159 @@
+SYS-SQL> connect alfonso03072
+Connected.
+ALFONSO03072-SQL> alter sequence cliente_seq
+  2  maxvalue 10000
+  3  nocycle;
+
+Sequence altered.
+
+ALFONSO03072-SQL> desc factura;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FACTURA_ID                                NOT NULL NUMBER(10)
+ FECHA_FACTURA                             NOT NULL DATE
+ MONTO_TOTAL                               NOT NULL FLOAT(10)
+ DESCUENTO                                          FLOAT(10)
+ CLIENTE_ID                                NOT NULL NUMBER(10)
+
+ALFONSO03072-SQL> create or replace view v_cliente_factura as
+  2  select c.nombre, c.apellido_paterno, c.apellido_materno,
+  3  f.fecha_factura, f.monto_total
+  4  from cliente c, factura f
+  5  where c.cliente_id=f.cliente_id
+  6  ;
+create or replace view v_cliente_factura as
+                       *
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+ALFONSO03072-SQL> connect sys as sysdba
+Connected.
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> grant create view to alfonso03072;
+
+Grant succeeded.
+
+SYS-SQL> connect alfonso03072
+Connected.
+ALFONSO03072-SQL> create or replace view v_cliente_factura as
+  2  select c.nombre, c.apellido_paterno, c.apellido_materno,
+  3  f.fecha_factura, f.monto_total
+  4  from cliente c, factura f
+  5  where c.cliente_id=f.cliente_id;
+
+View created.
+
+ALFONSO03072-SQL> alter table cliente rename column nombre to nombre_cliente;
+
+Table altered.
+
+ALFONSO03072-SQL> desc editorial;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EDITORIAL_ID                              NOT NULL NUMBER(5)
+ CLAVE                                     NOT NULL VARCHAR2(50)
+ ACTIVO                                    NOT NULL NUMBER(1)
+
+ALFONSO03072-SQL> alter table editorial rename column editorial_id to editorial_libro_id;
+
+Table altered.
+
+ALFONSO03072-SQL> desc libro;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LIBRO_ID                                  NOT NULL NUMBER(10)
+ PRECIO                                    NOT NULL NUMBER(6,2)
+ NOMBRE                                    NOT NULL VARCHAR2(100)
+ FECHA_ESTATUS                             NOT NULL DATE
+ EDITORIAL_ID                              NOT NULL NUMBER(5)
+ TEMATICA_ID                                        NUMBER(3)
+ ESTATUS_LIBRO_ID                          NOT NULL NUMBER(2)
+ CLAVE                                     NOT NULL VARCHAR2(10)
+
+ALFONSO03072-SQL> alter table libro disable constraint libro_tematica_fk;
+
+Table altered.
+
+ALFONSO03072-SQL> alter table libro disable constraint libro_status_fk;
+
+Table altered.
+
+ALFONSO03072-SQL> alter table libro disable constraint libro_editorial_fk;
+
+Table altered.
+
+ALFONSO03072-SQL> lter table libro enable constraint libro_editorial_fk;
+SP2-0734: unknown command beginning "lter table..." - rest of line ignored.
+ALFONSO03072-SQL> alter table libro enable constraint libro_editorial_fk;
+
+Table altered.
+
+ALFONSO03072-SQL> alter table libro enable constraint libro_status_fk;
+
+Table altered.
+
+ALFONSO03072-SQL> alter table libro enable constraint libro_tematica_fk;
+
+Table altered.
+
+ALFONSO03072-SQL> alter table libro rename column libro_id to uik_clv_libro;
+
+Table altered.
+
+ALFONSO03072-SQL> drop table libro cascade constraints;
+
+Table dropped.
+
+ALFONSO03072-SQL> drop table tematica;
+
+Table dropped.
+
+ALFONSO03072-SQL> drop table editorial;
+
+Table dropped.
+
+ALFONSO03072-SQL> drop table estatus_libro cascade constraints;
+
+Table dropped.
+
+ALFONSO03072-SQL> drop table historico_estatus_libro cascade constraints;
+
+Table dropped.
+
+ALFONSO03072-SQL> drop table cliente cascade constraints;
+
+Table dropped.
+
+ALFONSO03072-SQL> drop table factura cascade constraints;
+
+Table dropped.
+
+ALFONSO03072-SQL> connect sys as sysdba;
+Connected.
+SYS-SQL> drop user alfonso03072 cascade;
+
+User dropped.
+
+SYS-SQL> commit;
+
+Commit complete.
+
+SYS-SQL> exit

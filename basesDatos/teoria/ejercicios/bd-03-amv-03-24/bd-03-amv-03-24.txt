@@ -1,0 +1,208 @@
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> 
+SYS-SQL> connect alfonso0307
+Connected.
+ALFONSO0307-SQL> creat global temporary table empleado_temp(
+SP2-0734: unknown command beginning "creat glob..." - rest of line ignored.
+ALFONSO0307-SQL> empleado_id number(10,0) not null,
+SP2-0734: unknown command beginning "empleado_i..." - rest of line ignored.
+ALFONSO0307-SQL> nombre varchar2(20)
+SP2-0734: unknown command beginning "nombre var..." - rest of line ignored.
+ALFONSO0307-SQL> creat global temporary table empleado_temp( empleado_id number(10,0) not null, nombre varchar2(20) ) on commit preserve rows;
+SP2-0734: unknown command beginning "creat glob..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+ALFONSO0307-SQL> create global temporary table empleado_temp( empleado_id number(10,0) not null, nombre varchar2(20) ) on commit preserve rows;
+
+Table created.
+
+ALFONSO0307-SQL> insert into empleado_temp(empleado_id,nombre)
+  2  values (1,'Alfonso');
+
+1 row created.
+
+ALFONSO0307-SQL> show * from empleado_temp;
+SP2-0158: unknown SHOW option "*"
+SP2-0158: unknown SHOW option "from"
+SP2-0735: unknown SHOW option beginning "empleado_t..."
+ALFONSO0307-SQL> select * from empleado_temp;
+
+EMPLEADO_ID NOMBRE                                                              
+----------- --------------------                                                
+          1 Alfonso                                                             
+
+ALFONSO0307-SQL> commit;
+
+Commit complete.
+
+ALFONSO0307-SQL> select * from empleado_temp;
+
+EMPLEADO_ID NOMBRE                                                              
+----------- --------------------                                                
+          1 Alfonso                                                             
+
+ALFONSO0307-SQL> disconnect
+Disconnected from Oracle Database 18c Enterprise Edition Release 18.0.0.0.0 - Production
+Version 18.3.0.0.0
+-SQL> connect alfonso0307
+Connected.
+ALFONSO0307-SQL> select * from empleado_temp;
+
+no rows selected
+
+ALFONSO0307-SQL> create table calculo_sueldo(
+  2  fecha_calculo not null,
+  3  sueldo_mensual number(10,2) not null,
+  4  sueldo_quincenal number(10,2) not null generated always as (sueldo_mensual/2) virtual,
+  5  iva number(10,0) not null as (sueldo_mensual*0.16)
+  6  );
+sueldo_quincenal number(10,2) not null generated always as (sueldo_mensual/2) virtual,
+                                       *
+ERROR at line 4:
+ORA-00907: missing right parenthesis 
+
+
+ALFONSO0307-SQL> create table calculo_sueldo(
+  2  fecha_calculo not null,
+  3  sueldo_mensual number(10,2) not null,
+  4  sueldo_quincenal number(10,2) generated always as (sueldo_mensual/2) virtual,
+  5  iva number(10,0) as (sueldo_mensual*0.16)
+  6  );
+fecha_calculo not null,
+*
+ERROR at line 2:
+ORA-02263: need to specify the datatype for this column 
+
+
+ALFONSO0307-SQL> create table calculo_sueldo(
+  2  fecha_calculo date not null,
+  3  sueldo_mensual number(10,2) not null,
+  4  sueldo_quincenal number(10,2) generated always as (sueldo_mensual/2) virtual,
+  5  iva number(10,0) as (sueldo_mensual*0.16)
+  6  );
+
+Table created.
+
+ALFONSO0307-SQL> insert into calculo_sueldo values (sysdate,34500);
+insert into calculo_sueldo values (sysdate,34500)
+            *
+ERROR at line 1:
+ORA-00947: not enough values 
+
+
+ALFONSO0307-SQL> insert into calculo_sueldo (fecha_calculo,sueldo_mensual) values (sysdate,34500);
+
+1 row created.
+
+ALFONSO0307-SQL> select * from calculo_sueldo;
+
+FECHA_CALCULO      SUELDO_MENSUAL SUELDO_QUINCENAL        IVA                   
+------------------ -------------- ---------------- ----------                   
+24-MAR-20                   34500            17250       5520                   
+
+ALFONSO0307-SQL> create table calculo_sueldo_copia as select * from calculo_sueldo;
+
+Table created.
+
+ALFONSO0307-SQL> select * from calculo_sueldo_copia;
+
+FECHA_CALCULO      SUELDO_MENSUAL SUELDO_QUINCENAL        IVA                   
+------------------ -------------- ---------------- ----------                   
+24-MAR-20                   34500            17250       5520                   
+
+ALFONSO0307-SQL> desc calculo_sueldo_copia;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FECHA_CALCULO                             NOT NULL DATE
+ SUELDO_MENSUAL                            NOT NULL NUMBER(10,2)
+ SUELDO_QUINCENAL                                   NUMBER(10,2)
+ IVA                                                NUMBER(10)
+
+ALFONSO0307-SQL> desc calculo_sueldo;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FECHA_CALCULO                             NOT NULL DATE
+ SUELDO_MENSUAL                            NOT NULL NUMBER(10,2)
+ SUELDO_QUINCENAL                                   NUMBER(10,2)
+ IVA                                                NUMBER(10)
+
+ALFONSO0307-SQL> create table incidencia (
+  2  descripcion varchar2(20) not null,
+  3  fecha_registro date default sysdate,
+  4  tipo char default 'N',
+  5  descuento number(5,2) not null default 5
+  6  );
+descuento number(5,2) not null default 5
+                               *
+ERROR at line 5:
+ORA-00907: missing right parenthesis 
+
+
+ALFONSO0307-SQL> edit
+Wrote file afiedt.buf
+
+  1  create table incidencia (
+  2  descripcion varchar2(20) not null,
+  3  fecha_registro date default sysdate,
+  4  tipo char default 'N',
+  5  descuento number(5,2) not null default 5
+  6* )
+ALFONSO0307-SQL> 
+ALFONSO0307-SQL> create table incidencia (
+  2  descripcion varchar2(20) not null,
+  3  fecha_registro date default sysdate,
+  4  tipo char default 'N',
+  5  descuento number(5,2) default 5
+  6  );
+
+Table created.
+
+ALFONSO0307-SQL> insert into incidencia(descripcion) values ('it's too late');
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+ALFONSO0307-SQL> insert into incidencia(descripcion) values ('its too late');
+
+1 row created.
+
+ALFONSO0307-SQL> select * from incidencia;
+
+DESCRIPCION          FECHA_REGISTRO     T  DESCUENTO                            
+-------------------- ------------------ - ----------                            
+its too late         24-MAR-20          N          5                            
+
+ALFONSO0307-SQL> insert into incidencia(descripcion,fecha_registro) values ('its too late',sysdate+1);
+
+1 row created.
+
+ALFONSO0307-SQL> select * from incidencia;
+
+DESCRIPCION          FECHA_REGISTRO     T  DESCUENTO                            
+-------------------- ------------------ - ----------                            
+its too late         24-MAR-20          N          5                            
+its too late         25-MAR-20          N          5                            
+
+ALFONSO0307-SQL> insert into incidencia(descripcion,fecha_registro) values ('its too late',null);
+
+1 row created.
+
+ALFONSO0307-SQL> select * from incidencia;
+
+DESCRIPCION          FECHA_REGISTRO     T  DESCUENTO                            
+-------------------- ------------------ - ----------                            
+its too late         24-MAR-20          N          5                            
+its too late         25-MAR-20          N          5                            
+its too late                            N          5                            
+
+ALFONSO0307-SQL> col tipo format a4
+ALFONSO0307-SQL> select * from incidencia;
+
+DESCRIPCION          FECHA_REGISTRO     TIPO  DESCUENTO                         
+-------------------- ------------------ ---- ----------                         
+its too late         24-MAR-20          N             5                         
+its too late         25-MAR-20          N             5                         
+its too late                            N             5                         
+
+ALFONSO0307-SQL> exit

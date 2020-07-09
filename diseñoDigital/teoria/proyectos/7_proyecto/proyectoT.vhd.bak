@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity proyectoT  is 
+port(clk50MHZ: in std_logic
+	);
+end entity;
+
+architecture behavior of proyetoT is 
+begin 
+	regNet : entity work.procesador(behavior) port map (clk , rw, ld );
+	process(clk50MHZ)
+		variable cnt : integer range(0 to 24):= 0;
+		begin 
+			if rising_edge(clk50MHZ) then 
+				clk <= not clk;
+				cnt := 0;
+			else
+				cnt := cnt +1;
+			end if;
+		end if;
+	end process;
+end architecture behavior;

@@ -1,0 +1,328 @@
+SYS-SQL> connect alfonso0307
+Connected.
+ALFONSO0307-SQL> create table empleado_ext(
+  2      num_empleado number(10,0),
+  3      nombre varchar2(40),
+  4      ap_paterno varchar2(40),
+  5      ap_materno varchar2(40),
+  6      fecha_nacimiento date,
+  7      email varchar2(100),
+  8      sueldo_mensual number(8,2),
+  9      comision number(8,2)
+ 10  )
+ 11  
+ALFONSO0307-SQL> organization external(
+SP2-0734: unknown command beginning "organizati..." - rest of line ignored.
+ALFONSO0307-SQL>     type oracle_loader
+SP2-0734: unknown command beginning "type oracl..." - rest of line ignored.
+ALFONSO0307-SQL>     default directory tmp_dir
+SP2-0734: unknown command beginning "default di..." - rest of line ignored.
+ALFONSO0307-SQL>     access parameters(
+SP2-0734: unknown command beginning "access par..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+ALFONSO0307-SQL>         records delimited by newline
+SP2-0734: unknown command beginning "records de..." - rest of line ignored.
+ALFONSO0307-SQL>         badfile tmp_dir:'empleado_ext_bad2.log'
+SP2-0734: unknown command beginning "badfile tm..." - rest of line ignored.
+ALFONSO0307-SQL>         logfile tmp_dir:'empleado_ext2.log'
+SP2-0734: unknown command beginning "logfile tm..." - rest of line ignored.
+ALFONSO0307-SQL>         fields terminated by ','
+SP2-0734: unknown command beginning "fields ter..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+ALFONSO0307-SQL>         lrtrim
+SP2-0042: unknown command "lrtrim" - rest of line ignored.
+ALFONSO0307-SQL>         missing field values are null(
+SP2-0734: unknown command beginning "missing fi..." - rest of line ignored.
+ALFONSO0307-SQL>             num_empleado,nombre, ap_paterno, ap_materno,
+SP2-0734: unknown command beginning "num_emplea..." - rest of line ignored.
+ALFONSO0307-SQL>             fecha_nacimiento date mask "dd/mm/yyyy",
+SP2-0734: unknown command beginning "fecha_naci..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+ALFONSO0307-SQL>             email,sueldo_mensual,comision
+SP2-0734: unknown command beginning "email,suel..." - rest of line ignored.
+ALFONSO0307-SQL>         )
+SP2-0042: unknown command ")" - rest of line ignored.
+ALFONSO0307-SQL>     )
+SP2-0042: unknown command ")" - rest of line ignored.
+ALFONSO0307-SQL>     location ('empleado_ext2.csv')
+SP2-0734: unknown command beginning "location (..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+ALFONSO0307-SQL> )
+SP2-0042: unknown command ")" - rest of line ignored.
+ALFONSO0307-SQL> 
+ALFONSO0307-SQL> create table empleado_ext2( num_empleado number(10,0),nombre varchar2(40),ap_paterno varchar2(40),ap_materno varchar2(40),fecha_nacimiento date,email varchar2(100),sueldo_mensual number(8,2),comision number(8,2))
+  2  organization external(
+  3  type oracle_loader
+  4  default directory tmp_dir
+  5  access parameters(
+  6  records delimited by newline
+  7  badfile tmp_dir:'empleado_ext_bad2.log'
+  8  logfile tmp_dir:'empleado_ext2.log'
+  9  fields terminated by ','
+ 10  lrtrim
+ 11  missing field values are null(
+ 12  num_empleado,nombre, ap_paterno, ap_materno,
+ 13  fecha_nacimiento date mask "dd/mm/yyyy",
+ 14  email,sueldo_mensual,comision
+ 15  )
+ 16  )
+ 17  location ('empleado_ext2.csv')
+ 18  )reject limit unlimited;
+
+Table created.
+
+ALFONSO0307-SQL> select * from empleado_ext2
+  2  ;
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+        1000 Juanito                                                            
+Herrera                                                                         
+Herrera                                  01-MAR-00                              
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+any@any.com                                                                     
+        100000         12                                                       
+                                                                                
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+        1001 Alfonso                                                            
+Murrieta                                                                        
+Villegas                                 11-JAN-99                              
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+alfonsomvm@outlook.com                                                          
+         43540       1232                                                       
+                                                                                
+
+ALFONSO0307-SQL> col format a30
+SP2-0158: unknown COLUMN option "a30"
+ALFONSO0307-SQL> column format a30
+SP2-0158: unknown COLUMN option "a30"
+ALFONSO0307-SQL> col *  format a30
+ALFONSO0307-SQL> select * from empleado_ext2
+  2  ;
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+        1000 Juanito                                                            
+Herrera                                                                         
+Herrera                                  01-MAR-00                              
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+any@any.com                                                                     
+        100000         12                                                       
+                                                                                
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+        1001 Alfonso                                                            
+Murrieta                                                                        
+Villegas                                 11-JAN-99                              
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+alfonsomvm@outlook.com                                                          
+         43540       1232                                                       
+                                                                                
+
+ALFONSO0307-SQL> select * from empleado_ext2
+  2  ;
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+        1000 Juanito                                                            
+Herrera                                                                         
+Herrera                                  01-MAR-00                              
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+any@any.com                                                                     
+        100000         12                                                       
+                                                                                
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+        1001 Alfonso                                                            
+Murrieta                                                                        
+Villegas                                 11-JAN-99                              
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ----------------------------------------                           
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+alfonsomvm@outlook.com                                                          
+         43540       1232                                                       
+                                                                                
+
+ALFONSO0307-SQL> col nombre  format a30
+ALFONSO0307-SQL> col num_empleado  format a30
+ALFONSO0307-SQL> select * from empleado_ext2
+  2  ;
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ------------------------------                                     
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+  ########## Juanito                                                            
+Herrera                                                                         
+Herrera                                  01-MAR-00                              
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ------------------------------                                     
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+any@any.com                                                                     
+        100000         12                                                       
+                                                                                
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ------------------------------                                     
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+  ########## Alfonso                                                            
+Murrieta                                                                        
+Villegas                                 11-JAN-99                              
+
+NUM_EMPLEADO NOMBRE                                                             
+------------ ------------------------------                                     
+AP_PATERNO                                                                      
+----------------------------------------                                        
+AP_MATERNO                               FECHA_NACIMIENTO                       
+---------------------------------------- ------------------                     
+EMAIL                                                                           
+--------------------------------------------------------------------------------
+SUELDO_MENSUAL   COMISION                                                       
+-------------- ----------                                                       
+alfonsomvm@outlook.com                                                          
+         43540       1232                                                       
+                                                                                
+
+ALFONSO0307-SQL> set linesize 500;
+ALFONSO0307-SQL> select * from empleado_ext2
+  2  ;
+
+NUM_EMPLEADO NOMBRE                         AP_PATERNO                               AP_MATERNO                               FECHA_NACIMIENTO   EMAIL                                                                                                SUELDO_MENSUAL   COMISION                                                                                                                                                                                                                                     
+------------ ------------------------------ ---------------------------------------- ---------------------------------------- ------------------ ---------------------------------------------------------------------------------------------------- -------------- ----------                                                                                                                                                                                                                                     
+  ########## Juanito                        Herrera                                  Herrera                                  01-MAR-00          any@any.com                                                                                                  100000         12                                                                                                                                                                                                                                     
+  ########## Alfonso                        Murrieta                                 Villegas                                 11-JAN-99          alfonsomvm@outlook.com                                                                                        43540       1232                                                                                                                                                                                                                                     

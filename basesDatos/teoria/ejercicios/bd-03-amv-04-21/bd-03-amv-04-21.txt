@@ -1,0 +1,209 @@
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> select * from prod;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001         30                                                           
+      1002         20                                                           
+      1003         15                                                           
+      1004          5                                                           
+      1005         12                                                           
+
+ALFONSO0308-SQL> delete from prod where prod_id = 1004 or prod_id = 1005;
+
+2 rows deleted.
+
+ALFONSO0308-SQL> updat prod set cantidad = 300 where prod_id= 1001;
+SP2-0734: unknown command beginning "updat prod..." - rest of line ignored.
+ALFONSO0308-SQL> update prod set cantidad = 300 where prod_id= 1001;
+
+1 row updated.
+
+ALFONSO0308-SQL> update prod set cantidad = 500 where prod_id= 1002;
+
+1 row updated.
+
+ALFONSO0308-SQL> update prod set cantidad = 700 where prod_id= 1003;
+
+1 row updated.
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> 
+ALFONSO0308-SQL> select name from v$transaction;
+select name from v$transaction
+                 *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+ALFONSO0308-SQL> update prod set cantidad = 100 where prod_id= 1001;
+
+1 row updated.
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> update prod
+  2  set cantidad = 150
+  3  where prod_id = 1002;
+
+1 row updated.
+
+ALFONSO0308-SQL> rollback;
+
+Rollback complete.
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> select * from prod;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001        200                                                           
+      1002        500                                                           
+      1003        600                                                           
+
+ALFONSO0308-SQL> update prod set cantidad = 100 where prod_id= 1001;
+
+1 row updated.
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> select * from prod;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001        100                                                           
+      1002        500                                                           
+      1003        600                                                           
+
+ALFONSO0308-SQL> set transaction isolation level serializable;
+
+Transaction set.
+
+ALFONSO0308-SQL> select * from prod;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001        100                                                           
+      1002        500                                                           
+      1003        600                                                           
+
+ALFONSO0308-SQL> select * from prod;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001        100                                                           
+      1002        500                                                           
+      1003        600                                                           
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> select * from prod;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001         35                                                           
+      1002        500                                                           
+      1003        600                                                           
+
+ALFONSO0308-SQL> set transaction isolation level serializable;
+
+Transaction set.
+
+ALFONSO0308-SQL> select * from prod;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001         35                                                           
+      1002        500                                                           
+      1003        600                                                           
+
+ALFONSO0308-SQL> select * from prod where cantidad = 35;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001         35                                                           
+
+ALFONSO0308-SQL> select * from prod where cantidad = 35;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001         35                                                           
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> select * from prod where cantidad = 35;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001         35                                                           
+      1006         35                                                           
+
+ALFONSO0308-SQL> update prod set cantidad = 5 where prod_id= 1001;
+
+1 row updated.
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> select * from prod where prod_id = 1001;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001          5                                                           
+
+ALFONSO0308-SQL> update prod set cantidad = 50 where prod_id= 1001;
+
+1 row updated.
+
+ALFONSO0308-SQL> select * from prod where prod_id = 1001;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001         50                                                           
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> select * from prod where prod_id = 1001;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001         50                                                           
+
+ALFONSO0308-SQL> select * from prod where prod_id = 1001;
+
+   PROD_ID   CANTIDAD                                                           
+---------- ----------                                                           
+      1001         20                                                           
+
+ALFONSO0308-SQL> commit;
+
+Commit complete.
+
+ALFONSO0308-SQL> exit;

@@ -1,0 +1,126 @@
+|topdisplay
+sealu[0] => topalu:u1.selu[0]
+sealu[1] => topalu:u1.selu[1]
+sealu[2] => topalu:u1.selu[2]
+a[0] => topalu:u1.a[0]
+a[1] => topalu:u1.a[1]
+b[0] => topalu:u1.b[0]
+b[1] => topalu:u1.b[1]
+cin => topalu:u1.cin
+d1[0] << topalu:u1.sal[0]
+d1[1] << <GND>
+d1[2] << <GND>
+d1[3] << topalu:u1.sal[0]
+d1[4] << topalu:u1.sal[0]
+d1[5] << topalu:u1.sal[0]
+d1[6] << <VCC>
+d1[7] << <VCC>
+d2[0] << topalu:u1.sal[1]
+d2[1] << <GND>
+d2[2] << <GND>
+d2[3] << topalu:u1.sal[1]
+d2[4] << topalu:u1.sal[1]
+d2[5] << topalu:u1.sal[1]
+d2[6] << <VCC>
+d2[7] << <VCC>
+d3[0] << topalu:u1.cout
+d3[1] << <GND>
+d3[2] << <GND>
+d3[3] << topalu:u1.cout
+d3[4] << topalu:u1.cout
+d3[5] << topalu:u1.cout
+d3[6] << <VCC>
+d3[7] << <VCC>
+
+
+|topdisplay|topalu:u1
+selu[0] => topua:u1.sel[0]
+selu[0] => compuertas:u2.SEL[0]
+selu[1] => topua:u1.sel[1]
+selu[1] => compuertas:u2.SEL[1]
+selu[2] => muxt:u3.SEL
+a[0] => topua:u1.a[0]
+a[0] => compuertas:u2.a[0]
+a[1] => topua:u1.a[1]
+a[1] => compuertas:u2.a[1]
+b[0] => topua:u1.b[0]
+b[0] => compuertas:u2.b[0]
+b[1] => topua:u1.b[1]
+b[1] => compuertas:u2.b[1]
+cin => topua:u1.cin
+sal[0] <= muxt:u3.sal[0]
+sal[1] <= muxt:u3.sal[1]
+cout <= topua:u1.cout
+
+
+|topdisplay|topalu:u1|topua:u1
+sel[0] => mux2x1:u1.SEL[0]
+sel[1] => mux2x1:u1.SEL[1]
+a[0] => sumbit2:u2.a[0]
+a[1] => sumbit2:u2.a[1]
+b[0] => mux2x1:u1.b[0]
+b[1] => mux2x1:u1.b[1]
+cin => sumbit2:u2.cin
+sal[0] <= sumbit2:u2.sal[0]
+sal[1] <= sumbit2:u2.sal[1]
+cout <= sumbit2:u2.cout
+
+
+|topdisplay|topalu:u1|topua:u1|mux2x1:u1
+SEL[0] => Mux0.IN4
+SEL[0] => Mux1.IN4
+SEL[1] => Mux0.IN3
+SEL[1] => Mux1.IN3
+b[0] => Mux1.IN5
+b[0] => Mux1.IN2
+b[1] => Mux0.IN5
+b[1] => Mux0.IN2
+sal[0] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topdisplay|topalu:u1|topua:u1|sumbit2:u2
+a[0] => Add0.IN2
+a[1] => Add0.IN1
+b2[0] => Add0.IN4
+b2[1] => Add0.IN3
+cin => Add1.IN6
+sal[0] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= Add1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topdisplay|topalu:u1|compuertas:u2
+SEL[0] => Mux0.IN1
+SEL[0] => Mux1.IN1
+SEL[1] => Mux0.IN0
+SEL[1] => Mux1.IN0
+a[0] => cand[0].IN0
+a[0] => cor[0].IN0
+a[0] => cxor[0].IN0
+a[0] => Mux1.IN5
+a[1] => cand[1].IN0
+a[1] => cor[1].IN0
+a[1] => cxor[1].IN0
+a[1] => Mux0.IN5
+b[0] => cand[0].IN1
+b[0] => cor[0].IN1
+b[0] => cxor[0].IN1
+b[1] => cand[1].IN1
+b[1] => cor[1].IN1
+b[1] => cxor[1].IN1
+F[0] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|topdisplay|topalu:u1|muxt:u3
+SEL => sal.OUTPUTSELECT
+SEL => sal.OUTPUTSELECT
+a[0] => sal.DATAB
+a[1] => sal.DATAB
+b[0] => sal.DATAA
+b[1] => sal.DATAA
+sal[0] <= sal.DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= sal.DB_MAX_OUTPUT_PORT_TYPE
+
+

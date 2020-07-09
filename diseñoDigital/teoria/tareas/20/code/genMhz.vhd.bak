@@ -1,0 +1,19 @@
+library ieee;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_1164.all;
+entity genMhz is port(
+clk50mhz: in std_logic;
+clk25mhz: inout std_logic:= '0' 
+);
+end genMhz;
+
+architecture arqgenMhz of genMhz is
+signal conteo: integer range 0 to 25000000;
+begin
+process(clk50mhz)
+	begin
+		if(clk50mhz' event and clk50mhz='1') then
+			clk25mhz<=clk25mhz+1;
+		end if;
+	end process;
+end arqgenMhz;

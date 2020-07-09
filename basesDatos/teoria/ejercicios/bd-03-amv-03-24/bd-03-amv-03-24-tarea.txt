@@ -1,0 +1,27 @@
+SYS-SQL> connect alfonso0307
+Connected.
+ALFONSO0307-SQL>create global temporary table empleado2_temp(
+  2  empleado_id number (10, 0) not null,
+  3  nombre varchar2(20)) on commit delete rows;
+
+Table created.
+
+ALFONSO0307-SQL>insert into empleado2_temp values(1, 'Alfonso');
+
+1 row created.
+
+ALFONSO0307-SQL>select * from empleado2_temp;
+
+EMPLEADO_ID NOMBRE                                                              
+----------- --------------------                                                
+          1 Alfonso                                                               
+
+ALFONSO0307-SQL>commit;
+
+Commit complete.
+
+ALFONSO0307-SQL>select * from empleado2_temp;
+
+no rows selected
+
+ALFONSO0307-SQL>spool off;

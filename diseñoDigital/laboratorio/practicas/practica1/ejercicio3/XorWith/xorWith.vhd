@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity xorWith is 
+port(
+a: in std_logic_vector(1 downto 0);
+c: out std_logic);
+end xorWith;
+
+architecture arqxorWith of xorWith is
+begin 
+with a select
+c<= '1' when "01",
+	'1' when "10",
+	'0' when others;
+end arqxorwith;

@@ -1,0 +1,40 @@
+|ram
+AddrWr[0] => AddressWrite[0].DATAIN
+AddrWr[1] => AddressWrite[1].DATAIN
+AddrRd[0] => AddressRead[0].DATAIN
+AddrRd[1] => AddressRead[1].DATAIN
+clkWr => memory~5.CLK
+clkWr => memory~0.CLK
+clkWr => memory~1.CLK
+clkWr => memory~2.CLK
+clkWr => memory~3.CLK
+clkWr => memory~4.CLK
+clkWr => ledcarga~reg0.CLK
+clkWr => AddressWrite[0].CLK
+clkWr => AddressWrite[1].CLK
+clkWr => dataInBuf[0].CLK
+clkWr => dataInBuf[1].CLK
+clkWr => dataInBuf[2].CLK
+clkWr => memory.CLK0
+clkRd => dataOut[0]~reg0.CLK
+clkRd => dataOut[1]~reg0.CLK
+clkRd => dataOut[2]~reg0.CLK
+clkRd => AddressRead[0].CLK
+clkRd => AddressRead[1].CLK
+WrEN => memory~5.DATAIN
+WrEN => ledcarga~reg0.ENA
+WrEN => AddressWrite[0].ENA
+WrEN => AddressWrite[1].ENA
+WrEN => dataInBuf[0].ENA
+WrEN => dataInBuf[1].ENA
+WrEN => dataInBuf[2].ENA
+WrEN => memory.WE
+dataIn[0] => dataInBuf[0].DATAIN
+dataIn[1] => dataInBuf[1].DATAIN
+dataIn[2] => dataInBuf[2].DATAIN
+dataOut[0] << dataOut[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[1] << dataOut[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[2] << dataOut[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ledcarga << ledcarga~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

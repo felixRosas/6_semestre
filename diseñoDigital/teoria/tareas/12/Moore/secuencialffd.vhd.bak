@@ -1,0 +1,23 @@
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY secuencial IS
+	PORT(
+		d, clk: 	in std_logic;
+		Q: 		out std_logic
+	);
+END secuencial;
+
+ARCHITECTURE arcsecuencial OF secuencial IS
+
+BEGIN
+
+PROCESS(clk)
+BEGIN
+	IF clk = '1' THEN
+		Q <= d;
+	END IF;
+END PROCESS;
+			
+	
+END arcsecuencial;

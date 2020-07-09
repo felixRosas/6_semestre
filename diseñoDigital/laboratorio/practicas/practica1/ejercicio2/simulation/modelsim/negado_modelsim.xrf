@@ -1,0 +1,16 @@
+vendor_name = ModelSim
+source_file = 1, /home/murry/Documents/diseDigiModer-2020-2/practica1/ejercicio2/negado.vhd
+source_file = 1, Waveform_NOT.vwf
+source_file = 1, /home/murry/intelFPGA_lite/19.1/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
+source_file = 1, /home/murry/intelFPGA_lite/19.1/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
+source_file = 1, /home/murry/intelFPGA_lite/19.1/quartus/libraries/vhdl/ieee/timing_b.vhd
+source_file = 1, /home/murry/intelFPGA_lite/19.1/quartus/libraries/vhdl/ieee/timing_p.vhd
+source_file = 1, /home/murry/Documents/diseDigiModer-2020-2/practica1/ejercicio2/db/negado.cbx.xml
+design_name = hard_block
+design_name = negado
+instance = comp, \~QUARTUS_CREATED_GND~I\, ~QUARTUS_CREATED_GND~I, negado, 1
+instance = comp, \c~output\, c~output, negado, 1
+instance = comp, \a~input\, a~input, negado, 1
+instance = comp, \~QUARTUS_CREATED_UNVM~\, ~QUARTUS_CREATED_UNVM~, negado, 1
+instance = comp, \~QUARTUS_CREATED_ADC1~\, ~QUARTUS_CREATED_ADC1~, negado, 1
+instance = comp, \~QUARTUS_CREATED_ADC2~\, ~QUARTUS_CREATED_ADC2~, negado, 1

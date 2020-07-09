@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Thu Apr 30 19:09:52 2020
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : reloj
+Top-level Entity Name : reloj
+Family : MAX 10
+Total logic elements : 109
+    Total combinational functions : 109
+    Dedicated logic registers : 58
+Total registers : 58
+Total pins : 29
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

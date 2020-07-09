@@ -1,0 +1,10 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ejerCasa is 
+port(
+end ejerCasa;
+
+architecture arqCasa of ejerCasa is 
+begin 
+end architecture arqCasa;

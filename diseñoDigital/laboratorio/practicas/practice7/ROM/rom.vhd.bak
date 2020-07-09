@@ -1,0 +1,18 @@
+library ieee;
+use ieee. std_logic_1164.all;
+
+entity rom is port(
+);
+end entity;
+
+architecture arqmult of rom is 
+begin
+end architecture; 
+
+
+
+
+
+
+
+

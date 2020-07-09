@@ -1,0 +1,101 @@
+<internal_error>
+<sub_system>ERR</sub_system>
+<callstack>
+	0x7f46e14dc1e1: ccl_err + 0x81e1 (_ZN15ERR_STACKWALKER15get_stack_traceEPPKviiPv + 0xb1)
+	0x7f46e14df22a: ccl_err + 0xb22a (_Z14err_terminatorv + 0x4b)
+	0x7f471247a506: jtag_client + 0x33506 (_ZN10__cxxabiv111__terminateEPFvvE + 0x6)
+	0x7f471247fac9: jtag_client + 0x38ac9
+	0x7f471247a40a: jtag_client + 0x3340a (__gxx_personality_v0 + 0x52a)
+	0x7f46d8f13c03: gcc_s.so.1 + 0xfc03 (_Unwind_RaiseException_Phase2 + 0x43)
+	0x7f46d8f14137: gcc_s.so.1 + 0x10137 (_Unwind_Resume + 0x57)
+	0x7f46e3de581d: ccl_msg + 0x6781d (_GLOBAL__sub_I_msg_internal_error.cpp + 0)
+	0x7f46e14deecd: ccl_err + 0xaecd (_Z26err_report_fatal_exceptionPKcPv + 0x66)
+	0x7f46e14df1b1: ccl_err + 0xb1b1 (err_sigaction_handler + 0x130)
+	0x7f46d9de7890: pthread.so.0 + 0x12890
+	0x7f46de692f86: QtGui.so.4 + 0x6a8f86
+	0x7f46de693c86: QtGui.so.4 + 0x6a9c86
+	0x7f46de694c8d: QtGui.so.4 + 0x6aac8d (_ZN8QMdiArea11resizeEventEP12QResizeEvent + 0x1ad)
+	0x7f46de250572: QtGui.so.4 + 0x266572 (_ZN7QWidget5eventEP6QEvent + 0xab2)
+	0x7f46de66647b: QtGui.so.4 + 0x67c47b (_ZN6QFrame5eventEP6QEvent + 0x2b)
+	0x7f46de6f66e7: QtGui.so.4 + 0x70c6e7 (_ZN19QAbstractScrollArea13viewportEventEP6QEvent + 0x17)
+	0x7f46de694285: QtGui.so.4 + 0x6aa285 (_ZN8QMdiArea13viewportEventEP6QEvent + 0x45)
+	0x7f46de6f9108: QtGui.so.4 + 0x70f108
+	0x7f4705656d7f: QtCore.so.4 + 0x1b5d7f (_ZN23QCoreApplicationPrivate29sendThroughObjectEventFiltersEP7QObjectP6QEvent + 0x7f)
+	0x7f46de1ee820: QtGui.so.4 + 0x204820 (_ZN19QApplicationPrivate13notify_helperEP7QObjectP6QEvent + 0x80)
+	0x7f46de1f4ea3: QtGui.so.4 + 0x20aea3 (_ZN12QApplication6notifyEP7QObjectP6QEvent + 0x183)
+	0x7f4705656a84: QtCore.so.4 + 0x1b5a84 (_ZN16QCoreApplication14notifyInternalEP7QObjectP6QEvent + 0x84)
+	0x7f46de296b7d: QtGui.so.4 + 0x2acb7d (_ZN14QWidgetPrivate15setGeometry_sysEiiiib + 0x37d)
+	0x7f46de248d08: QtGui.so.4 + 0x25ed08 (_ZN7QWidget11setGeometryERK5QRect + 0x78)
+	0x7f46de6f7576: QtGui.so.4 + 0x70d576 (_ZN26QAbstractScrollAreaPrivate14layoutChildrenEv + 0x3d6)
+	0x7f46de6906c1: QtGui.so.4 + 0x6a66c1
+	0x7f46de6937b3: QtGui.so.4 + 0x6a97b3
+	0x7f46de694451: QtGui.so.4 + 0x6aa451 (_ZN8QMdiArea13viewportEventEP6QEvent + 0x211)
+	0x7f46de6f9108: QtGui.so.4 + 0x70f108
+	0x7f4705656d7f: QtCore.so.4 + 0x1b5d7f (_ZN23QCoreApplicationPrivate29sendThroughObjectEventFiltersEP7QObjectP6QEvent + 0x7f)
+	0x7f46de1ee820: QtGui.so.4 + 0x204820 (_ZN19QApplicationPrivate13notify_helperEP7QObjectP6QEvent + 0x80)
+	0x7f46de1f4ea3: QtGui.so.4 + 0x20aea3 (_ZN12QApplication6notifyEP7QObjectP6QEvent + 0x183)
+	0x7f4705656a84: QtCore.so.4 + 0x1b5a84 (_ZN16QCoreApplication14notifyInternalEP7QObjectP6QEvent + 0x84)
+	0x7f46de6a36fc: QtGui.so.4 + 0x6b96fc (_ZN13QMdiSubWindow10closeEventEP11QCloseEvent + 0xcc)
+	0x7f4715004c30: sys_qui + 0xacc30 (_ZN15QUI_MDI_SUB_WND10closeEventEP11QCloseEvent + 0x50c)
+	0x7f46de2508aa: QtGui.so.4 + 0x2668aa (_ZN7QWidget5eventEP6QEvent + 0xdea)
+	0x7f46de6a396b: QtGui.so.4 + 0x6b996b (_ZN13QMdiSubWindow5eventEP6QEvent + 0x18b)
+	0x7f46de1ee84f: QtGui.so.4 + 0x20484f (_ZN19QApplicationPrivate13notify_helperEP7QObjectP6QEvent + 0xaf)
+	0x7f46de1f4ea3: QtGui.so.4 + 0x20aea3 (_ZN12QApplication6notifyEP7QObjectP6QEvent + 0x183)
+	0x7f4705656a84: QtCore.so.4 + 0x1b5a84 (_ZN16QCoreApplication14notifyInternalEP7QObjectP6QEvent + 0x84)
+	0x7f46de2473f8: QtGui.so.4 + 0x25d3f8 (_ZN14QWidgetPrivate12close_helperENS_9CloseModeE + 0x1f8)
+	0x7f46de2474e2: QtGui.so.4 + 0x25d4e2 (_ZN7QWidget5closeEv + 0x12)
+	0x7f4714feb722: sys_qui + 0x93722 (_ZN13QUI_FRAME_WND17close_all_in_listE5QListIP13QMdiSubWindowES2_5_GUID + 0x358)
+	0x7f4714feb850: sys_qui + 0x93850 (_ZN13QUI_FRAME_WND17close_all_windowsE5_GUID + 0xde)
+	0x7f4714feb8ef: sys_qui + 0x938ef (_ZN13QUI_FRAME_WND29ntfq_msg_notify_project_closeEmb + 0x45)
+	0x7f471500aba8: sys_qui + 0xb2ba8 (_ZN8QUI_NTFQ29ntfq_msg_notify_project_closeEmb + 0x14)
+	0x7f46e4694af3: ccl_ntfq + 0x2af3 (_ZN18NTFQ_NOTIFY_TARGET19dispatch_notify_msgEPK15NTFQ_NOTIFY_MAPjmb + 0x5f)
+	0x7f46e4694b7b: ccl_ntfq + 0x2b7b (_ZN18NTFQ_NOTIFY_TARGET14on_ntfq_notifyEjmb + 0x3d)
+	0x7f46e4694f80: ccl_ntfq + 0x2f80 (_ZN15NTFQ_NOTIFY_MGR16broadcast_notifyEjm + 0xc0)
+	0x7f46e4694d6b: ccl_ntfq + 0x2d6b (_Z21ntfq_broadcast_notifyjm + 0x26)
+	0x7f47068b5aa7: sys_proj + 0xcaa7 (_ZN12PROJ_PROJECT10close_implEv + 0xc1)
+	0x7f47068b5d54: sys_proj + 0xcd54 (_ZN12PROJ_PROJECT5closeEv + 0x46)
+	0x7f47068ba9c6: sys_proj + 0x119c6 (_ZN12PROJ_PROJECT4openERKSsS1_bS1_ + 0x5ac)
+	0x7f47068bafdd: sys_proj + 0x11fdd (proj_dyn_impl_open_project + 0xc)
+	0x7f4715010e07: sys_qui + 0xb8e07 (_ZN14QUI_PRJ_UI_MGR12open_projectERKSsS1_S1_ + 0x7eb)
+	0x7f471500f261: sys_qui + 0xb7261 (_ZN14QUI_PRJ_UI_MGR19open_project_actionEv + 0xab7)
+	0x7f4714fdfb6d: sys_qui + 0x87b6d (_ZN13QUI_FRAME_WND22on_open_project_actionEv + 0x17)
+	0x7f4715020e2b: sys_qui + 0xc8e2b (_ZN13QUI_FRAME_WND18qt_static_metacallEP7QObjectN11QMetaObject4CallEiPPv + 0x127)
+	0x7f470566e788: QtCore.so.4 + 0x1cd788 (_ZN11QMetaObject8activateEP7QObjectPKS_iPPv + 0x488)
+	0x7f46de1e73d2: QtGui.so.4 + 0x1fd3d2 (_ZN7QAction9triggeredEb + 0x32)
+	0x7f46de1e8780: QtGui.so.4 + 0x1fe780 (_ZN7QAction8activateENS_11ActionEventE + 0xb0)
+	0x7f46de6a8a00: QtGui.so.4 + 0x6bea00
+	0x7f46de6ae1d2: QtGui.so.4 + 0x6c41d2
+	0x7f46de24ff11: QtGui.so.4 + 0x265f11 (_ZN7QWidget5eventEP6QEvent + 0x451)
+	0x7f46de6adcfb: QtGui.so.4 + 0x6c3cfb (_ZN5QMenu5eventEP6QEvent + 0x5b)
+	0x7f46de1ee84f: QtGui.so.4 + 0x20484f (_ZN19QApplicationPrivate13notify_helperEP7QObjectP6QEvent + 0xaf)
+	0x7f46de1f50d3: QtGui.so.4 + 0x20b0d3 (_ZN12QApplication6notifyEP7QObjectP6QEvent + 0x3b3)
+	0x7f4705656a84: QtCore.so.4 + 0x1b5a84 (_ZN16QCoreApplication14notifyInternalEP7QObjectP6QEvent + 0x84)
+	0x7f46de1f1ac5: QtGui.so.4 + 0x207ac5 (_ZN19QApplicationPrivate14sendMouseEventEP7QWidgetP11QMouseEventS1_S1_PS1_R8QPointerIS0_Eb + 0x135)
+	0x7f46de278718: QtGui.so.4 + 0x28e718
+	0x7f46de27762a: QtGui.so.4 + 0x28d62a (_ZN12QApplication15x11ProcessEventEP7_XEvent + 0xe2a)
+	0x7f46de2a2d62: QtGui.so.4 + 0x2b8d62
+	0x7f46d7af2417: glib-2.0.so.0 + 0x4c417 (g_main_context_dispatch + 0x2e7)
+	0x7f46d7af2650: glib-2.0.so.0 + 0x4c650
+	0x7f46d7af26dc: glib-2.0.so.0 + 0x4c6dc (g_main_context_iteration + 0x2c)
+	0x7f4705689ab5: QtCore.so.4 + 0x1e8ab5 (_ZN20QEventDispatcherGlib13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE + 0x65)
+	0x7f46de2a289f: QtGui.so.4 + 0x2b889f
+	0x7f4705655a95: QtCore.so.4 + 0x1b4a95 (_ZN10QEventLoop13processEventsE6QFlagsINS_17ProcessEventsFlagEE + 0x35)
+	0x7f4705655e68: QtCore.so.4 + 0x1b4e68 (_ZN10QEventLoop4execE6QFlagsINS_17ProcessEventsFlagEE + 0x128)
+	0x7f470565ac84: QtCore.so.4 + 0x1b9c84 (_ZN16QCoreApplication4execEv + 0xb4)
+	   0x401efb: quartus + 0x1efb (_Z8qgq_mainiPPKc + 0x7b)
+	0x7f46e3dbe990: ccl_msg + 0x40990 (_Z15msg_main_threadPv + 0x10)
+	0x7f46e109e0cc: ccl_thr + 0x60cc (thr_final_wrapper + 0xc)
+	0x7f46e3dbea4f: ccl_msg + 0x40a4f (_Z18msg_thread_wrapperPFPvS_ES_ + 0x62)
+	0x7f46e170f679: ccl_mem + 0xa679 (_Z18mem_thread_wrapperPFPvS_ES_ + 0x99)
+	0x7f46e14dd034: ccl_err + 0x9034 (_Z18err_thread_wrapperPFPvS_ES_ + 0x27)
+	0x7f46e109e492: ccl_thr + 0x6492 (thr_thread_wrapper + 0x15)
+	0x7f46e3dc094c: ccl_msg + 0x4294c (_Z12msg_exe_mainiPPKcPFiiS1_E + 0xa3)
+	   0x401fe6: quartus + 0x1fe6 (main + 0x26)
+	0x7f46d8b34b97: c.so.6 + 0x21b97 (__libc_start_main + 0xe7)
+	   0x401d99: quartus + 0x1d99
+</callstack>
+<error>*** Fatal Error: Unhandled Exception</error>
+<date>Wed Apr 29 15:57:15 2020
+</date>
+<version>Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition</version>
+</internal_error>

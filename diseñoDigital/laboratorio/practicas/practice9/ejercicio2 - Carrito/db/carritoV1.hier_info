@@ -1,0 +1,16 @@
+|carritoV1
+clk => presentState[0].CLK
+clk => presentState[1].CLK
+reset => presentState.OUTPUTSELECT
+reset => presentState.OUTPUTSELECT
+s[0] => Mux0.IN5
+s[0] => presentState.DATAA
+s[1] => Mux0.IN4
+estados[0] << presentState[0].DB_MAX_OUTPUT_PORT_TYPE
+estados[1] << presentState[1].DB_MAX_OUTPUT_PORT_TYPE
+motorDer[0] << Mux1.DB_MAX_OUTPUT_PORT_TYPE
+motorDer[1] << <GND>
+motorIzq[0] << presentState[0].DB_MAX_OUTPUT_PORT_TYPE
+motorIzq[1] << <GND>
+
+

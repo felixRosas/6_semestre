@@ -1,0 +1,33 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "lampara",
+					"strict" : false
+				},
+				{
+					"name" : "estados[0]",
+					"strict" : false
+				},
+				{
+					"name" : "estados[1]",
+					"strict" : false
+				},
+				{
+					"name" : "boton",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

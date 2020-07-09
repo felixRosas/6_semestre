@@ -1,0 +1,151 @@
+SYS-SQL> insert into quincena(quincena_id,clave) values (1,'Q01')
+  2  insert into quincena(quincena_id,clave) values (1,'Q01')xasd;
+insert into quincena(quincena_id,clave) values (1,'Q01')xasd
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SYS-SQL> connect alfonso0307
+Connected.
+ALFONSO0307-SQL> insert into quincena(quincena_id,clave) values (1,'Q01')
+  2  ;
+
+1 row created.
+
+ALFONSO0307-SQL> insert into into nomina(nomina_id, quincena_id) values (100,1)
+  2  ;
+insert into into nomina(nomina_id, quincena_id) values (100,1)
+            *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+ALFONSO0307-SQL> insert into nomina(nomina_id, quincena_id) values (100,1)
+  2  ;
+
+1 row created.
+
+ALFONSO0307-SQL> select * fromm nomina;
+select * fromm nomina
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+ALFONSO0307-SQL> select * from nomina;
+
+ NOMINA_ID QUINCENA_ID                                                          
+---------- -----------                                                          
+       100           1                                                          
+
+ALFONSO0307-SQL> select * from quincena;
+
+QUINCENA_ID CLA                                                                 
+----------- ---                                                                 
+          1 Q01                                                                 
+
+ALFONSO0307-SQL> delete from nomina where nomina id=100;
+delete from nomina where nomina id=100
+                                *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+ALFONSO0307-SQL> delete from nomina where nomina_id=100;
+
+1 row deleted.
+
+ALFONSO0307-SQL> select * from quincena;
+
+QUINCENA_ID CLA                                                                 
+----------- ---                                                                 
+          1 Q01                                                                 
+
+ALFONSO0307-SQL> rollback;
+
+Rollback complete.
+
+ALFONSO0307-SQL> select * from nomina;
+
+no rows selected
+
+ALFONSO0307-SQL> delete from quincena where quincena id=1;
+delete from quincena where quincena id=1
+                                    *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+ALFONSO0307-SQL> delete from quincena where quincena_id=1;
+
+0 rows deleted.
+
+ALFONSO0307-SQL> commit;
+
+Commit complete.
+
+ALFONSO0307-SQL> insert into quincena(quincena_id,clave) values (1,'Q01');
+
+1 row created.
+
+ALFONSO0307-SQL> insert into nomina(nomina_id, quincena_id) values (100,1);
+
+1 row created.
+
+ALFONSO0307-SQL> 
+ALFONSO0307-SQL> delete from quincena where quincena_id=1;
+
+1 row deleted.
+
+ALFONSO0307-SQL> select * from nomina;
+
+no rows selected
+
+ALFONSO0307-SQL> rollback;
+
+Rollback complete.
+
+ALFONSO0307-SQL> select * from nomina;
+
+no rows selected
+
+ALFONSO0307-SQL> select * from quincena;
+
+no rows selected
+
+ALFONSO0307-SQL> drop table nomina;
+
+Table dropped.
+
+ALFONSO0307-SQL> create table nomina(
+  2  nomina_id number(10,0) constraint nomina_pk primary_key,
+  3  quincena_id constraint nomina_quincena_id_fk references quincena(quincena_id)
+  4  );
+nomina_id number(10,0) constraint nomina_pk primary_key,
+                       *
+ERROR at line 2:
+ORA-02253: constraint specification not allowed here 
+
+
+ALFONSO0307-SQL> create table nomina(
+  2  nomina_id number (10,0) constraint nomina_pk primary key,
+  3  quincena_id constraint nomina_quincena_id_fk references quincena(quincena_id)
+  4  );
+
+Table created.
+
+ALFONSO0307-SQL> insert into quincena(quincena_id,clave) values (1,'Q01');
+
+1 row created.
+
+ALFONSO0307-SQL> insert into nomina(nomina_id, quincena_id) values (100,1);
+
+1 row created.
+
+ALFONSO0307-SQL> select * from nomina;
+
+ NOMINA_ID QUINCENA_ID                                                          
+---------- -----------                                                          
+       100           1                                                          
+                                                              

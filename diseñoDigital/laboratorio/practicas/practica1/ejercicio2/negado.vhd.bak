@@ -1,0 +1,14 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity negado is 
+port(
+a: in std_logic; 
+c: out std_logic); --Salida de la compuerta -> Solo un bit
+end negado;
+
+architecture arqprac1 of practica1 is 
+-- You can declarate variables o signals -> No son puertos
+begin 
+c <= not a; -- Asignacion
+end architecture arqprac1;

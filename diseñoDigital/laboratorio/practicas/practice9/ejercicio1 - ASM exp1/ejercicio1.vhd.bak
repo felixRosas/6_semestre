@@ -1,0 +1,62 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity ejercicio1 is port(
+	clk, inicio, x: in std_logic;
+	var: out std_logic_vector(1 downto 0)
+);
+end entity;
+architecture arqeje1 of ejercicio1 is 
+	subtype state is std_logic_vector (2 downto 0);
+	signal present_state, next_state : state;
+	constant state0: state="000";
+	constant state1: state="001";
+	constant state2: state="010";
+	constant state3: state="011";
+	constant state4: state="100";
+	constant state5: state="101";
+	constant state6: state="110";
+	
+begin
+	process(clk)
+	begin
+		if rising_edge(clk) them
+			present_state<= next_state;
+		end if;
+	end process;
+
+	process (present_state)
+	begin
+		case present_state is
+			when state0 =>
+							var<="00"; --ambas variables no se activan en el estado 0
+							if (inicio='1') then
+								if (x='0') then
+									next_state<=state1;
+								else
+									next_state<=state4;
+								end if;
+							else
+								next_state<=state0;
+							end if;
+			when state1 =>
+							var<="11"; --var1 y var 0 activado
+							next_state<=state2;
+			when state2 =>
+							var<="10"; --var1 activado
+							next_state<=state3;
+			when state3 =>
+							var<="01"; --var0 activado
+							next_state<=state0;
+			when state4 =>
+							var<="01"; --var0 activado
+							next_state<=state5;
+			when state5 =>
+							var<="10"; --var1 activado
+							next_State<=State6;
+			when state6 =>
+							var<="11"; --var1 y var0 activado
+							next_state
+			when others =>
+							next_state<=state0;
+	end process;
+end architecture;

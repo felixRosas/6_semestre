@@ -1,0 +1,65 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "dataOut[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dataOut[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dataOut[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ledcarga",
+					"strict" : false
+				},
+				{
+					"name" : "clkRd",
+					"strict" : false
+				},
+				{
+					"name" : "clkWr",
+					"strict" : false
+				},
+				{
+					"name" : "WrEN",
+					"strict" : false
+				},
+				{
+					"name" : "AddrRd[1]",
+					"strict" : false
+				},
+				{
+					"name" : "AddrRd[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dataIn[0]",
+					"strict" : false
+				},
+				{
+					"name" : "AddrWr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "AddrWr[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dataIn[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dataIn[2]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

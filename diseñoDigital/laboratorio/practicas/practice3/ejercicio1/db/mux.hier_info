@@ -1,0 +1,6 @@
+|ejercicio1
+SEL[0] => Mux0.IN5
+SEL[1] => Mux0.IN4
+F <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

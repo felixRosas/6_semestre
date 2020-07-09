@@ -1,0 +1,28 @@
+create or replace procedure spv_valida_esquema_usr_invitado wrapped 
+a000000
+367
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+7
+130 124
+WuIDyA703jVYV2CzNipnJx0h5EMwg3nQAG3WZy9AZDPqWcQ5VlnsjiaL9XyZRZgxUgLD1siO
+5rzw+fkwdvpEwHw92fgiKIY01xYoQQ6dX2VhB0ixl7ydy/gL1YSqt7khn/6fv0qQNhsgS2YR
+UBf20m2IEUB9E555ZqmaC7Fa1mP/zDRiC0MlAXucZi+xJDfyw4u99uEbyXnw7DtR0AFKDUP6
+H1D2+MncIlLeZS77h3c7Lcm67fbfN1lgqvQSvORk7IE2UI3wlJmna2Uzk++3ZLwcvxrMVw==
+
+
+/
+show errors

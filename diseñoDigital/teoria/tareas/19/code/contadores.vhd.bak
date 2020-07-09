@@ -1,0 +1,17 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity toprom is port(
+	E, clk: in std_logic;
+	cs: in std_logic;
+	bus_datos: out std_logic_vector(6 downto 0);
+	sd: out std_logic_vector(1 downto 0)
+);
+end toprom;
+architecture arqtoprom of toprom is 
+signal s:std_logic_vector(1 downto 0);
+
+begin
+	w1: entity work.top1(arqtop1) port map (E,clk,s);
+	sd<=s;
+	w2: entity work.rom(arqrom) port map (s,cs,bus_datos);
+end architecture;

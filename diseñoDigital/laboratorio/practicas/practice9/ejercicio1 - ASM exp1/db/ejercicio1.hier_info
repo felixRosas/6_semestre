@@ -1,0 +1,50 @@
+|top
+clk => relojlento:u1.clkl
+inicio => ejercicio1:u2.inicio
+x => ejercicio1:u2.x
+var1 <= ejercicio1:u2.var1
+var0 <= ejercicio1:u2.var0
+
+
+|top|relojlento:u1
+clkl => led~reg0.CLK
+clkl => conteo[0].CLK
+clkl => conteo[1].CLK
+clkl => conteo[2].CLK
+clkl => conteo[3].CLK
+clkl => conteo[4].CLK
+clkl => conteo[5].CLK
+clkl => conteo[6].CLK
+clkl => conteo[7].CLK
+clkl => conteo[8].CLK
+clkl => conteo[9].CLK
+clkl => conteo[10].CLK
+clkl => conteo[11].CLK
+clkl => conteo[12].CLK
+clkl => conteo[13].CLK
+clkl => conteo[14].CLK
+clkl => conteo[15].CLK
+clkl => conteo[16].CLK
+clkl => conteo[17].CLK
+clkl => conteo[18].CLK
+clkl => conteo[19].CLK
+clkl => conteo[20].CLK
+clkl => conteo[21].CLK
+clkl => conteo[22].CLK
+clkl => conteo[23].CLK
+clkl => conteo[24].CLK
+led <= led~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|ejercicio1:u2
+clk => present_state[0].CLK
+clk => present_state[1].CLK
+clk => present_state[2].CLK
+inicio => next_state.OUTPUTSELECT
+inicio => next_state.OUTPUTSELECT
+x => next_state.DATAB
+x => next_state.DATAB
+var1 <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+var0 <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,15 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity notWith is 
+port(
+a: in std_logic;
+c: out std_logic);
+end notWith;
+
+architecture arqnotWith of notWith is
+begin 
+with a select
+c<= '1' when '0',
+	'0' when others;
+end arqnotwith;

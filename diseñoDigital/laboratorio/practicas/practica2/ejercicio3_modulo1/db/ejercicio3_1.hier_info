@@ -1,0 +1,26 @@
+|ejercicio3_1
+a => cor:u1.a
+a => cor:u2.a
+b => cor:u1.b
+b => cor:u2.b
+f <= cand:u3.c
+
+
+|ejercicio3_1|cor:u1
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ejercicio3_1|cor:u2
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ejercicio3_1|cand:u3
+a => c.IN0
+b => c.IN1
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+

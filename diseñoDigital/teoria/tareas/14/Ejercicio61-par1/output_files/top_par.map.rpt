@@ -1,0 +1,342 @@
+Analysis & Synthesis report for top_par
+Fri Apr 10 21:13:31 2020
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Apr 10 21:13:31 2020       ;
+; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                      ; top_par                                     ;
+; Top-level Entity Name              ; top_par                                     ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 52                                          ;
+;     Total combinational functions  ; 52                                          ;
+;     Dedicated logic registers      ; 29                                          ;
+; Total registers                    ; 29                                          ;
+; Total pins                         ; 3                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; top_par            ; top_par            ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------+---------+
+; top_par.vhd                      ; yes             ; User VHDL File  ; /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/top_par.vhd       ;         ;
+; combinacional.vhd                ; yes             ; User VHDL File  ; /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/combinacional.vhd ;         ;
+; ffd.vhd                          ; yes             ; User VHDL File  ; /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/ffd.vhd           ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 52        ;
+;                                             ;           ;
+; Total combinational functions               ; 52        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 9         ;
+;     -- 3 input functions                    ; 3         ;
+;     -- <=2 input functions                  ; 40        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 26        ;
+;     -- arithmetic mode                      ; 26        ;
+;                                             ;           ;
+; Total registers                             ; 29        ;
+;     -- Dedicated logic registers            ; 29        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 3         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 29        ;
+; Total fan-out                               ; 186       ;
+; Average fan-out                             ; 2.14      ;
++---------------------------------------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                        ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name       ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------+---------------+--------------+
+; |top_par                   ; 52 (0)              ; 29 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 3    ; 0            ; 0          ; |top_par                  ; top_par       ; work         ;
+;    |combinacional:u1|      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_par|combinacional:u1 ; combinacional ; work         ;
+;    |ffd:u2|                ; 50 (50)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_par|ffd:u2           ; ffd           ; work         ;
+;    |ffd:u3|                ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_par|ffd:u3           ; ffd           ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                       ;
++----------------------------------------+---------------------------------+
+; Register name                          ; Reason for Removal              ;
++----------------------------------------+---------------------------------+
+; ffd:u3|contador[25]                    ; Merged with ffd:u2|contador[25] ;
+; ffd:u3|contador[19]                    ; Merged with ffd:u2|contador[19] ;
+; ffd:u3|contador[17]                    ; Merged with ffd:u2|contador[17] ;
+; ffd:u3|contador[12]                    ; Merged with ffd:u2|contador[12] ;
+; ffd:u3|contador[11]                    ; Merged with ffd:u2|contador[11] ;
+; ffd:u3|contador[10]                    ; Merged with ffd:u2|contador[10] ;
+; ffd:u3|contador[9]                     ; Merged with ffd:u2|contador[9]  ;
+; ffd:u3|contador[7]                     ; Merged with ffd:u2|contador[7]  ;
+; ffd:u3|contador[6]                     ; Merged with ffd:u2|contador[6]  ;
+; ffd:u3|contador[5]                     ; Merged with ffd:u2|contador[5]  ;
+; ffd:u3|contador[4]                     ; Merged with ffd:u2|contador[4]  ;
+; ffd:u3|contador[3]                     ; Merged with ffd:u2|contador[3]  ;
+; ffd:u3|contador[2]                     ; Merged with ffd:u2|contador[2]  ;
+; ffd:u3|contador[1]                     ; Merged with ffd:u2|contador[1]  ;
+; ffd:u3|contador[0]                     ; Merged with ffd:u2|contador[0]  ;
+; ffd:u3|contador[26]                    ; Merged with ffd:u2|contador[26] ;
+; ffd:u3|contador[24]                    ; Merged with ffd:u2|contador[24] ;
+; ffd:u3|contador[23]                    ; Merged with ffd:u2|contador[23] ;
+; ffd:u3|contador[22]                    ; Merged with ffd:u2|contador[22] ;
+; ffd:u3|contador[21]                    ; Merged with ffd:u2|contador[21] ;
+; ffd:u3|contador[20]                    ; Merged with ffd:u2|contador[20] ;
+; ffd:u3|contador[18]                    ; Merged with ffd:u2|contador[18] ;
+; ffd:u3|contador[16]                    ; Merged with ffd:u2|contador[16] ;
+; ffd:u3|contador[15]                    ; Merged with ffd:u2|contador[15] ;
+; ffd:u3|contador[14]                    ; Merged with ffd:u2|contador[14] ;
+; ffd:u3|contador[13]                    ; Merged with ffd:u2|contador[13] ;
+; ffd:u3|contador[8]                     ; Merged with ffd:u2|contador[8]  ;
+; Total Number of Removed Registers = 27 ;                                 ;
++----------------------------------------+---------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 29    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 3                           ;
+; cycloneiii_ff         ; 29                          ;
+;     plain             ; 29                          ;
+; cycloneiii_lcell_comb ; 52                          ;
+;     arith             ; 26                          ;
+;         2 data inputs ; 26                          ;
+;     normal            ; 26                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 13                          ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 9                           ;
+;                       ;                             ;
+; Max LUT depth         ; 4.60                        ;
+; Average LUT depth     ; 3.60                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Fri Apr 10 21:13:11 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_par -c top_par
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file top_par.vhd
+    Info (12022): Found design unit 1: top_par-arqpar File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/top_par.vhd Line: 12
+    Info (12023): Found entity 1: top_par File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/top_par.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file combinacional.vhd
+    Info (12022): Found design unit 1: combinacional-arqcomb File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/combinacional.vhd Line: 14
+    Info (12023): Found entity 1: combinacional File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/combinacional.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ffd.vhd
+    Info (12022): Found design unit 1: ffd-arqffd File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/ffd.vhd Line: 13
+    Info (12023): Found entity 1: ffd File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/ffd.vhd Line: 5
+Info (12127): Elaborating entity "top_par" for the top level hierarchy
+Info (12129): Elaborating entity "combinacional" using architecture "A:arqcomb" for hierarchy "combinacional:u1" File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/top_par.vhd Line: 16
+Info (12129): Elaborating entity "ffd" using architecture "A:arqffd" for hierarchy "ffd:u2" File: /home/murry/Documents/UNAM-CLASS-DDM-VHDL/tareas/tarea14/Ejercicio61-par1/top_par.vhd Line: 17
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 55 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 52 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 977 megabytes
+    Info: Processing ended: Fri Apr 10 21:13:31 2020
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:44
+
+

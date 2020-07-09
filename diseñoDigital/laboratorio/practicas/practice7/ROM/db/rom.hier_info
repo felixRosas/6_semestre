@@ -1,0 +1,25 @@
+|rom
+bus_dir[0] => Mux0.IN5
+bus_dir[0] => Mux1.IN5
+bus_dir[0] => Mux2.IN5
+bus_dir[0] => bus_datos[6].DATAIN
+bus_dir[0] => bus_datos[3].DATAIN
+bus_dir[1] => Mux0.IN4
+bus_dir[1] => Mux1.IN4
+bus_dir[1] => Mux2.IN4
+cs => bus_datos[0].OE
+cs => bus_datos[1].OE
+cs => bus_datos[2].OE
+cs => bus_datos[3].OE
+cs => bus_datos[4].OE
+cs => bus_datos[5].OE
+cs => bus_datos[6].OE
+bus_datos[0] << bus_datos[0].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[1] << bus_datos[1].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[2] << bus_datos[2].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[3] << bus_datos[3].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[4] << bus_datos[4].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[5] << bus_datos[5].DB_MAX_OUTPUT_PORT_TYPE
+bus_datos[6] << bus_datos[6].DB_MAX_OUTPUT_PORT_TYPE
+
+

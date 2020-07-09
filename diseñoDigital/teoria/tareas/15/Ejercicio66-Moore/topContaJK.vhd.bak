@@ -1,0 +1,15 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+
+entity topContaJK is port(
+clkl,j0,k0,j1,k1: in std_logic;
+q0,q1: out std_logic
+);
+end topContaJK;
+
+architecture arqTopContaJK of topContaJK is
+begin
+	u1:Entity work.FFJK(arqFFJK) port map(clk,j0,k0,q0,'0');
+	u2:Entity work.FFJK(arqFFJK) port map(clk,j1,k1,q1,'0');
+end arqTopContaJK;

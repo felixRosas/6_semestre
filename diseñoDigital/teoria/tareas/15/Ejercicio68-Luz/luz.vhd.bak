@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity luz is port(
+	clk, boton, reset: in std_logic;
+	lamp: out std_logic;
+	estado: out std_logic
+);
+end luz;
+architecture arqluz of luz is
+subtype state is std_logic;
+signal present_state, next_state:state;
+constant e0: state:='0';
+constant e1: state:='1';
+
+begin
+	process(clk)
+	begin
+	if rising_edge(clk) then
+		if (reset='1') then
+			present_state<=e0;
+		else
+			present_state<=next_state;
+		end if;
+	end if;
+end architecture;
